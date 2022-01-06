@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/wallpapercl"
+    android:orientation="vertical"
+    android:rotationX="0"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="WELCOME!"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="40dp"
+        android:textStyle="bold|italic" />
+
+    <TextView
+
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:text="EB presents:"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="40dp"
+        android:textStyle="bold" />
+
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="insert the player name-"
+        android:textColor="@android:color/white"
+        android:textSize="37dp" />
+
+    <EditText
+        android:layout_width="400dp"
+        android:layout_height="75dp"
+        android:id="@+id/search_bar"
+        android:background="@android:color/white"
+        android:hint="Search..."
+        android:textSize="68dp"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/search_button"
+        android:text="CHECK IT OUT"
+        android:textSize="25dp"
+        />
+
+
+</LinearLayout>
