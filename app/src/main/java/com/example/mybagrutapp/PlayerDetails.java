@@ -16,7 +16,7 @@ public class PlayerDetails extends AppCompatActivity {
         setContentView(R.layout.player_details);
 
         linearL = findViewById(R.id.linearL);
-        linearL.setBackgroundColor(#aabbcc);
+
 
     }
 }
