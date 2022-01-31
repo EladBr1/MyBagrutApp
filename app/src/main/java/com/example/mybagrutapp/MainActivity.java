@@ -1,7 +1,6 @@
 package com.example.mybagrutapp;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,14 +27,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+
     public void onClick( View v )
     {
 
         if( searchBtn == v)
         {
 
-            Intent intent = new Intent( this, PlayerDetails.class );
-            startActivity(intent);
+
 
         }
 

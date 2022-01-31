@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "662441993695",
+    "project_id": "champions-league-legends",
+    "storage_bucket": "champions-league-legends.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:662441993695:android:b81ca1a3b0c5176c37506a",
+        "android_client_info": {
+          "package_name": "com.example.mybagrutapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "662441993695-c6lb9st9cb765bmjeceo0gdtmgum7edm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1b-3MiPKQCJKqydMCn82mjSOwd6DWWxY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "662441993695-c6lb9st9cb765bmjeceo0gdtmgum7edm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
