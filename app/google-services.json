@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "662441993695",
+    "firebase_url": "https://champions-league-legends-default-rtdb.firebaseio.com",
     "project_id": "champions-league-legends",
     "storage_bucket": "champions-league-legends.appspot.com"
   },

@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:background="@drawable/wallpapercl"
     android:orientation="vertical"
     android:rotationX="0"
@@ -20,7 +20,7 @@
 
     <TextView
 
-        android:layout_width="400dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="EB presents:"
         android:textAllCaps="false"
@@ -30,7 +30,7 @@
 
     <TextView
 
-        android:layout_width="400dp"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
         android:text="Champions League Legends:"
         android:textAllCaps="false"
@@ -48,7 +48,7 @@
         android:textSize="37dp" />
 
     <EditText
-        android:layout_width="400dp"
+        android:layout_width="match_parent"
         android:layout_height="75dp"
         android:id="@+id/search_bar"
         android:background="@android:color/white"
