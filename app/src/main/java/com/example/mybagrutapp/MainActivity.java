@@ -1,6 +1,7 @@
 package com.example.mybagrutapp;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,6 +25,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         searchBtn = findViewById(R.id.search_button);
         searchBar = findViewById(R.id.search_bar);
+        searchBtn.setOnClickListener(this);
+
+
 
     }
 
@@ -34,7 +38,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if( searchBtn == v)
         {
 
-
+            Intent intent = new Intent(this,PlayerDisplay.class);
+            intent.putExtra( "text", searchBar.getText().toString() );
+            startActivity(intent);
 
         }
 
