@@ -6,36 +6,38 @@ import android.widget.Button;
 public class Player
 {
 
-    private String tName;
+    private String titName;
     private Bitmap profilePic;
     private String fullName;
     private String birthday;
+    private int age;
     private double height;
     private String pos;
     private String crTeam;
     private int num;
     private String nltTeam;
     private int goals;
-    private int asists;
+    private int asissts;
     private int ntlGoals;
     private String formerTeams;
     private String basicInfo;
     private Button wiki;
     private Button insta;
 
-    public Player(String tName, Bitmap profilePic, String fullName, String birthday, double height, String pos, String crTeam, int num, String nltTeam, int goals, int asists, int ntlGoals, String formerTeams, String basicInfo, Button wiki, Button insta)
+    public Player(String titName, Bitmap profilePic, String fullName, String birthday, int age, double height, String pos, String crTeam, int num, String nltTeam, int goals, int asissts, int ntlGoals, String formerTeams, String basicInfo, Button wiki, Button insta)
     {
-        this.tName = tName;
+        this.titName = titName;
         this.profilePic = profilePic;
         this.fullName = fullName;
         this.birthday = birthday;
+        this.age = age;
         this.height = height;
         this.pos = pos;
         this.crTeam = crTeam;
         this.num = num;
         this.nltTeam = nltTeam;
         this.goals = goals;
-        this.asists = asists;
+        this.asissts = asissts;
         this.ntlGoals = ntlGoals;
         this.formerTeams = formerTeams;
         this.basicInfo = basicInfo;
@@ -47,12 +49,12 @@ public class Player
     {
     }
 
-    public String gettName() {
-        return tName;
+    public String getTitName() {
+        return titName;
     }
 
-    public void settName(String tName) {
-        this.tName = tName;
+    public void setTName(String tName) {
+        this.titName = tName;
     }
 
     public Bitmap getProfilePic() {
@@ -78,6 +80,12 @@ public class Player
     public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
+
+
+    public int getAge() { return age; }
+
+    public void setAge(int age) { this.age = age; }
+
 
     public double getHeight() {
         return height;
@@ -127,12 +135,12 @@ public class Player
         this.goals = goals;
     }
 
-    public int getAsists() {
-        return asists;
+    public int getAsissts() {
+        return assists;
     }
 
-    public void setAsists(int asists) {
-        this.asists = asists;
+    public void setAsissts(int asists) {
+        this.asissts = asists;
     }
 
     public int getNtlGoals() {

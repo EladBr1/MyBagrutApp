@@ -19,9 +19,9 @@ public class PlayerDisplay extends AppCompatActivity
         tv=(TextView)findViewById(R.id.tvDisplay);
 
         Intent intent=getIntent();
-        String text = intent.getExtras().getString("text");
+        String searchResults = intent.getExtras().getString("searchResults");
 
-        tv.setText(text);
+        tv.setText(searchResults);
 
     }
 
