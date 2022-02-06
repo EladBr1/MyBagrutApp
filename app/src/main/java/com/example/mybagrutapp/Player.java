@@ -1,7 +1,8 @@
 package com.example.mybagrutapp;
 
 import android.graphics.Bitmap;
-import android.widget.Button;
+
+import java.net.URL;
 
 public class Player
 {
@@ -21,10 +22,11 @@ public class Player
     private int ntlGoals;
     private String formerTeams;
     private String basicInfo;
-    private Button wiki;
-    private Button insta;
+    private URL wiki;
+    private URL insta;
 
-    public Player(String titName, Bitmap profilePic, String fullName, String birthday, int age, double height, String pos, String crTeam, int num, String nltTeam, int goals, int asissts, int ntlGoals, String formerTeams, String basicInfo, Button wiki, Button insta)
+    public Player(String titName, Bitmap profilePic, String fullName, String birthday, int age,
+                  double height, String pos, String crTeam, int num, String nltTeam, int goals, int asissts, int ntlGoals, String formerTeams, String basicInfo, URL wiki, URL insta)
     {
         this.titName = titName;
         this.profilePic = profilePic;
@@ -136,7 +138,7 @@ public class Player
     }
 
     public int getAsissts() {
-        return assists;
+        return asissts;
     }
 
     public void setAsissts(int asists) {
@@ -167,19 +169,19 @@ public class Player
         this.basicInfo = basicInfo;
     }
 
-    public Button getWiki() {
+    public URL getWiki() {
         return wiki;
     }
 
-    public void setWiki(Button wiki) {
+    public void setWiki(URL wiki) {
         this.wiki = wiki;
     }
 
-    public Button getInsta() {
+    public URL getInsta() {
         return insta;
     }
 
-    public void setInsta(Button insta) {
+    public void setInsta(URL insta) {
         this.insta = insta;
     }
 }
