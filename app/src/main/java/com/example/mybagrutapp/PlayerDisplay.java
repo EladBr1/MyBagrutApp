@@ -8,7 +8,6 @@ import android.widget.TextView;
 
 public class PlayerDisplay extends AppCompatActivity
 {
-    TextView tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -16,12 +15,9 @@ public class PlayerDisplay extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player_display);
 
-        tv=(TextView)findViewById(R.id.tvDisplay);
-
         Intent intent=getIntent();
         String searchResults = intent.getExtras().getString("searchResults");
 
-        tv.setText(searchResults);
 
     }
 
