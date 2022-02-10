@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    public void saveMessi( View view )
+    public void saveMessi()
     {
 
         URL urlWiki = null, urlInsta = null;

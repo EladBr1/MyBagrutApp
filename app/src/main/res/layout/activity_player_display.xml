@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+ <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,33 +8,53 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/titName"
+
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text=""
+            android:layout_height="wrap_content"
+            android:id="@+id/titName"
+            android:text="X"
+            android:textSize="90dp"
             android:textAlignment="center"
             android:textColor="@android:color/black"
-            android:textSize="40dp"
             android:textStyle="bold"/>
 
         <ImageView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/promessi"
             android:id="@+id/pic"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:src="@drawable/promessi" />
+            />
+
         <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            >
 
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center">
+                <TextView
+                    android:textSize="20dp"
+                    android:textColor="@android:color/black"
+                    android:text="Personal Information"
+                    android:textStyle="bold"
+                    />
+                <ListView
 
+            </TableRow>
 
         </TableLayout>
 
-    </LinearLayout>
 
+
+    </LinearLayout>
 
 </ScrollView>
