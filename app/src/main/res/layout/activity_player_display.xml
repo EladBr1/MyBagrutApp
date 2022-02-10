@@ -47,7 +47,6 @@
                     android:text="Personal Information"
                     android:textStyle="bold"
                     />
-                <ListView
 
             </TableRow>
 
