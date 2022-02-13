@@ -34,19 +34,40 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            >
+            android:background="#C2CAEF">
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
+                android:background="#7B81E4"
                 android:gravity="center">
+
                 <TextView
-                    android:textSize="20dp"
-                    android:textColor="@android:color/black"
                     android:text="Personal Information"
-                    android:textStyle="bold"
-                    />
+                    android:textColor="@android:color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:background="#C2CAEF"
+                    android:text="Full name: "
+                    android:textColor="@android:color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvFullName"
+                    android:text="Lionel Andrés Messi"
+                    android:textSize="20dp" />
+
 
             </TableRow>
 
