@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("players");
 
-        Player messi = new Player( "Lionel Messi", BitmapFactory.decodeResource(this.getResources(), R.drawable.promessi), "Lionel Andrés Messi", "24 June 1987", 34, 1.69, "Forward", "Paris Saint-Germain", 30, "Argentina", 758, 321, 80, "Career: Barcelona(2004-2021), PSG(2021-Today).",
+        Player messi = new Player( "Lionel Messi", BitmapFactory.decodeResource(this.getResources(), R.drawable.promessi), "Lionel Andrés Messi", "24 June 1987", 34, "1.69", "Forward", "Paris Saint-Germain", 30, "Argentina", 758, 321, 80, "Career: Barcelona(2004-2021), PSG(2021-Today).",
                 "Lionel Andrés Messi(born 24 June 1987), also known as Leo Messi, is an Argentine professional footballer who plays as a forward for Ligue 1 club Paris Saint-Germain and captains the Argentina national team." +
                         "Often considered the best player in the world and widely regarded as one of the greatest players of all time. Born and raised in central Argentina, Messi relocated to Spain to join Barcelona at age 13, for whom he made his competitive debut aged 17 in October 2004." +
                         " He established himself as an integral player for the club within the next three years, and in his first uninterrupted season in 2008–09 he helped Barcelona achieve the first treble in Spanish football, that year, aged 22, Messi won his first Ballon d'Or." +

@@ -12,7 +12,7 @@ public class Player
     private String fullName;
     private String birthday;
     private int age;
-    private double height;
+    private String height;
     private String pos;
     private String crTeam;
     private int num;
@@ -26,7 +26,7 @@ public class Player
     private URL insta;
 
     public Player(String titName, Bitmap profilePic, String fullName, String birthday, int age,
-                  double height, String pos, String crTeam, int num, String nltTeam, int goals, int asissts, int ntlGoals, String formerTeams, String basicInfo, URL wiki, URL insta)
+                  String height, String pos, String crTeam, int num, String nltTeam, int goals, int asissts, int ntlGoals, String formerTeams, String basicInfo, URL wiki, URL insta)
     {
         this.titName = titName;
         this.profilePic = profilePic;
@@ -89,11 +89,11 @@ public class Player
     public void setAge(int age) { this.age = age; }
 
 
-    public double getHeight() {
+    public String getHeight() {
         return height;
     }
 
-    public void setHeight(double height) {
+    public void setHeight(String height) {
         this.height = height;
     }
 

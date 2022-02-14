@@ -13,14 +13,14 @@
 
         <TextView
 
+            android:id="@+id/titName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/titName"
-            android:text="X"
-            android:textSize="90dp"
+            android:text="title"
             android:textAlignment="center"
             android:textColor="@android:color/black"
-            android:textStyle="bold"/>
+            android:textSize="60dp"
+            android:textStyle="bold" />
 
         <ImageView
             android:layout_width="300dp"
@@ -34,7 +34,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:background="#C2CAEF">
+            android:background="#C2CAEF"
+            >
 
             <TableRow
                 android:layout_width="match_parent"
@@ -53,7 +54,7 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_margin="10dp">
 
                 <TextView
@@ -65,9 +66,153 @@
 
                 <TextView
                     android:id="@+id/tvFullName"
-                    android:text="Lionel Andrés Messi"
+                    android:text="Neymar da Silva Santos Júnior"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="5"
                     android:textSize="20dp" />
 
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                >
+
+                <TextView
+                    android:background="#C2CAEF"
+                    android:text="Date of birth: "
+                    android:textColor="@android:color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/tvBirthDay"
+                    android:text="24 June 1987"
+                    android:textColor="@android:color/black"
+                    android:textSize="20dp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                >
+
+                <TextView
+                    android:background="#C2CAEF"
+                    android:text="Age: "
+                    android:textColor="@android:color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/tvAge"
+                    android:text=""
+                    android:textColor="@android:color/black"
+                    android:textSize="20dp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                >
+
+                <TextView
+                    android:background="#C2CAEF"
+                    android:text="Height: "
+                    android:textColor="@android:color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/tvHeight"
+                    android:text=""
+                    android:textColor="@android:color/black"
+                    android:textSize="20dp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                >
+
+                <TextView
+                    android:background="#C2CAEF"
+                    android:text="Position: "
+                    android:textColor="@android:color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/tvPos"
+                    android:text=""
+                    android:textColor="@android:color/black"
+                    android:textSize="20dp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="#7B81E4"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_gravity="center"
+                    android:text="Club information"
+                    android:textColor="@android:color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                >
+
+                <TextView
+                    android:background="#C2CAEF"
+                    android:text="Current team: "
+                    android:textColor="@android:color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/tvTeam"
+                    android:text="Paris Saint-Germain"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="5"
+                    android:textSize="20dp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                >
+
+                <TextView
+                    android:background="#C2CAEF"
+                    android:text="Number: "
+                    android:textColor="@android:color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/tvNum"
+                    android:text=""
+                    android:textColor="@android:color/black"
+                    android:textSize="20dp" />
 
             </TableRow>
 
