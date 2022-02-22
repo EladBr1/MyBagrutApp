@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".AddPlayer"
+            android:exported="false" />
+        <activity
             android:name=".PlayerDisplay"
             android:exported="false" />
         <activity

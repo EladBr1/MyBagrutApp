@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".AddPlayer">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Welcome back, Elad"
+            android:id="@+id/tvWelcome"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="30dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add a player according to these parameters:"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="30dp"/>
+        
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Title Name:"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="27dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Title Name"
+            android:id="@+id/edTitName"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Profile Photo:"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="27dp"/>
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:background="#259CDC"
+            android:text="UPLOAD"
+            android:id="@+id/uploadBtn"
+            android:textSize="20dp"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Full Name:"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="27dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Full Name"
+            android:id="@+id/edFullName"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Date of Birth:"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="27dp"/>
+        <EditText
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:hint="Year"
+            android:id="@+id/edYear"/>
+
+        <EditText
+            android:id="@+id/edMonth"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:hint="Month" />
+
+        <EditText
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:hint="Day"
+            android:id="@+id/edDay"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Age:"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="27dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Age"
+            android:id="@+id/edAge"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Height:"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="27dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Height"
+            android:id="@+id/edHeight"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Position:"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="27dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Posotion"
+            android:id="@+id/edPos"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Current Team:"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="27dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Current Team"
+            android:id="@+id/edCrTeam"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Number:"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="27dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Number"
+            android:id="@+id/edNum"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Netional Team:"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="27dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="National Team"
+            android:id="@+id/edNltTeam"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Goals:"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="27dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Goals"
+            android:id="@+id/edGoals"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Asissts:"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="27dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Asissts"
+            android:id="@+id/edAsissts"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nationals Goals:"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="27dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Goals"
+            android:id="@+id/edNltGoals"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Teams in Career:"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="27dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:hint="Teams"
+            android:id="@+id/edFteams"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Information:"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="27dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Info"
+            android:id="@+id/edInfo"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Wikipidia URL:"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="27dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="URL"
+            android:id="@+id/edWikiUrl"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Instagram URL:"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="27dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="URL"
+            android:id="@+id/edInstaUrl"/>
+
+
+    </LinearLayout>
+
+</ScrollView>

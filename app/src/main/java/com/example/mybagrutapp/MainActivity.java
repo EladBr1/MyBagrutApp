@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     EditText searchBar;
     Button searchBtn;
+    Button addBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -30,8 +31,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         searchBtn = findViewById(R.id.search_button);
+        addBtn = findViewById(R.id.addBtn);
         searchBar = findViewById(R.id.search_bar);
         searchBtn.setOnClickListener(this);
+        addBtn.setOnClickListener(this);
 
     }
 
@@ -79,6 +82,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
 
+        if (addBtn == v)
+        {
+            Intent intent = new Intent(this,AddPlayer.class);
+            startActivity(intent);
+        }
+
     }
+
+
+
+
 
 }
