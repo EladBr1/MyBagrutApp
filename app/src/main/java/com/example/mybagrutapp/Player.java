@@ -8,7 +8,7 @@ public class Player
 {
 
     private String titName;
-    private Bitmap profilePic;
+
     private String fullName;
     private String birthday;
     private int age;
@@ -24,12 +24,12 @@ public class Player
     private String basicInfo;
     private URL wiki;
     private URL insta;
+    private Bitmap profilePic;
 
-    public Player(String titName, Bitmap profilePic, String fullName, String birthday, int age,
-                  String height, String pos, String crTeam, int num, String nltTeam, int goals, int asissts, int ntlGoals, String formerTeams, String basicInfo, URL wiki, URL insta)
+    public Player(String titName, String fullName, String birthday, int age,
+                  String height, String pos, String crTeam, int num, String nltTeam, int goals, int asissts, int ntlGoals, String formerTeams, String basicInfo, URL wiki, URL insta,  Bitmap profilePic)
     {
         this.titName = titName;
-        this.profilePic = profilePic;
         this.fullName = fullName;
         this.birthday = birthday;
         this.age = age;
@@ -45,6 +45,7 @@ public class Player
         this.basicInfo = basicInfo;
         this.wiki = wiki;
         this.insta = insta;
+        this.profilePic = profilePic;
     }
 
     public Player()

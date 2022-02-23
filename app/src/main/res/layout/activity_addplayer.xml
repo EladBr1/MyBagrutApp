@@ -15,10 +15,11 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Welcome back, Elad"
+            android:text="Welcome back, "
             android:id="@+id/tvWelcome"
             android:textColor="@android:color/holo_blue_dark"
-            android:textSize="30dp"/>
+            android:textSize="30dp"
+            android:textStyle= "bold|italic"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -38,11 +39,12 @@
             android:textColor="@android:color/black"
             android:textStyle="bold"
             android:textSize="27dp"/>
+
         <EditText
+            android:id="@+id/edTitName"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="Title Name"
-            android:id="@+id/edTitName"/>
+            android:hint="Title Name" />
 
         <TextView
             android:layout_width="match_parent"
@@ -224,7 +226,7 @@
             android:textSize="27dp"/>
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="170dp"
             android:hint="Teams"
             android:id="@+id/edFteams"/>
 
@@ -237,7 +239,7 @@
             android:textSize="27dp"/>
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="170dp"
             android:hint="Info"
             android:id="@+id/edInfo"/>
 
@@ -267,6 +269,14 @@
             android:hint="URL"
             android:id="@+id/edInstaUrl"/>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#259CDC"
+            android:text="SAVE"
+            android:id="@+id/savePlayer"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 
