@@ -2,8 +2,10 @@ package com.example.mybagrutapp;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,14 +15,21 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.io.FileNotFoundException;
-import java.io.InputStream;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class AddPlayer extends AppCompatActivity implements View.OnClickListener {
 
-    TextView tvWelcome;
-    EditText edTitName, edFullName, edYear, edMonth, edDay, edAge, edHeight, edPos, edCrTeam, edNum, edNltTeam, edGoals, edAsissts, edNltGoals, edFteams, edInfo, edWikiUrl, edInstaUrl;
-    Button uploadBtn;
+    private TextView tvWelcome;
+    private EditText edTitName, edFullName, edYear, edMonth, edDay, edAge, edHeight, edPos, edCrTeam, edNum, edNltTeam, edGoals, edAsissts, edNltGoals, edFteams, edInfo, edWikiUrl, edInstaUrl;
+    private Button uploadBtn;
+    private Button savePlayer;
+    private ImageView imageView;
+    private Uri filePath;
 
 
     @Override
@@ -50,50 +59,11 @@ public class AddPlayer extends AppCompatActivity implements View.OnClickListener
         edInstaUrl = findViewById(R.id.edInstaUrl);
         uploadBtn = findViewById(R.id.uploadBtn);
         uploadBtn.setOnClickListener(this);
+        savePlayer = findViewById(R.id.savePlayer);
+        savePlayer.setOnClickListener(this);
+        imageView = findViewById(R.id.ivPro);
 
     }
-
-   /* public void savePlayer(View view)
-    {
-
-        String birthday = Integer.parseInt( edDay.getText().toString() ) + " " + edMonth.getText().toString() + " " + Integer.parseInt( edYear.getText().toString() );
-
-        URL urlWiki = null, urlInsta = null;
-
-        try {
-            urlWiki = new URL(edWikiUrl.getText().toString());
-            Log.d("Mine", "URL created: " + urlWiki);
-            urlInsta = new URL(edInstaUrl.getText().toString());
-            Log.d("Mine", "URL created: " + urlInsta);
-        }
-        catch (MalformedURLException e) {
-            Log.d("Mine","Malformed URL: " + e.getMessage());
-        }
-
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("players");
-
-        Player player = new Player( edTitName.getText().toString(),
-                edFullName.getText().toString(),
-                birthday,
-                Integer.parseInt( edAge.getText().toString() ),
-                edHeight.getText().toString(),
-                edPos.getText().toString(),
-                edCrTeam.getText().toString(),
-                Integer.parseInt( edNum.getText().toString() ),
-                edNltTeam.getText().toString(),
-                Integer.parseInt( edGoals.getText().toString() ),
-                Integer.parseInt( edAsissts.getText().toString() ),
-                Integer.parseInt( edNltGoals.getText().toString() ),
-                edFteams.getText().toString(),
-                edInfo.getText().toString(),
-                urlWiki,
-                urlInsta,
-                );
-
-        myRef.setValue("player");
-
-    }*/
 
 
     @Override
@@ -105,10 +75,51 @@ public class AddPlayer extends AppCompatActivity implements View.OnClickListener
         {
 
             Intent intent = new Intent();
-            intent.setAction("image/*");
+            intent.setType("image/*");
             intent.setAction(Intent.ACTION_GET_CONTENT);
             startActivityForResult(Intent.createChooser(intent, "Select Picture"), 1);
 
+        }
+
+       if(savePlayer == v)
+        {
+
+            String birthday = Integer.parseInt( edDay.getText().toString() ) + " " + edMonth.getText().toString() + " " + Integer.parseInt( edYear.getText().toString() );
+
+            URL urlWiki = null, urlInsta = null;
+
+            try {
+                urlWiki = new URL(edWikiUrl.getText().toString());
+                Log.d("Mine", "URL created: " + urlWiki);
+                urlInsta = new URL(edInstaUrl.getText().toString());
+                Log.d("Mine", "URL created: " + urlInsta);
+            }
+            catch (MalformedURLException e) {
+                Log.d("Mine","Malformed URL: " + e.getMessage());
+            }
+
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference myRef = database.getReference("players");
+
+            Player player = new Player( edTitName.getText().toString(),
+                    edFullName.getText().toString(),
+                    birthday,
+                    Integer.parseInt( edAge.getText().toString() ),
+                    edHeight.getText().toString(),
+                    edPos.getText().toString(),
+                    edCrTeam.getText().toString(),
+                    Integer.parseInt( edNum.getText().toString() ),
+                    edNltTeam.getText().toString(),
+                    Integer.parseInt( edGoals.getText().toString() ),
+                    Integer.parseInt( edAsissts.getText().toString() ),
+                    Integer.parseInt( edNltGoals.getText().toString() ),
+                    edFteams.getText().toString(),
+                    edInfo.getText().toString(),
+                    urlWiki,
+                    urlInsta,
+                    imageView );
+
+            myRef.setValue(player);
 
         }
 
@@ -118,17 +129,16 @@ public class AddPlayer extends AppCompatActivity implements View.OnClickListener
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK && requestCode == 1) {
+        if (resultCode == RESULT_OK && requestCode == 1 && data != null && data.getData() != null) {
 
-            ImageView imageView = findViewById(R.id.ivPro);
+            filePath = data.getData();
 
             try {
-                InputStream inputStream = getContentResolver().openInputStream(data.getData());
 
-                Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),filePath);
                 imageView.setImageBitmap(bitmap);
 
-            } catch (FileNotFoundException e) {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
 

@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class PlayerDisplay extends AppCompatActivity
 {
-    TextView tvTitName;
+    private TextView tvTitName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)

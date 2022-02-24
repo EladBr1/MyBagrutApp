@@ -13,9 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener
 {
 
-    EditText searchBar;
-    Button searchBtn;
-    Button addBtn;
+    private EditText searchBar;
+    private Button searchBtn;
+    private Button addBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)

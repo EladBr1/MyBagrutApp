@@ -1,6 +1,7 @@
 package com.example.mybagrutapp;
 
 import android.graphics.Bitmap;
+import android.widget.ImageView;
 
 import java.net.URL;
 
@@ -50,6 +51,9 @@ public class Player
 
     public Player()
     {
+    }
+
+    public Player(String titName, String fullName, String birthday, int age, String height, String pos, String crTeam, int num, String nltTeam, int goals, int asissts, int ntlGoals, String formerTeams, String basicInfo, URL urlWiki, URL urlInsta, ImageView imageView) {
     }
 
     public String getTitName() {
