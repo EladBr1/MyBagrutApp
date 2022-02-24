@@ -55,13 +55,17 @@
             android:textSize="27dp"/>
 
         <Button
-            android:layout_width="100dp"
+            android:id="@+id/uploadBtn"
+            android:layout_width="170dp"
             android:layout_height="50dp"
             android:background="#259CDC"
-            android:text="UPLOAD"
-            android:id="@+id/uploadBtn"
-            android:textSize="20dp"/>
+            android:text="Upload Image"
+            android:textSize="20dp" />
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ivPro"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -246,7 +250,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Wikipidia URL:"
+            android:text="Wikipedia URL:"
             android:textColor="@android:color/black"
             android:textStyle="bold"
             android:textSize="27dp"/>

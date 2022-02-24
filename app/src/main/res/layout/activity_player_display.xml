@@ -216,8 +216,186 @@
 
             </TableRow>
 
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="#7B81E4"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_gravity="center"
+                    android:text="Natonal Team"
+                    android:textColor="@android:color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                >
+
+                <TextView
+                    android:background="#C2CAEF"
+                    android:text="National team: "
+                    android:textColor="@android:color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/tvNtlTeam"
+                    android:text=""
+                    android:textColor="@android:color/black"
+                    android:textSize="20dp"
+                    />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                >
+
+                <TextView
+                    android:background="#C2CAEF"
+                    android:text="Goals (in national team): "
+                    android:textColor="@android:color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/tvNtlGoals"
+                    android:text=""
+                    android:textColor="@android:color/black"
+                    android:textSize="20dp"
+                    />
+
+            </TableRow>
+
         </TableLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Stats: "
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:textSize="25dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Goals: "
+                android:textStyle="italic"
+                android:textColor="@android:color/black"
+                android:textSize="25dp"
+                />
+            <TextView
+                android:id="@+id/tvGoals"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="333"
+                android:textColor="@android:color/black"
+                android:textSize="25dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" | Asissts: "
+                android:textStyle="italic"
+                android:textColor="@android:color/black"
+                android:textSize="25dp"
+                />
+            <TextView
+            android:id="@+id/tvAsissts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100"
+            android:textColor="@android:color/black"
+            android:textSize="25dp"
+            />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Career:  "
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textSize="25dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvFormerTeams"
+            android:text=""
+            android:textSize="25dp"
+            android:textColor="@android:color/black"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bio:  "
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textSize="25dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvInfo"
+            android:text=""
+            android:textSize="25dp"
+            android:textColor="@android:color/black"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wikipedie link:"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textSize="25dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/wikiUrl"
+            android:text=""
+            android:textColor="@android:color/black"
+            android:textSize="20dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Instagram link:"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textSize="25dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/instaUrl"
+            android:text=""
+            android:textColor="@android:color/black"
+            android:textSize="20dp"
+            />
 
 
     </LinearLayout>

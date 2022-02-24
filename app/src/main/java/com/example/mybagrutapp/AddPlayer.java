@@ -1,22 +1,22 @@
 package com.example.mybagrutapp;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-
-public class AddPlayer extends AppCompatActivity
-{
+public class AddPlayer extends AppCompatActivity implements View.OnClickListener {
 
     TextView tvWelcome;
     EditText edTitName, edFullName, edYear, edMonth, edDay, edAge, edHeight, edPos, edCrTeam, edNum, edNltTeam, edGoals, edAsissts, edNltGoals, edFteams, edInfo, edWikiUrl, edInstaUrl;
@@ -24,8 +24,7 @@ public class AddPlayer extends AppCompatActivity
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addplayer);
@@ -37,7 +36,7 @@ public class AddPlayer extends AppCompatActivity
         edMonth = findViewById(R.id.edMonth);
         edDay = findViewById(R.id.edDay);
         edAge = findViewById(R.id.edAge);
-        edHeight= findViewById(R.id.edHeight);
+        edHeight = findViewById(R.id.edHeight);
         edPos = findViewById(R.id.edPos);
         edCrTeam = findViewById(R.id.edCrTeam);
         edNum = findViewById(R.id.edNum);
@@ -50,11 +49,11 @@ public class AddPlayer extends AppCompatActivity
         edWikiUrl = findViewById(R.id.edWikiUrl);
         edInstaUrl = findViewById(R.id.edInstaUrl);
         uploadBtn = findViewById(R.id.uploadBtn);
-        uploadBtn.setOnClickListener((View.OnClickListener) this);
+        uploadBtn.setOnClickListener(this);
 
     }
 
-    public void savePlayer(View view)
+   /* public void savePlayer(View view)
     {
 
         String birthday = Integer.parseInt( edDay.getText().toString() ) + " " + edMonth.getText().toString() + " " + Integer.parseInt( edYear.getText().toString() );
@@ -89,10 +88,53 @@ public class AddPlayer extends AppCompatActivity
                 edFteams.getText().toString(),
                 edInfo.getText().toString(),
                 urlWiki,
-                urlInsta,);
+                urlInsta,
+                );
 
         myRef.setValue("player");
 
+    }*/
+
+
+    @Override
+    public void onClick(View v)
+    {
+
+
+        if (uploadBtn == v)
+        {
+
+            Intent intent = new Intent();
+            intent.setAction("image/*");
+            intent.setAction(Intent.ACTION_GET_CONTENT);
+            startActivityForResult(Intent.createChooser(intent, "Select Picture"), 1);
+
+
+        }
+
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK && requestCode == 1) {
+
+            ImageView imageView = findViewById(R.id.ivPro);
+
+            try {
+                InputStream inputStream = getContentResolver().openInputStream(data.getData());
+
+                Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+                imageView.setImageBitmap(bitmap);
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+    }
+
 
 }
