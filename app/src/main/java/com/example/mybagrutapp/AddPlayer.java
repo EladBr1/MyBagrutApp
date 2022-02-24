@@ -2,6 +2,7 @@ package com.example.mybagrutapp;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -117,7 +118,7 @@ public class AddPlayer extends AppCompatActivity implements View.OnClickListener
                     edInfo.getText().toString(),
                     urlWiki,
                     urlInsta,
-                    imageView );
+                    ((BitmapDrawable)imageView.getDrawable()).getBitmap());
 
             myRef.setValue(player);
 
