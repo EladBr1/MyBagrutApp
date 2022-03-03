@@ -1,10 +1,5 @@
 package com.example.mybagrutapp;
 
-import android.graphics.Bitmap;
-import android.widget.ImageView;
-
-import java.net.URL;
-
 public class Player
 {
 
@@ -23,12 +18,12 @@ public class Player
     private int ntlGoals;
     private String formerTeams;
     private String basicInfo;
-    private URL wiki;
-    private URL insta;
-    private Bitmap profilePic;
+    private String wiki;
+    private String insta;
+    //private Bitmap profilePic;
 
     public Player(String titName, String fullName, String birthday, int age,
-                  String height, String pos, String crTeam, int num, String nltTeam, int goals, int asissts, int ntlGoals, String formerTeams, String basicInfo, URL wiki, URL insta,  Bitmap profilePic)
+                  String height, String pos, String crTeam, int num, String nltTeam, int goals, int asissts, int ntlGoals, String formerTeams, String basicInfo, String wiki, String insta/*,  Bitmap profilePic*/)
     {
         this.titName = titName;
         this.fullName = fullName;
@@ -46,15 +41,13 @@ public class Player
         this.basicInfo = basicInfo;
         this.wiki = wiki;
         this.insta = insta;
-        this.profilePic = profilePic;
+        //this.profilePic = profilePic;
     }
 
     public Player()
     {
     }
 
-    public Player(String titName, String fullName, String birthday, int age, String height, String pos, String crTeam, int num, String nltTeam, int goals, int asissts, int ntlGoals, String formerTeams, String basicInfo, URL urlWiki, URL urlInsta, ImageView imageView) {
-    }
 
     public String getTitName() {
         return titName;
@@ -64,13 +57,13 @@ public class Player
         this.titName = tName;
     }
 
-    public Bitmap getProfilePic() {
+    /*public Bitmap getProfilePic() {
         return profilePic;
     }
 
     public void setProfilePic(Bitmap profilePic) {
         this.profilePic = profilePic;
-    }
+    }*/
 
     public String getFullName() {
         return fullName;
@@ -174,19 +167,19 @@ public class Player
         this.basicInfo = basicInfo;
     }
 
-    public URL getWiki() {
+    public String getWiki() {
         return wiki;
     }
 
-    public void setWiki(URL wiki) {
+    public void setWiki(String wiki) {
         this.wiki = wiki;
     }
 
-    public URL getInsta() {
+    public String getInsta() {
         return insta;
     }
 
-    public void setInsta(URL insta) {
+    public void setInsta( String insta) {
         this.insta = insta;
     }
 }

@@ -1,27 +1,18 @@
 package com.example.mybagrutapp;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 
 public class AddPlayer extends AppCompatActivity implements View.OnClickListener {
 
@@ -82,25 +73,13 @@ public class AddPlayer extends AppCompatActivity implements View.OnClickListener
 
         }
 
-       if(savePlayer == v)
+        if(savePlayer == v)
         {
 
             String birthday = Integer.parseInt( edDay.getText().toString() ) + " " + edMonth.getText().toString() + " " + Integer.parseInt( edYear.getText().toString() );
 
-            URL urlWiki = null, urlInsta = null;
-
-            try {
-                urlWiki = new URL(edWikiUrl.getText().toString());
-                Log.d("Mine", "URL created: " + urlWiki);
-                urlInsta = new URL(edInstaUrl.getText().toString());
-                Log.d("Mine", "URL created: " + urlInsta);
-            }
-            catch (MalformedURLException e) {
-                Log.d("Mine","Malformed URL: " + e.getMessage());
-            }
-
             FirebaseDatabase database = FirebaseDatabase.getInstance();
-            DatabaseReference myRef = database.getReference("players");
+            DatabaseReference myRef = database.getReference("players").push();
 
             Player player = new Player( edTitName.getText().toString(),
                     edFullName.getText().toString(),
@@ -116,16 +95,16 @@ public class AddPlayer extends AppCompatActivity implements View.OnClickListener
                     Integer.parseInt( edNltGoals.getText().toString() ),
                     edFteams.getText().toString(),
                     edInfo.getText().toString(),
-                    urlWiki,
-                    urlInsta,
-                    ((BitmapDrawable)imageView.getDrawable()).getBitmap());
+                    edWikiUrl.getText().toString(),
+                    edInstaUrl.getText().toString()/*,
+                    ((BitmapDrawable)imageView.getDrawable()).getBitmap()*/);
 
             myRef.setValue(player);
 
         }
 
     }
-
+    /*
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
@@ -145,7 +124,7 @@ public class AddPlayer extends AppCompatActivity implements View.OnClickListener
 
         }
 
-    }
+    }*/
 
 
 }

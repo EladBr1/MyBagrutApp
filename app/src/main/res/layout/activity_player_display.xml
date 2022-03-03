@@ -58,6 +58,7 @@
                 android:layout_margin="10dp">
 
                 <TextView
+                    android:layout_width="wrap_content"
                     android:background="#C2CAEF"
                     android:text="Full name: "
                     android:textColor="@android:color/black"
@@ -180,11 +181,12 @@
                 >
 
                 <TextView
+                    android:layout_width="219dp"
                     android:background="#C2CAEF"
                     android:text="Current team: "
                     android:textColor="@android:color/black"
                     android:textSize="20dp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvTeam"
@@ -278,10 +280,6 @@
 
         </TableLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -291,6 +289,12 @@
                 android:textColor="@android:color/black"
                 android:textSize="25dp"
                 />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -307,11 +311,17 @@
                 android:textColor="@android:color/black"
                 android:textSize="25dp"
                 />
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" | Asissts: "
+                android:text="Asissts: "
                 android:textStyle="italic"
                 android:textColor="@android:color/black"
                 android:textSize="25dp"
@@ -324,8 +334,8 @@
             android:textColor="@android:color/black"
             android:textSize="25dp"
             />
+    </LinearLayout>
 
-        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
