@@ -49,28 +49,6 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Profile Photo:"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
-            android:textSize="27dp"/>
-
-        <Button
-            android:id="@+id/uploadBtn"
-            android:layout_width="170dp"
-            android:layout_height="50dp"
-            android:background="#259CDC"
-            android:text="Upload Image"
-            android:textSize="20dp" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/ivPro"/>
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="Full Name:"
             android:textColor="@android:color/black"
             android:textStyle="bold"

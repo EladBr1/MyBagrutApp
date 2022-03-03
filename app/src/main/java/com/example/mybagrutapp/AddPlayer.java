@@ -1,12 +1,9 @@
 package com.example.mybagrutapp;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,10 +15,9 @@ public class AddPlayer extends AppCompatActivity implements View.OnClickListener
 
     private TextView tvWelcome;
     private EditText edTitName, edFullName, edYear, edMonth, edDay, edAge, edHeight, edPos, edCrTeam, edNum, edNltTeam, edGoals, edAsissts, edNltGoals, edFteams, edInfo, edWikiUrl, edInstaUrl;
-    private Button uploadBtn;
     private Button savePlayer;
-    private ImageView imageView;
-    private Uri filePath;
+    //private ImageView imageView;
+    //private Uri filePath;
 
 
     @Override
@@ -49,11 +45,8 @@ public class AddPlayer extends AppCompatActivity implements View.OnClickListener
         edInfo = findViewById(R.id.edInfo);
         edWikiUrl = findViewById(R.id.edWikiUrl);
         edInstaUrl = findViewById(R.id.edInstaUrl);
-        uploadBtn = findViewById(R.id.uploadBtn);
-        uploadBtn.setOnClickListener(this);
         savePlayer = findViewById(R.id.savePlayer);
         savePlayer.setOnClickListener(this);
-        imageView = findViewById(R.id.ivPro);
 
     }
 
@@ -61,17 +54,6 @@ public class AddPlayer extends AppCompatActivity implements View.OnClickListener
     @Override
     public void onClick(View v)
     {
-
-
-        if (uploadBtn == v)
-        {
-
-            Intent intent = new Intent();
-            intent.setType("image/*");
-            intent.setAction(Intent.ACTION_GET_CONTENT);
-            startActivityForResult(Intent.createChooser(intent, "Select Picture"), 1);
-
-        }
 
         if(savePlayer == v)
         {
