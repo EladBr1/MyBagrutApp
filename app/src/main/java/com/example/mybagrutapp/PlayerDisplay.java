@@ -17,7 +17,8 @@ import java.util.ArrayList;
 
 public class PlayerDisplay extends AppCompatActivity
 {
-    private TextView tvTitName, tvFullName, tvBirthday;
+    private TextView tvTitName, tvFullName, tvBirthday, tvAge, tvHeight, tvPos, tvTeam, tvNum, tvNtlTeam, tvNtlGoals,
+            tvGoals, tvAsissts, tvFormerTeams, tvInfo, wikiUrl, instaUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -25,7 +26,22 @@ public class PlayerDisplay extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player_display);
 
-        tvTitName =(TextView)findViewById(R.id.titName);
+        tvTitName = findViewById(R.id.titName);
+        tvFullName = findViewById(R.id.tvFullName);
+        tvBirthday = findViewById(R.id.tvBirthDay);
+        tvAge = findViewById(R.id.tvAge);
+        tvHeight = findViewById(R.id.tvHeight);
+        tvPos = findViewById(R.id.tvPos);
+        tvTeam = findViewById(R.id.tvTeam);
+        tvNum = findViewById(R.id.tvNum);
+        tvNtlTeam = findViewById(R.id.tvNtlTeam);
+        tvNtlGoals = findViewById(R.id.tvNtlGoals);
+        tvGoals = findViewById(R.id.tvGoals);
+        tvAsissts = findViewById(R.id.tvAsissts);
+        tvFormerTeams = findViewById(R.id.tvFormerTeams);
+        tvInfo = findViewById(R.id.tvInfo);
+        wikiUrl = findViewById(R.id.wikiUrl);
+        instaUrl = findViewById(R.id.instaUrl);
 
         Intent intent=getIntent();
         String searchResults = intent.getExtras().getString("searchResults");
@@ -38,6 +54,7 @@ public class PlayerDisplay extends AppCompatActivity
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Player player = snapshot.getValue(Player.class);
+
 
             }
 

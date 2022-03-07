@@ -1,10 +1,12 @@
 package com.example.mybagrutapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -82,6 +84,11 @@ public class AddPlayer extends AppCompatActivity implements View.OnClickListener
                     ((BitmapDrawable)imageView.getDrawable()).getBitmap()*/);
 
             myRef.setValue(player);
+
+            Toast.makeText(this, "Player saved", Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(this,MainActivity.class);
+            startActivity(intent);
 
         }
 
