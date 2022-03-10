@@ -200,10 +200,10 @@ public class AddPlayer extends AppCompatActivity implements View.OnClickListener
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(
-        Intent.createChooser(
-                intent,
-                "Select Image from here..."),
-        PICK_IMAGE_REQUEST);
+                Intent.createChooser(
+                        intent,
+                        "Select Image from here..."),
+                PICK_IMAGE_REQUEST);
     }
 
 

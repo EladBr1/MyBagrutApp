@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
- <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -16,17 +16,16 @@
             android:id="@+id/titName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="title"
+            android:text=""
             android:textAlignment="center"
             android:textColor="@android:color/black"
-            android:textSize="60dp"
+            android:textSize="45dp"
             android:textStyle="bold" />
 
         <ImageView
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/promessi"
             android:id="@+id/pic"
             />
 
@@ -288,14 +287,14 @@
         </TableLayout>
 
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Total Stats: "
-                android:textStyle="bold"
-                android:textColor="@android:color/black"
-                android:textSize="25dp"
-                />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Stats: "
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textSize="25dp"
+            />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -320,10 +319,10 @@
                 />
         </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -334,14 +333,14 @@
                 android:textSize="25dp"
                 />
             <TextView
-            android:id="@+id/tvAsissts"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="100"
-            android:textColor="@android:color/black"
-            android:textSize="25dp"
-            />
-    </LinearLayout>
+                android:id="@+id/tvAsissts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100"
+                android:textColor="@android:color/black"
+                android:textSize="25dp"
+                />
+        </LinearLayout>
 
 
         <TextView

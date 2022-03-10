@@ -2,6 +2,7 @@ package com.example.mybagrutapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +21,7 @@ public class PlayerDisplay extends AppCompatActivity
 {
     private TextView tvTitName, tvFullName, tvBirthday, tvAge, tvHeight, tvPos, tvTeam, tvNum, tvNtlTeam, tvNtlGoals,
             tvGoals, tvAsissts, tvFormerTeams, tvInfo, wikiUrl, instaUrl;
+    private ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -28,6 +30,7 @@ public class PlayerDisplay extends AppCompatActivity
         setContentView(R.layout.activity_player_display);
 
         tvTitName = findViewById(R.id.titName);
+        imageView = findViewById(R.id.pic);
         tvFullName = findViewById(R.id.tvFullName);
         tvBirthday = findViewById(R.id.tvBirthDay);
         tvAge = findViewById(R.id.tvAge);
@@ -59,13 +62,22 @@ public class PlayerDisplay extends AppCompatActivity
                 players.clear();
                 for(DataSnapshot playerSnapshot : snapshot.getChildren())
                 {
+
                     Player currentPlayer = playerSnapshot.getValue(Player.class);
                     players.add(currentPlayer);
                 }
-                for(int i = 0; i < players.size(); i++)
+               for(int i = 0; i < players.size(); i++)
                 {
+                    String a = players.get(i).getSName(), b = players.get(i).getTitName(), c = players.get(i).getFullName();
+
+                    if (searchResults == a || searchResults == b || searchResults == c )
+                    {
+
+                        tvTitName.setText(a);
+                        tvFullName.setText(c);
 
 
+                    }
 
                 }
 
