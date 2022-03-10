@@ -4,8 +4,8 @@ public class Player
 {
 
     private String titName;
-
     private String fullName;
+    private String sName;
     private String birthday;
     private int age;
     private String height;
@@ -20,13 +20,15 @@ public class Player
     private String basicInfo;
     private String wiki;
     private String insta;
-    //private Bitmap profilePic;
+    private String image;
 
-    public Player(String titName, String fullName, String birthday, int age,
-                  String height, String pos, String crTeam, int num, String nltTeam, int goals, int asissts, int ntlGoals, String formerTeams, String basicInfo, String wiki, String insta/*,  Bitmap profilePic*/)
+    public Player(String titName, String fullName, String sName, String birthday, int age,
+                  String height, String pos, String crTeam, int num, String nltTeam, int goals, int asissts, int ntlGoals,
+                  String formerTeams, String basicInfo, String wiki, String insta, String image )
     {
         this.titName = titName;
         this.fullName = fullName;
+        this.sName = sName;
         this.birthday = birthday;
         this.age = age;
         this.height = height;
@@ -41,7 +43,7 @@ public class Player
         this.basicInfo = basicInfo;
         this.wiki = wiki;
         this.insta = insta;
-        //this.profilePic = profilePic;
+        this.image = image;
     }
 
     public Player()
@@ -57,13 +59,13 @@ public class Player
         this.titName = tName;
     }
 
-    /*public Bitmap getProfilePic() {
-        return profilePic;
+    public String getSName() {
+        return sName;
     }
 
-    public void setProfilePic(Bitmap profilePic) {
-        this.profilePic = profilePic;
-    }*/
+    public void setSName(String sName) {
+        this.sName = sName;
+    }
 
     public String getFullName() {
         return fullName;
@@ -181,5 +183,13 @@ public class Player
 
     public void setInsta( String insta) {
         this.insta = insta;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

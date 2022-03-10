@@ -31,51 +31,57 @@
             />
 
         <TableLayout
+            android:stretchColumns="*"
+            android:shrinkColumns="0,1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_margin="10dp"
             android:background="#C2CAEF"
             >
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="#7B81E4"
                 android:gravity="center">
 
                 <TextView
+                    android:layout_weight="1"
+                    android:layout_column="0"
                     android:text="Personal Information"
                     android:textColor="@android:color/black"
                     android:textSize="20dp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:gravity="center"/>
 
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp">
 
                 <TextView
-                    android:layout_width="wrap_content"
                     android:background="#C2CAEF"
                     android:text="Full name: "
                     android:textColor="@android:color/black"
                     android:textSize="20dp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:layout_column="0"/>
 
                 <TextView
+                    android:layout_marginRight="15dp"
                     android:id="@+id/tvFullName"
                     android:text="Neymar da Silva Santos Júnior"
                     android:textColor="@android:color/black"
-                    android:layout_weight="5"
-                    android:textSize="20dp" />
+                    android:textSize="20dp"
+                    android:layout_column="1"/>
 
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 >
@@ -88,6 +94,7 @@
                     android:textStyle="bold"/>
 
                 <TextView
+
                     android:id="@+id/tvBirthDay"
                     android:text="24 June 1987"
                     android:textColor="@android:color/black"
@@ -96,7 +103,7 @@
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 >
@@ -117,7 +124,7 @@
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 >
@@ -138,7 +145,7 @@
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 >
@@ -159,15 +166,16 @@
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="#7B81E4"
                 android:gravity="center">
 
                 <TextView
-                    android:layout_gravity="center"
-                    android:text="Club information"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Club Information"
                     android:textColor="@android:color/black"
                     android:textSize="20dp"
                     android:textStyle="bold" />
@@ -175,13 +183,12 @@
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 >
 
                 <TextView
-                    android:layout_width="219dp"
                     android:background="#C2CAEF"
                     android:text="Current team: "
                     android:textColor="@android:color/black"
@@ -198,7 +205,7 @@
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 >
@@ -219,7 +226,7 @@
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="#7B81E4"
@@ -235,7 +242,7 @@
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 >
@@ -257,7 +264,7 @@
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 >

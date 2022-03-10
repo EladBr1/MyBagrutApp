@@ -3,6 +3,7 @@ package com.example.mybagrutapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -46,7 +47,7 @@ public class PlayerDisplay extends AppCompatActivity
         Intent intent=getIntent();
         String searchResults = intent.getExtras().getString("searchResults");
 
-        ArrayList<Player> players = new ArrayList<>();
+        final ArrayList<Player> players = new ArrayList<>();
 
         FirebaseDatabase database = FirebaseDatabase.getInstance("https://champions-league-legends-default-rtdb.firebaseio.com/");
         DatabaseReference myRef = database.getReference("players");
@@ -55,12 +56,24 @@ public class PlayerDisplay extends AppCompatActivity
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Player player = snapshot.getValue(Player.class);
 
+                players.clear();
+                for(DataSnapshot playerSnapshot : snapshot.getChildren())
+                {
+                    Player currentPlayer = playerSnapshot.getValue(Player.class);
+                    players.add(currentPlayer);
+                }
+                for(int i = 0; i < players.size(); i++)
+                {
+
+
+
+                }
 
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Toast.makeText(PlayerDisplay.this, "error finding player", Toast.LENGTH_SHORT).show();
             }
         });
 
