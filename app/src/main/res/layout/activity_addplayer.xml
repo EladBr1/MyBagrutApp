@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/ballw"
     tools:context=".AddPlayer">
 
     <LinearLayout
@@ -15,9 +16,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Welcome back, "
-            android:id="@+id/tvWelcome"
-            android:textColor="@android:color/holo_blue_dark"
+            android:gravity="center"
+            android:text="ADD PLAYER"
+            android:textColor="@android:color/black"
             android:textSize="30dp"
             android:textStyle= "bold|italic"/>
 
@@ -25,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Add a player according to these parameters:"
-            android:textColor="@android:color/holo_blue_dark"
+            android:textColor="@android:color/black"
             android:textSize="30dp"/>
         
         <View
@@ -41,6 +42,7 @@
             android:textSize="27dp"/>
 
         <EditText
+            android:background="@android:color/white"
             android:id="@+id/edTitName"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -56,10 +58,12 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:background="@android:color/white"
             android:hint="Full Name"
             android:id="@+id/edFullName"/>
 
         <TextView
+            android:background="@android:color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Name for Search:"
@@ -68,6 +72,7 @@
             android:textSize="27dp"/>
 
         <EditText
+            android:background="@android:color/white"
             android:id="@+id/edSName"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -81,6 +86,7 @@
             android:textStyle="bold"
             android:textSize="27dp"/>
         <EditText
+            android:background="@android:color/white"
             android:inputType="number"
             android:layout_width="100dp"
             android:layout_height="50dp"
@@ -88,12 +94,14 @@
             android:id="@+id/edYear"/>
 
         <EditText
+            android:background="@android:color/white"
             android:id="@+id/edMonth"
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:hint="Month" />
 
         <EditText
+            android:background="@android:color/white"
             android:inputType="number"
             android:layout_width="100dp"
             android:layout_height="50dp"
@@ -109,7 +117,7 @@
             android:textSize="27dp"/>
         <EditText
             android:inputType="number"
-            android:layout_width="match_parent"
+            android:layout_width="100dp"
             android:layout_height="50dp"
             android:hint="Age"
             android:id="@+id/edAge"/>
@@ -122,7 +130,7 @@
             android:textStyle="bold"
             android:textSize="27dp"/>
         <EditText
-            android:layout_width="match_parent"
+            android:layout_width="100dp"
             android:layout_height="50dp"
             android:hint="Height"
             android:id="@+id/edHeight"/>
@@ -135,6 +143,7 @@
             android:textStyle="bold"
             android:textSize="27dp"/>
         <EditText
+            android:background="@android:color/white"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="Posotion"
@@ -148,6 +157,7 @@
             android:textStyle="bold"
             android:textSize="27dp"/>
         <EditText
+            android:background="@android:color/white"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="Current Team"
@@ -162,7 +172,7 @@
             android:textSize="27dp"/>
         <EditText
             android:inputType="number"
-            android:layout_width="match_parent"
+            android:layout_width="100dp"
             android:layout_height="50dp"
             android:hint="Number"
             android:id="@+id/edNum"/>
@@ -175,6 +185,7 @@
             android:textStyle="bold"
             android:textSize="27dp"/>
         <EditText
+            android:background="@android:color/white"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="National Team"
@@ -189,7 +200,7 @@
             android:textSize="27dp"/>
         <EditText
             android:inputType="number"
-            android:layout_width="match_parent"
+            android:layout_width="100dp"
             android:layout_height="50dp"
             android:hint="Goals"
             android:id="@+id/edGoals"/>
@@ -203,7 +214,7 @@
             android:textSize="27dp"/>
         <EditText
             android:inputType="number"
-            android:layout_width="match_parent"
+            android:layout_width="100dp"
             android:layout_height="50dp"
             android:hint="Asissts"
             android:id="@+id/edAsissts"/>
@@ -217,7 +228,7 @@
             android:textSize="27dp"/>
         <EditText
             android:inputType="number"
-            android:layout_width="match_parent"
+            android:layout_width="100dp"
             android:layout_height="50dp"
             android:hint="Goals"
             android:id="@+id/edNltGoals"/>
@@ -229,6 +240,7 @@
             android:textStyle="bold"
             android:textSize="27dp"/>
         <EditText
+            android:background="@android:color/white"
             android:layout_width="match_parent"
             android:layout_height="170dp"
             android:hint="Teams"
@@ -242,6 +254,7 @@
             android:textStyle="bold"
             android:textSize="27dp"/>
         <EditText
+            android:background="@android:color/white"
             android:layout_width="match_parent"
             android:layout_height="170dp"
             android:hint="Info"
@@ -255,6 +268,7 @@
             android:textStyle="bold"
             android:textSize="27dp"/>
         <EditText
+            android:background="@android:color/white"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:hint="URL"
@@ -268,6 +282,7 @@
             android:textStyle="bold"
             android:textSize="27dp"/>
         <EditText
+            android:background="@android:color/white"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:hint="URL"
@@ -285,8 +300,9 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@android:color/holo_green_light"
-            android:text="UPLOAD iMAGE"
+            android:background="@android:color/black"
+            android:text="UPLOAD IMAGE"
+            android:textColor="@android:color/white"
             android:id="@+id/uploadBtn"
             android:textSize="20dp"
             />
@@ -297,11 +313,16 @@
             android:id="@+id/image"
             />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#259CDC"
+            android:background="@android:color/black"
             android:text="SAVE"
+            android:textColor="@android:color/white"
             android:id="@+id/savePlayer"
             android:textSize="20dp"
             android:textStyle="bold"/>

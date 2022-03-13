@@ -66,15 +66,16 @@ public class PlayerDisplay extends AppCompatActivity
                     Player currentPlayer = playerSnapshot.getValue(Player.class);
                     players.add(currentPlayer);
                 }
+
+
                for(int i = 0; i < players.size(); i++)
                 {
-                    String a = players.get(i).getSName(), b = players.get(i).getTitName(), c = players.get(i).getFullName();
 
-                    if (searchResults == a || searchResults == b || searchResults == c )
+                    if (searchResults == players.get(i).getSName() || searchResults == players.get(i).getTitName() || searchResults == players.get(i).getFullName() )
                     {
 
-                        tvTitName.setText(a);
-                        tvFullName.setText(c);
+                        tvTitName.setText(players.get(i).getTitName());
+                        tvFullName.setText(players.get(i).getFullName());
 
 
                     }

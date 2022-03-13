@@ -31,7 +31,6 @@ import java.io.IOException;
 public class AddPlayer extends AppCompatActivity implements View.OnClickListener {
 
     private static final int PICK_IMAGE_REQUEST = 1;
-    private TextView tvWelcome;
     private EditText edTitName, edFullName, edSName, edYear, edMonth, edDay, edAge, edHeight, edPos, edCrTeam,
             edNum, edNltTeam, edGoals, edAsissts, edNltGoals, edFteams, edInfo, edWikiUrl, edInstaUrl;
     private Button savePlayer, uploadBtn;
@@ -48,7 +47,6 @@ public class AddPlayer extends AppCompatActivity implements View.OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addplayer);
 
-        tvWelcome = findViewById(R.id.tvWelcome);
         edTitName = findViewById(R.id.edTitName);
         edFullName = findViewById(R.id.edFullName);
         edSName = findViewById(R.id.edSName);

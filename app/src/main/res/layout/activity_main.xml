@@ -51,6 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/search_bar"
+        android:inputType="textShortMessage"
         android:background="@android:color/white"
         android:hint="Search..."
         android:textSize="68dp"
@@ -68,7 +69,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/addBtn"
-        android:text="Add player"
+        android:text="I want to add player"
         android:textSize="25dp"
         />
 
