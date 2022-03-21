@@ -9,6 +9,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.auth.api.signin.internal.Storage;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -58,7 +59,6 @@ public class PlayerDisplay extends AppCompatActivity
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Player player = snapshot.getValue(Player.class);
-
                 players.clear();
                 for(DataSnapshot playerSnapshot : snapshot.getChildren())
                 {
@@ -68,15 +68,36 @@ public class PlayerDisplay extends AppCompatActivity
                 }
 
 
-               for(int i = 0; i < players.size(); i++)
+                for(int i = 0; i < players.size(); i++)
                 {
 
-                    if (searchResults == players.get(i).getSName() || searchResults == players.get(i).getTitName() || searchResults == players.get(i).getFullName() )
+                    String age, num, ntlG, goal, asisst;
+
+                    if (searchResults.equals(players.get(i).getSName())  || searchResults.equals(players.get(i).getTitName()) || searchResults.equals(players.get(i).getFullName()) )
                     {
+                         age = String.valueOf(players.get(i).getAge());
+                         num = String.valueOf(players.get(i).getNum());
+                         ntlG = String.valueOf(players.get(i).getNtlGoals());
+                         goal = String.valueOf(players.get(i).getGoals());
+                         asisst = String.valueOf(players.get(i).getAsissts());
 
                         tvTitName.setText(players.get(i).getTitName());
                         tvFullName.setText(players.get(i).getFullName());
-
+                        tvBirthday.setText(players.get(i).getBirthday());
+                        tvAge.setText(age);
+                        tvHeight.setText(players.get(i).getHeight());
+                        tvPos.setText(players.get(i).getPos());
+                        tvTeam.setText(players.get(i).getCrTeam());
+                        tvNum.setText(num);
+                        tvNtlTeam.setText(players.get(i).getNltTeam());
+                        tvNtlGoals.setText(ntlG);
+                        tvGoals.setText(goal);
+                        tvAsissts.setText(asisst);
+                        tvFormerTeams.setText(players.get(i).getFormerTeams());
+                        tvInfo.setText(players.get(i).getBasicInfo());
+                        wikiUrl.setText(players.get(i).getWiki());
+                        instaUrl.setText(players.get(i).getInsta());
+                        //imageView.
 
                     }
 
@@ -85,10 +106,13 @@ public class PlayerDisplay extends AppCompatActivity
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+            public void onCancelled(@NonNull DatabaseError error)
+            {
                 Toast.makeText(PlayerDisplay.this, "error finding player", Toast.LENGTH_SHORT).show();
             }
         });
+
+
 
     }
 

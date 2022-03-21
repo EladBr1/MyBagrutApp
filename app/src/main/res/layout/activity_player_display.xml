@@ -95,7 +95,7 @@
                 <TextView
 
                     android:id="@+id/tvBirthDay"
-                    android:text="24 June 1987"
+                    android:text=""
                     android:textColor="@android:color/black"
                     android:textSize="20dp" />
 
@@ -196,7 +196,7 @@
 
                 <TextView
                     android:id="@+id/tvTeam"
-                    android:text="Paris Saint-Germain"
+                    android:text=""
                     android:textColor="@android:color/black"
                     android:layout_weight="5"
                     android:textSize="20dp" />
@@ -313,7 +313,7 @@
                 android:id="@+id/tvGoals"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="333"
+                android:text=""
                 android:textColor="@android:color/black"
                 android:textSize="25dp"
                 />
@@ -336,7 +336,7 @@
                 android:id="@+id/tvAsissts"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="100"
+                android:text=""
                 android:textColor="@android:color/black"
                 android:textSize="25dp"
                 />
@@ -375,7 +375,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/tvInfo"
             android:text=""
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:textColor="@android:color/black"
             />
 
@@ -387,31 +387,46 @@
             android:textColor="@android:color/black"
             android:textSize="25dp"
             />
+
         <TextView
+            android:id="@+id/wikiUrl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/wikiUrl"
             android:text=""
-            android:textColor="@android:color/black"
-            android:textSize="20dp"
-            />
+            android:textColor="#225AFF"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/copyWikiBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="COPY WIKIPEDIA LINK"
+            android:textSize="15dp"
+            android:background="@android:color/holo_blue_light"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Instagram link:"
             android:textStyle="bold"
-            android:textColor="@android:color/black"
             android:textSize="25dp"
+            android:textColor="@android:color/black"
             />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/instaUrl"
             android:text=""
-            android:textColor="@android:color/black"
+            android:textColor="#225AFF"
             android:textSize="20dp"
             />
+        <Button
+            android:id="@+id/copyInBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="COPY INSTAGRAM LINK"
+            android:textSize="15dp"
+            android:background="@android:color/holo_blue_light"/>
 
 
     </LinearLayout>

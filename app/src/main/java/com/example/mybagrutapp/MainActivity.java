@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if( searchBtn == v)
         {
 
-            if(searchBar == null)
+            if(searchBar.getText().toString().isEmpty())
             {
                 Toast.makeText(this, "You wrote nothing to look for", Toast.LENGTH_SHORT).show();
             }
