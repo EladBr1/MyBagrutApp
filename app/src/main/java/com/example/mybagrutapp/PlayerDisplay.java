@@ -1,7 +1,13 @@
 package com.example.mybagrutapp;
 
+import android.app.Dialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +29,7 @@ public class PlayerDisplay extends AppCompatActivity
     private TextView tvTitName, tvFullName, tvBirthday, tvAge, tvHeight, tvPos, tvTeam, tvNum, tvNtlTeam, tvNtlGoals,
             tvGoals, tvAsissts, tvFormerTeams, tvInfo, wikiUrl, instaUrl;
     private ImageView imageView;
+    private Button copyWiki, copyInsta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -67,7 +74,6 @@ public class PlayerDisplay extends AppCompatActivity
                     players.add(currentPlayer);
                 }
 
-
                 for(int i = 0; i < players.size(); i++)
                 {
 
@@ -101,6 +107,11 @@ public class PlayerDisplay extends AppCompatActivity
 
                     }
 
+                    if ( i == players.size() - 1 && !searchResults.equals(players.get(i).getSName())  || !searchResults.equals(players.get(i).getTitName()) || !searchResults.equals(players.get(i).getFullName()) )
+                    {
+
+                    }
+
                 }
 
             }
@@ -112,7 +123,35 @@ public class PlayerDisplay extends AppCompatActivity
             }
         });
 
+        copyWiki = findViewById(R.id.copyWikiBtn);
+        copyWiki.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
 
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("TextView", wikiUrl.getText().toString());
+                clipboard.setPrimaryClip(clip);
+
+                Toast.makeText(PlayerDisplay.this, "Link for Wikipedia copied",Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        copyInsta = findViewById(R.id.copyInBtn);
+        copyInsta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("TextView", instaUrl.getText().toString());
+                clipboard.setPrimaryClip(clip);
+
+                Toast.makeText(PlayerDisplay.this, "Link for Instagram copied",Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
     }
 

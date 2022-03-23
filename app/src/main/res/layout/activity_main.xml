@@ -43,7 +43,7 @@
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="insert the player name-"
+        android:text="Insert the player name-"
         android:textColor="@android:color/white"
         android:textSize="37dp" />
 
@@ -54,7 +54,7 @@
         android:inputType="textShortMessage"
         android:background="@android:color/white"
         android:hint="Search..."
-        android:textSize="68dp"
+        android:textSize="50dp"
         />
 
     <Button
