@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#9EDAE4">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name of the player not found"
+        android:textSize="29dp"
+        android:textColor="@android:color/holo_red_dark"
+        android:textStyle="bold"
+        android:layout_margin="10dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your search did not match to any player, try to use different name or change the some letters for lower letters to capital letters."
+        android:textSize="28dp"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="60dp"
+        android:layout_margin="10dp"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go back"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
+        android:textColor="@android:color/white"
+        android:background="@android:color/holo_red_dark"
+        android:textSize="20dp"
+        />
+
+
+
+</LinearLayout>

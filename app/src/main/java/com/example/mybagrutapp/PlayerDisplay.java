@@ -5,6 +5,7 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,12 +16,15 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.auth.api.signin.internal.Storage;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
@@ -29,7 +33,10 @@ public class PlayerDisplay extends AppCompatActivity
     private TextView tvTitName, tvFullName, tvBirthday, tvAge, tvHeight, tvPos, tvTeam, tvNum, tvNtlTeam, tvNtlGoals,
             tvGoals, tvAsissts, tvFormerTeams, tvInfo, wikiUrl, instaUrl;
     private ImageView imageView;
-    private Button copyWiki, copyInsta;
+    private Button copyWiki, copyInsta, btnDi;
+    private Dialog dialogNotF;
+    private FirebaseStorage storage;
+    private StorageReference storageReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -60,6 +67,9 @@ public class PlayerDisplay extends AppCompatActivity
 
         final ArrayList<Player> players = new ArrayList<>();
 
+        storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
+
         FirebaseDatabase database = FirebaseDatabase.getInstance("https://champions-league-legends-default-rtdb.firebaseio.com/");
         DatabaseReference myRef = database.getReference("players");
         myRef.addValueEventListener(new ValueEventListener() {
@@ -74,10 +84,11 @@ public class PlayerDisplay extends AppCompatActivity
                     players.add(currentPlayer);
                 }
 
+                String age, num, ntlG, goal, asisst;
+                boolean found = false;
+
                 for(int i = 0; i < players.size(); i++)
                 {
-
-                    String age, num, ntlG, goal, asisst;
 
                     if (searchResults.equals(players.get(i).getSName())  || searchResults.equals(players.get(i).getTitName()) || searchResults.equals(players.get(i).getFullName()) )
                     {
@@ -103,16 +114,20 @@ public class PlayerDisplay extends AppCompatActivity
                         tvInfo.setText(players.get(i).getBasicInfo());
                         wikiUrl.setText(players.get(i).getWiki());
                         instaUrl.setText(players.get(i).getInsta());
-                        //imageView.
-
-                    }
-
-                    if ( i == players.size() - 1 && !searchResults.equals(players.get(i).getSName())  || !searchResults.equals(players.get(i).getTitName()) || !searchResults.equals(players.get(i).getFullName()) )
-                    {
+                        setImage(players.get(i).getSName());
+                        found = true;
 
                     }
 
                 }
+
+                if ( found == false )
+                {
+
+                    creatLoginDialog();
+
+                }
+
 
             }
 
@@ -150,11 +165,46 @@ public class PlayerDisplay extends AppCompatActivity
 
                 Toast.makeText(PlayerDisplay.this, "Link for Instagram copied",Toast.LENGTH_SHORT).show();
 
+
             }
         });
 
+
     }
 
+    public void creatLoginDialog()
+    {
 
+        dialogNotF = new Dialog(this);
+        dialogNotF.setContentView(R.layout.layout_dialog);
+        dialogNotF.setCancelable(true);
+        btnDi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PlayerDisplay.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+        dialogNotF.show();
+
+    }
+
+    public void setImage( String n )
+    {
+        StorageReference pic = storageReference.child("images/" + n);
+
+        final long ONE_MEGABYTE = 1024 * 1024;
+        pic.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+            @Override
+            public void onSuccess(byte[] bytes) {
+                imageView.setImageBitmap(BitmapFactory.decodeByteArray(bytes, 0, bytes.length));
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+
+            }
+        });
+    }
 
 }
