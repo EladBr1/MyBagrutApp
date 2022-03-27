@@ -1,6 +1,7 @@
 package com.example.mybagrutapp;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -60,25 +61,71 @@ public class EditPlayer extends AppCompatActivity
                     players.add(currentPlayer);
                 }
 
-                String age, num, ntlG, goal, asisst;
-                boolean found = false;
 
-                for (int i = 0; i < players.size(); i++) {
+                    btnSearch.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
 
-                    if (edSearchB.equals(players.get(i).getSName()) || edSearchB.equals(players.get(i).getTitName()) || edSearchB.equals(players.get(i).getFullName())) {
-                        age = String.valueOf(players.get(i).getAge());
-                        num = String.valueOf(players.get(i).getNum());
-                        ntlG = String.valueOf(players.get(i).getNtlGoals());
-                        goal = String.valueOf(players.get(i).getGoals());
-                        asisst = String.valueOf(players.get(i).getAsissts());
+                            boolean found = false;
+                            for(int i = 0; i < players.size(); i++)
+                            {
+
+                                if (edSearchB.equals(players.get(i).getSName()) || edSearchB.equals(players.get(i).getTitName()) || edSearchB.equals(players.get(i).getFullName())) {
 
 
-                        found = true;
+                                    setAllTheNums(i);
+                                    buttons(i);
 
-                    }
 
-                }
+                                    found = true;
+
+                                }
+
+                            }
+
+                        }
+                    });
+
+
             }
+
+            public void buttons(int i)
+            {
+                minGBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        int num = players.get(i).getGoals();
+                        players.get(i).setGoals(num-1);
+                        tvNumOfGoals.setText(players.get(i).getGoals());
+                    }
+                });
+                plusGBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        int num = players.get(i).getGoals();
+                        players.get(i).setGoals(num+1);
+                        tvNumOfGoals.setText(players.get(i).getGoals());
+                    }
+                });
+            }
+
+            public void setAllTheNums(int i)
+            {
+                String age, num, ntlG, goal, asisst;
+                age = String.valueOf(players.get(i).getAge());
+                num = String.valueOf(players.get(i).getNum());
+                ntlG = String.valueOf(players.get(i).getNtlGoals());
+                goal = String.valueOf(players.get(i).getGoals());
+                asisst = String.valueOf(players.get(i).getAsissts());
+
+                tvName.setText(players.get(i).getTitName());
+                tvNumOfGoals.setText(goal);
+                tvNumOfAsisst.setText(asisst);
+                tvNumOfNgoals.setText(ntlG);
+                tvShirtNum.setText(num);
+                tvNewAge.setText(age);
+            }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error)
             {
@@ -87,4 +134,5 @@ public class EditPlayer extends AppCompatActivity
         });
 
     }
+
 }
