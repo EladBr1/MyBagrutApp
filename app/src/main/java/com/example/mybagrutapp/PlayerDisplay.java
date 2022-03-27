@@ -28,8 +28,7 @@ import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
-public class PlayerDisplay extends AppCompatActivity
-{
+public class PlayerDisplay extends AppCompatActivity implements View.OnClickListener {
     private TextView tvTitName, tvFullName, tvBirthday, tvAge, tvHeight, tvPos, tvTeam, tvNum, tvNtlTeam, tvNtlGoals,
             tvGoals, tvAsissts, tvFormerTeams, tvInfo, wikiUrl, instaUrl;
     private ImageView imageView;
@@ -123,9 +122,7 @@ public class PlayerDisplay extends AppCompatActivity
 
                 if ( found == false )
                 {
-
                     creatLoginDialog();
-
                 }
 
 
@@ -177,14 +174,9 @@ public class PlayerDisplay extends AppCompatActivity
 
         dialogNotF = new Dialog(this);
         dialogNotF.setContentView(R.layout.layout_dialog);
+        btnDi = dialogNotF.findViewById(R.id.btnDi);
         dialogNotF.setCancelable(true);
-        btnDi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(PlayerDisplay.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
+        btnDi.setOnClickListener(this);
         dialogNotF.show();
 
     }
@@ -207,4 +199,16 @@ public class PlayerDisplay extends AppCompatActivity
         });
     }
 
+
+    @Override
+    public void onClick(View view)
+    {
+        if (btnDi == view)
+        {
+            dialogNotF.dismiss();
+            Intent intent = new Intent(PlayerDisplay.this, MainActivity.class);
+            startActivity(intent);
+
+        }
+    }
 }
