@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".LoginForUser"
+            android:exported="false" />
+        <activity
             android:name=".EditPlayer"
             android:exported="false" />
         <activity

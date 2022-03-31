@@ -89,7 +89,7 @@ public class PlayerDisplay extends AppCompatActivity implements View.OnClickList
                 for(int i = 0; i < players.size(); i++)
                 {
 
-                    if (searchResults.equals(players.get(i).getSName())  || searchResults.equals(players.get(i).getTitName()) || searchResults.equals(players.get(i).getFullName()) )
+                    if (searchResults.toUpperCase().equals(players.get(i).getSName().toUpperCase())  || searchResults.toUpperCase().equals(players.get(i).getTitName().toUpperCase()) || searchResults.toUpperCase().equals(players.get(i).getFullName().toUpperCase()) )
                     {
                          age = String.valueOf(players.get(i).getAge());
                          num = String.valueOf(players.get(i).getNum());

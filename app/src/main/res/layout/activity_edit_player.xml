@@ -61,209 +61,216 @@
             android:textStyle="bold"
             android:layout_gravity="center"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Add/reduce a goal:"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
-            android:textSize="27dp"/>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:id="@+id/ln">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add/reduce a goal:"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:textSize="27dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/minGBtn"
+                    android:layout_width="72dp"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:textSize="50dp"
+                    android:textColor="@android:color/white"
+                    android:background="@android:color/black"
+                    />
+
+                <Button
+                    android:id="@+id/plusGBtn"
+                    android:layout_width="72dp"
+                    android:layout_height="wrap_content"
+                    android:text="+"
+                    android:textSize="50dp"
+                    android:textColor="@android:color/white"
+                    android:background="@android:color/black"
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvNumOfGoals"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="123"
+                android:textSize="30dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add/reduce an asisst:"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:textSize="27dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <Button
+                    android:id="@+id/minABtn"
+                    android:layout_width="72dp"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:textSize="50dp"
+                    android:textColor="@android:color/white"
+                    android:background="@android:color/black"
+                    />
+
+                <Button
+                    android:id="@+id/plusABtn"
+                    android:layout_width="72dp"
+                    android:layout_height="wrap_content"
+                    android:text="+"
+                    android:textSize="50dp"
+                    android:textColor="@android:color/white"
+                    android:background="@android:color/black"
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvNumOfAsisst"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="123"
+                android:textSize="30dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add/reduce a national goal:"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:textSize="27dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/minGnBtn"
+                    android:layout_width="72dp"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:textSize="50dp"
+                    android:textColor="@android:color/white"
+                    android:background="@android:color/black"
+                    />
+
+                <Button
+                    android:id="@+id/plusGnBtn"
+                    android:layout_width="72dp"
+                    android:layout_height="wrap_content"
+                    android:text="+"
+                    android:textSize="50dp"
+                    android:textColor="@android:color/white"
+                    android:background="@android:color/black"
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvNumOfNgoals"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="123"
+                android:textSize="30dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add/reduce the shirt number:"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:textSize="27dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/minNBtn"
+                    android:layout_width="72dp"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:textSize="50dp"
+                    android:textColor="@android:color/white"
+                    android:background="@android:color/black"
+                    />
+
+                <Button
+                    android:id="@+id/plusNBtn"
+                    android:layout_width="72dp"
+                    android:layout_height="wrap_content"
+                    android:text="+"
+                    android:textSize="50dp"
+                    android:textColor="@android:color/white"
+                    android:background="@android:color/black"
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvShirtNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10"
+                android:textSize="30dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Has the player grew older:"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:textSize="27dp"/>
 
             <Button
-                android:id="@+id/minGBtn"
-                android:layout_width="72dp"
+                android:id="@+id/ageBtn"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="-"
-                android:textSize="50dp"
+                android:text="Add a year"
+                android:textSize="30dp"
                 android:textColor="@android:color/white"
                 android:background="@android:color/black"
                 />
-
-            <Button
-                android:id="@+id/plusGBtn"
-                android:layout_width="72dp"
+            <TextView
+                android:id="@+id/tvNewAge"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="+"
-                android:textSize="50dp"
-                android:textColor="@android:color/white"
-                android:background="@android:color/black"
+                android:text="10"
+                android:textSize="30dp"
                 />
-
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/tvNumOfGoals"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="123"
-            android:textSize="30dp"
-            />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Add/reduce an asisst:"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
-            android:textSize="27dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-
-            <Button
-                android:id="@+id/minABtn"
-                android:layout_width="72dp"
-                android:layout_height="wrap_content"
-                android:text="-"
-                android:textSize="50dp"
-                android:textColor="@android:color/white"
-                android:background="@android:color/black"
-                />
-
-            <Button
-                android:id="@+id/plusABtn"
-                android:layout_width="72dp"
-                android:layout_height="wrap_content"
-                android:text="+"
-                android:textSize="50dp"
-                android:textColor="@android:color/white"
-                android:background="@android:color/black"
-                />
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/tvNumOfAsisst"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="123"
-            android:textSize="30dp"
-            />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Add/reduce a national goal:"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
-            android:textSize="27dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/minGnBtn"
-                android:layout_width="72dp"
-                android:layout_height="wrap_content"
-                android:text="-"
-                android:textSize="50dp"
-                android:textColor="@android:color/white"
-                android:background="@android:color/black"
-                />
-
-            <Button
-                android:id="@+id/plusGnBtn"
-                android:layout_width="72dp"
-                android:layout_height="wrap_content"
-                android:text="+"
-                android:textSize="50dp"
-                android:textColor="@android:color/white"
-                android:background="@android:color/black"
-                />
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/tvNumOfNgoals"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="123"
-            android:textSize="30dp"
-            />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Add/reduce the shirt number:"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
-            android:textSize="27dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/minNBtn"
-                android:layout_width="72dp"
-                android:layout_height="wrap_content"
-                android:text="-"
-                android:textSize="50dp"
-                android:textColor="@android:color/white"
-                android:background="@android:color/black"
-                />
-
-            <Button
-                android:id="@+id/plusNBtn"
-                android:layout_width="72dp"
-                android:layout_height="wrap_content"
-                android:text="+"
-                android:textSize="50dp"
-                android:textColor="@android:color/white"
-                android:background="@android:color/black"
-                />
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/tvShirtNum"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="10"
-            android:textSize="30dp"
-            />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Has the player grew older:"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
-            android:textSize="27dp"/>
 
         <Button
-            android:id="@+id/ageBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Add a year"
-            android:textSize="30dp"
-            android:textColor="@android:color/white"
-            android:background="@android:color/black"
-            />
-        <TextView
-            android:id="@+id/tvNewAge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="10"
-            android:textSize="30dp"
-            />
-
-        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/black"
-            android:text="SAVE"
+            android:text="DONE"
             android:textColor="@android:color/white"
             android:id="@+id/btnSaveChanges"
             android:textSize="20dp"

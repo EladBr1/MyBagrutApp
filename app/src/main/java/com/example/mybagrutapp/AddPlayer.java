@@ -123,11 +123,7 @@ public class AddPlayer extends AppCompatActivity implements View.OnClickListener
                                 // Error, Image not uploaded
                                 progressDialog.dismiss();
                                 e.printStackTrace();
-                                Toast
-                                        .makeText(AddPlayer.this,
-                                                "Failed " + e.getMessage(),
-                                                Toast.LENGTH_SHORT)
-                                        .show();
+                                Toast.makeText(AddPlayer.this, "Failed " + e.getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         })
                         .addOnProgressListener(

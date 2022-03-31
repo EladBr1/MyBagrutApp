@@ -22,6 +22,8 @@ public class Player
     private String insta;
     private String image;
 
+    private String key;
+
     public Player(String titName, String fullName, String sName, String birthday, int age,
                   String height, String pos, String crTeam, int num, String nltTeam, int goals, int asissts, int ntlGoals,
                   String formerTeams, String basicInfo, String wiki, String insta, String image )
@@ -191,5 +193,13 @@ public class Player
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 }
