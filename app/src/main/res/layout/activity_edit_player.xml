@@ -106,7 +106,7 @@
                 android:id="@+id/tvNumOfGoals"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="123"
+                android:text=""
                 android:textSize="30dp"
                 />
 
@@ -150,7 +150,7 @@
                 android:id="@+id/tvNumOfAsisst"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="123"
+                android:text=""
                 android:textSize="30dp"
                 />
 
@@ -193,7 +193,7 @@
                 android:id="@+id/tvNumOfNgoals"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="123"
+                android:text=""
                 android:textSize="30dp"
                 />
 
@@ -236,7 +236,7 @@
                 android:id="@+id/tvShirtNum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="10"
+                android:text=""
                 android:textSize="30dp"
                 />
 
@@ -261,7 +261,7 @@
                 android:id="@+id/tvNewAge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="10"
+                android:text=""
                 android:textSize="30dp"
                 />
         </LinearLayout>

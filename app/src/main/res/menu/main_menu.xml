@@ -16,16 +16,23 @@
         />
 
     <item
-        android:id="@+id/contact1"
+        android:id="@+id/contact"
         android:title="Something wrong? Contact us"
         android:orderInCategory="300"
         app:showAsAction="never"
         />
 
     <item
+        android:id="@+id/list"
+        android:title="Sorting Players"
+        android:orderInCategory="400"
+        app:showAsAction="never"
+        />
+
+    <item
         android:id="@+id/exit"
         android:title="Exit"
-        android:orderInCategory="400"
+        android:orderInCategory="500"
         app:showAsAction="never"
         />
 

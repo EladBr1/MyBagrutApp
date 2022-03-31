@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText searchBar;
     private Button searchBtn;
     private Button addBtn, editBtn;
+    private Button listBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -34,38 +35,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         addBtn.setOnClickListener(this);
         editBtn = findViewById(R.id.editBtn);
         editBtn.setOnClickListener(this);
+        listBtn = findViewById(R.id.listBtn);
+        listBtn.setOnClickListener(this);
 
     }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-
-        getMenuInflater().inflate(R.menu.main_menu, menu);
-
-        return true;
-
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        int id = item.getItemId();
-
-        if (id == R.id.login)
-        {
-            Intent intent = new Intent(this, LoginForUser.class);
-            startActivity(intent);
-            return true;
-        }
-
-
-
-        return true;
-
-    }
-
 
     @Override
     public void onClick( View v )
@@ -87,17 +60,71 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
 
-        if (addBtn == v)
+        else if (addBtn == v)
         {
             Intent intent = new Intent(this,AddPlayer.class);
             startActivity(intent);
         }
 
-        if (editBtn == v)
+        else if (editBtn == v)
         {
             Intent intent = new Intent(this,EditPlayer.class);
             startActivity(intent);
         }
+
+        else if (listBtn == v)
+        {
+            Intent intent = new Intent(this, Sort.class);
+            startActivity(intent);
+        }
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+
+        int id = item.getItemId();
+
+        if (id == R.id.home)
+        {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }
+
+        else if (id == R.id.login)
+        {
+            Intent intent = new Intent(this, LoginForUser.class);
+            startActivity(intent);
+        }
+
+        else if (id == R.id.contact)
+        {
+            //Intent intent = new Intent(this, ContactUs.class);
+            //startActivity(intent);
+        }
+
+        else if (id == R.id.list)
+        {
+            Intent intent = new Intent(this, Sort.class);
+            startActivity(intent);
+        }
+
+        else if (id == R.id.exit)
+        {
+            //exiting the app
+        }
+
+        return true;
 
     }
 
