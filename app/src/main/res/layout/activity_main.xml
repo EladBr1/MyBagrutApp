@@ -43,9 +43,9 @@
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Insert the player name-"
+        android:text="Search the player name-"
         android:textColor="@android:color/white"
-        android:textSize="37dp" />
+        android:textSize="30dp" />
 
     <EditText
         android:layout_width="match_parent"

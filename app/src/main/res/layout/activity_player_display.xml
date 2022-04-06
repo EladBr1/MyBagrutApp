@@ -402,7 +402,8 @@
             android:layout_height="wrap_content"
             android:text="COPY WIKIPEDIA LINK"
             android:textSize="15dp"
-            android:background="@android:color/holo_blue_light"/>
+            android:background="@drawable/cool_button"
+            android:textColor="@android:color/white"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -426,7 +427,8 @@
             android:layout_height="wrap_content"
             android:text="COPY INSTAGRAM LINK"
             android:textSize="15dp"
-            android:background="@android:color/holo_blue_light"/>
+            android:background="@drawable/cool_button"
+            android:textColor="@android:color/white"/>
 
 
     </LinearLayout>

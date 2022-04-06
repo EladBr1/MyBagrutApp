@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/optback2"
+    android:orientation="vertical"
     tools:context=".LoginForUser">
 
     <TextView
@@ -14,8 +15,83 @@
         android:text="LOGIN"
         android:textColor="@android:color/black"
         android:textSize="30dp"
-        android:textStyle= "bold|italic"/>
+        android:textStyle= "bold|italic"
+        android:paddingBottom="50dp"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp">
 
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/username_icon"/>
+        <EditText
+            android:background="@android:color/white"
+            android:id="@+id/edUserN"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Username"
+            android:textStyle="bold"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="15dp">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/icon_password"/>
+        <EditText
+            android:background="@android:color/white"
+            android:id="@+id/edPass"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Password"
+            android:textStyle="bold"
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:id="@+id/submitBtn"
+        android:background="@drawable/cool_button"
+        android:layout_gravity="center"
+        android:text="login"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="If your organization does'nt have an account- tap to "
+            android:textStyle="bold"
+            android:textSize="12dp"/>
+
+        <Button
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:text="Reginster."
+            android:textSize="12dp"
+            android:background=""
+            android:textColor="#2484E4"
+            android:id="@+id/reginBtn"/>
+
+    </LinearLayout>
 
 </LinearLayout>

@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/ASEB/MyBagrutApp/app/src/main/res/drawable/cool_button.xml" value="0.284" />
+        <entry key="..\:/ASEB/MyBagrutApp/app/src/main/res/drawable/login_button.xml" value="0.284" />
         <entry key="..\:/ASEB/MyBagrutApp/app/src/main/res/drawable/radio_normal.xml" value="0.284" />
         <entry key="..\:/ASEB/MyBagrutApp/app/src/main/res/drawable/radio_selected.xml" value="0.284" />
         <entry key="..\:/ASEB/MyBagrutApp/app/src/main/res/drawable/radio_selector.xml" value="0.284" />

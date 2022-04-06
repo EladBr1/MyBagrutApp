@@ -320,7 +320,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/black"
+            android:background="#2484E4"
             android:text="SAVE"
             android:textColor="@android:color/white"
             android:id="@+id/savePlayer"
