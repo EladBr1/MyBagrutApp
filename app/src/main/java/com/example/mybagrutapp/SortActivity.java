@@ -2,10 +2,14 @@ package com.example.mybagrutapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
-public class Sort extends AppCompatActivity
-{
+public class SortActivity extends AppCompatActivity {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -16,4 +20,7 @@ public class Sort extends AppCompatActivity
 
 
     }
+
+
+
 }

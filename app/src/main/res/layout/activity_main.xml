@@ -73,21 +73,6 @@
         android:textSize="25dp"
         />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/addBtn"
-        android:text="I want to add player"
-        android:textSize="25dp"
-        />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editBtn"
-        android:text="I want to edit player"
-        android:textSize="25dp"
-        />
 
 
 </LinearLayout>

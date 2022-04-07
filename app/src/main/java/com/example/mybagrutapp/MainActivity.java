@@ -18,7 +18,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private EditText searchBar;
     private Button searchBtn;
-    private Button addBtn, editBtn;
     private Button listBtn;
 
     @Override
@@ -29,12 +28,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         searchBtn = findViewById(R.id.search_button);
-        addBtn = findViewById(R.id.addBtn);
         searchBar = findViewById(R.id.search_bar);
         searchBtn.setOnClickListener(this);
-        addBtn.setOnClickListener(this);
-        editBtn = findViewById(R.id.editBtn);
-        editBtn.setOnClickListener(this);
         listBtn = findViewById(R.id.listBtn);
         listBtn.setOnClickListener(this);
 
@@ -60,21 +55,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
 
-        else if (addBtn == v)
-        {
-            Intent intent = new Intent(this,AddPlayer.class);
-            startActivity(intent);
-        }
-
-        else if (editBtn == v)
-        {
-            Intent intent = new Intent(this,EditPlayer.class);
-            startActivity(intent);
-        }
-
         else if (listBtn == v)
         {
-            Intent intent = new Intent(this, Sort.class);
+            Intent intent = new Intent(this, SortActivity.class);
             startActivity(intent);
         }
 
@@ -103,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         else if (id == R.id.login)
         {
-            Intent intent = new Intent(this, LoginForUser.class);
+            Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
         }
 
@@ -115,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         else if (id == R.id.list)
         {
-            Intent intent = new Intent(this, Sort.class);
+            Intent intent = new Intent(this, SortActivity.class);
             startActivity(intent);
         }
 

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/optback2"
     android:orientation="vertical"
-    tools:context=".LoginForUser">
+    tools:context=".LoginActivity">
 
     <TextView
         android:layout_width="match_parent"
@@ -69,7 +69,17 @@
         android:text="login"
         android:textColor="@android:color/white"
         android:textStyle="bold"
+        android:onClick="login"
         />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/tvError"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:textColor="#AA0000" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -88,9 +98,10 @@
             android:layout_height="wrap_content"
             android:text="Reginster."
             android:textSize="12dp"
-            android:background=""
+            android:background="@android:color/transparent"
             android:textColor="#2484E4"
-            android:id="@+id/reginBtn"/>
+            android:id="@+id/reginBtn"
+            android:onClick="reginster"/>
 
     </LinearLayout>
 

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvWelcome"
+        android:text=""
+        android:textSize="40dp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold|italic"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select the desired action:"
+        android:textSize="30dp"
+        android:textColor="@android:color/black"
+        android:paddingBottom="45dp"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/addBtn"
+        android:text="add player"
+        android:textSize="25dp"
+        android:background="@drawable/cool_button"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:layout_margin="15dp"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editBtn"
+        android:text="edit player"
+        android:textSize="25dp"
+        android:background="@drawable/cool_button"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:layout_margin="15dp"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/logoutBtn"
+        android:text="log out"
+        android:textSize="25dp"
+        android:background="@android:color/black"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:layout_margin="15dp"
+        />
+
+</LinearLayout>

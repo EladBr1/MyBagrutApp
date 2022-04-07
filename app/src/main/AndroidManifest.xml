@@ -10,10 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".UserActivity"
+            android:exported="false" />
+        <activity
             android:name=".Sort"
             android:exported="false" />
         <activity
-            android:name=".LoginForUser"
+            android:name=".LoginActivity"
             android:exported="false" />
         <activity
             android:name=".EditPlayer"
