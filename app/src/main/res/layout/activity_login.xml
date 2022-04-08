@@ -33,7 +33,7 @@
             android:id="@+id/edUserN"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="Username"
+            android:hint="username"
             android:textStyle="bold"
             />
 
@@ -54,7 +54,7 @@
             android:id="@+id/edPass"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="Password"
+            android:hint="password"
             android:textStyle="bold"
             />
 
@@ -63,13 +63,12 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="35dp"
-        android:id="@+id/submitBtn"
         android:background="@drawable/cool_button"
         android:layout_gravity="center"
         android:text="login"
         android:textColor="@android:color/white"
         android:textStyle="bold"
-        android:onClick="login"
+        android:id="@+id/loginBtn"
         />
 
     <TextView
@@ -100,8 +99,7 @@
             android:textSize="12dp"
             android:background="@android:color/transparent"
             android:textColor="#2484E4"
-            android:id="@+id/reginBtn"
-            android:onClick="reginster"/>
+            android:id="@+id/rginBtn"/>
 
     </LinearLayout>
 

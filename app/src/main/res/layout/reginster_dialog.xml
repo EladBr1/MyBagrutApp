@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registration"
+        android:gravity="center"
+        android:textColor="#0EB5CC"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:paddingBottom="20dp"
+        />
+
+    <EditText
+        android:background="@drawable/cool_ed"
+        android:id="@+id/edNewUser"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:hint="  username (organization E-mail)"
+        android:textStyle="bold"
+        android:elevation="10dp"
+        />
+
+    <EditText
+        android:background="@drawable/cool_ed"
+        android:id="@+id/edNewPass"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:hint="  password"
+        android:textStyle="bold"
+        android:elevation="10dp"
+        />
+
+    <EditText
+        android:background="@drawable/cool_ed"
+        android:id="@+id/edRepeatPass"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:hint="  repeat password"
+        android:textStyle="bold"
+        android:elevation="10dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:id="@+id/tvFalsePass"
+        android:textSize="15dp"
+        android:textColor="#D0FF2B2B"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="30dp"
+        android:background="@drawable/cool_button"
+        android:layout_gravity="center"
+        android:text="Sign up"
+        android:textColor="@android:color/white"
+        android:id="@+id/signUpBtn"
+        android:textSize="25dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/lnCode">
+
+        <EditText
+            android:background="@drawable/cool_ed"
+            android:id="@+id/edCode"
+            android:layout_width="220dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:hint="  reginster code"
+            android:textStyle="bold"
+            android:elevation="10dp"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:background="@drawable/cool_button"
+            android:layout_gravity="center"
+            android:text="Submit"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:id="@+id/submitCodeBtn"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

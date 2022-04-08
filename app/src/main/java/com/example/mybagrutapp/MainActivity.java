@@ -17,7 +17,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 {
 
     private EditText searchBar;
-    private Button searchBtn;
     private Button listBtn;
 
     @Override
@@ -27,9 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        searchBtn = findViewById(R.id.search_button);
         searchBar = findViewById(R.id.search_bar);
-        searchBtn.setOnClickListener(this);
         listBtn = findViewById(R.id.listBtn);
         listBtn.setOnClickListener(this);
 
@@ -39,23 +36,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick( View v )
     {
 
-        if( searchBtn == v)
-        {
 
-            if(searchBar.getText().toString().isEmpty())
-            {
-                Toast.makeText(this, "You wrote nothing to look for", Toast.LENGTH_SHORT).show();
-            }
-            else
-            {
-                Intent intent = new Intent(this,PlayerDisplay.class);
-                intent.putExtra( "searchResults", searchBar.getText().toString() );
-                startActivity(intent);
 
-            }
-        }
-
-        else if (listBtn == v)
+        if (listBtn == v)
         {
             Intent intent = new Intent(this, SortActivity.class);
             startActivity(intent);
@@ -111,4 +94,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    public void search(View view)
+    {
+        if(searchBar.getText().toString().isEmpty())
+        {
+            Toast.makeText(this, "You wrote nothing to look for", Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            Intent intent = new Intent(this,PlayerDisplay.class);
+            intent.putExtra( "searchResults", searchBar.getText().toString() );
+            startActivity(intent);
+
+        }
+    }
 }

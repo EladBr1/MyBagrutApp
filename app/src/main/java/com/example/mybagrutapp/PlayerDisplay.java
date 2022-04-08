@@ -122,7 +122,7 @@ public class PlayerDisplay extends AppCompatActivity implements View.OnClickList
 
                 if ( found == false )
                 {
-                    creatLoginDialog();
+                    createErrorDialog();
                 }
 
 
@@ -169,7 +169,7 @@ public class PlayerDisplay extends AppCompatActivity implements View.OnClickList
 
     }
 
-    public void creatLoginDialog()
+    public void createErrorDialog()
     {
 
         dialogNotF = new Dialog(this);
