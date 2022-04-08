@@ -98,39 +98,41 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         singUp.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
-                if ( newPassword.getText().toString().equals(rePassword.getText().toString()) )
-                {
+            public void onClick(View view) {
+                if (newPassword.getText().toString().equals(rePassword.getText().toString())) {
                     codeLayout.setVisibility(View.VISIBLE);
-                    if (view == submitCode && code.getText().toString().equals("20047723"))
-                    {
-                        mAuth.createUserWithEmailAndPassword(newUsername.getText().toString(), newPassword.getText().toString())
-                                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<AuthResult> task) {
-                                        if (task.isSuccessful())
-                                        {
-                                            reginDialog.dismiss();
-                                        }
-                                        else
-                                            Toast.makeText(LoginActivity.this, "reginster failed", Toast.LENGTH_SHORT).show();
-                                    }
-                                });
-                        reginDialog.dismiss();
-                    }
-                    else
-                    {
-                        reginDialog.dismiss();
-                        Toast.makeText(LoginActivity.this, "wrong code", Toast.LENGTH_SHORT).show();
-                    }
-
+                    submitCode.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            if (code.getText().toString().equals("20047723"))
+                            {
+                                mAuth.createUserWithEmailAndPassword(newUsername.getText().toString(), newPassword.getText().toString())
+                                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                                if (task.isSuccessful()) {
+                                                    reginDialog.dismiss();
+                                                    Toast.makeText(LoginActivity.this, "Registration successful", Toast.LENGTH_SHORT).show();
+                                                } else
+                                                    Toast.makeText(LoginActivity.this, "reginster failed", Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
+                            }
+                            else
+                            {
+                                reginDialog.dismiss();
+                                Toast.makeText(LoginActivity.this, "wrong code", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
 
                 }
                 else
-                    errorText.setText("*the repeated password is different");
+                    errorText.setText("*the repeted password is dfferent");
             }
+
         });
+        reginDialog.show();
 
     }
 

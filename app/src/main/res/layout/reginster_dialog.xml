@@ -25,6 +25,7 @@
         android:layout_height="50dp"
         android:layout_margin="10dp"
         android:hint="  username (organization E-mail)"
+        android:textSize="15dp"
         android:textStyle="bold"
         android:elevation="10dp"
         />
@@ -36,8 +37,10 @@
         android:layout_height="50dp"
         android:layout_margin="10dp"
         android:hint="  password"
+        android:textSize="15dp"
         android:textStyle="bold"
         android:elevation="10dp"
+        android:inputType="textPassword"
         />
 
     <EditText
@@ -47,8 +50,10 @@
         android:layout_height="50dp"
         android:layout_margin="10dp"
         android:hint="  repeat password"
+        android:textSize="15dp"
         android:textStyle="bold"
         android:elevation="10dp"
+        android:inputType="textPassword"
         />
 
     <TextView
@@ -81,12 +86,13 @@
         <EditText
             android:background="@drawable/cool_ed"
             android:id="@+id/edCode"
-            android:layout_width="220dp"
+            android:layout_width="150dp"
             android:layout_height="50dp"
             android:layout_margin="10dp"
             android:hint="  reginster code"
             android:textStyle="bold"
             android:elevation="10dp"
+            android:inputType="textPassword"
             />
 
         <Button
