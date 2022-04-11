@@ -26,6 +26,7 @@
             android:layout_width="300dp"
             android:layout_height="400dp"
             android:layout_gravity="center"
+            android:src="@drawable/image_loading"
             android:id="@+id/pic"
             />
 

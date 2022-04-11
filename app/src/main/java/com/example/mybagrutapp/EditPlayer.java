@@ -43,7 +43,7 @@ public class EditPlayer extends AppCompatActivity {
         plusNBtn = findViewById(R.id.plusNBtn);
         ageBtn = findViewById(R.id.ageBtn);
         saveBtn = findViewById(R.id.btnSaveChanges);
-        tvName = findViewById(R.id.tvName);
+        tvName = findViewById(R.id.tvPlName);
         btnSearch = findViewById(R.id.btnSearch);
         tvNumOfGoals = findViewById(R.id.tvNumOfGoals);
         tvNumOfAsisst = findViewById(R.id.tvNumOfAsisst);
@@ -125,7 +125,7 @@ public class EditPlayer extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         int num = players.get(i).getAsissts();
-                        myRef.child(players.get(i).getKey()).child("asisst").setValue(num-1);
+                        myRef.child(players.get(i).getKey()).child("asissts").setValue(num-1);
                         String str = String.valueOf(num-1);
                         tvNumOfAsisst.setText(str);
                     }
@@ -135,7 +135,7 @@ public class EditPlayer extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         int num = players.get(i).getAsissts();
-                        myRef.child(players.get(i).getKey()).child("asisst").setValue(num+1);
+                        myRef.child(players.get(i).getKey()).child("asissts").setValue(num+1);
                         String str = String.valueOf(num+1);
                         tvNumOfAsisst.setText(str);
                     }

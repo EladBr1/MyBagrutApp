@@ -13,11 +13,11 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener
+public class MainActivity extends AppCompatActivity
 {
 
     private EditText searchBar;
-    private Button listBtn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -27,24 +27,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         searchBar = findViewById(R.id.search_bar);
-        listBtn = findViewById(R.id.listBtn);
-        listBtn.setOnClickListener(this);
 
     }
 
-    @Override
-    public void onClick( View v )
-    {
 
-
-
-        if (listBtn == v)
-        {
-            Intent intent = new Intent(this, SortActivity.class);
-            startActivity(intent);
-        }
-
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
@@ -108,4 +94,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
     }
+
+    public void sortActivity(View view)
+    {
+
+        Intent intent = new Intent(this,SortActivity.class);
+        startActivity(intent);
+
+    }
+
 }
