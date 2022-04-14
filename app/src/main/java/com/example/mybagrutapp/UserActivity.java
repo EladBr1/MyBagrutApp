@@ -50,6 +50,7 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
             FirebaseAuth.getInstance().signOut();
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
+            finish();
         }
 
     }

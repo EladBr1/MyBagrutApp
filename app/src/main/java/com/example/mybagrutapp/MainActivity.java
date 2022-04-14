@@ -74,6 +74,9 @@ public class MainActivity extends AppCompatActivity
         else if (id == R.id.exit)
         {
             //exiting the app
+            moveTaskToBack(true);
+            android.os.Process.killProcess(android.os.Process.myPid());
+            System.exit(1);
         }
 
         return true;

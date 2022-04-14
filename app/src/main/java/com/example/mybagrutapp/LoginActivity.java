@@ -17,14 +17,14 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+public class LoginActivity extends AppCompatActivity {
 
     private EditText username, password;
     private TextView error;
     private FirebaseAuth mAuth;
     private Dialog reginDialog;
-    private Button login, reginster;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -35,49 +35,52 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         username = findViewById(R.id.edUserN);
         password = findViewById(R.id.edPass);
         error = findViewById(R.id.tvError);
-        login = findViewById(R.id.loginBtn);
-        reginster = findViewById(R.id.rginBtn);
-        login.setOnClickListener(this);
-        reginster.setOnClickListener(this);
 
         mAuth = FirebaseAuth.getInstance();
 
     }
 
-
     @Override
-    public void onClick(View view)
+    public void onStart()
     {
-        if (login == view)
-        {
-            if (username.getText().toString().isEmpty() || password.getText().toString().isEmpty())
-            {
-                Toast.makeText(LoginActivity.this, "Username or password is not inserted", Toast.LENGTH_SHORT).show();
-            }
-            else
-            {
-                mAuth.signInWithEmailAndPassword(username.getText().toString(), password.getText().toString())
-                        .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful())
-                                {
-                                    Intent intent = new Intent(LoginActivity.this,UserActivity.class);
-                                    startActivity(intent);
-                                }
-                                else
-                                {
-                                    error.setText("Wrong username or password :(");
-                                }
-                            }
-                        });
-            }
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null) {
+            Intent intent = new Intent(LoginActivity.this, UserActivity.class);
+            startActivity(intent);
         }
+    }
 
-        if (reginster == view)
+    public void login(View view)
+    {
+        if (username.getText().toString().isEmpty() || password.getText().toString().isEmpty())
         {
-           openDialog();
+            Toast.makeText(LoginActivity.this, "Username or password is not inserted", Toast.LENGTH_SHORT).show();
         }
+        else
+        {
+            mAuth.signInWithEmailAndPassword(username.getText().toString(), password.getText().toString())
+                    .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful())
+                            {
+                                Intent intent = new Intent(LoginActivity.this,UserActivity.class);
+                                startActivity(intent);
+                            }
+                            else
+                            {
+                                error.setText("Wrong username or password :(");
+                            }
+                        }
+                    });
+        }
+    }
+
+    public void reginster(View view)
+    {
+        openDialog();
     }
 
     public void openDialog()
@@ -136,4 +139,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     }
 
+
 }
+
