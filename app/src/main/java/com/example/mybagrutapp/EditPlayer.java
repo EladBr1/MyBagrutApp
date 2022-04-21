@@ -32,26 +32,9 @@ public class EditPlayer extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_player);
 
-        edSearchB = findViewById(R.id.edSearchBar);
-        minABtn = findViewById(R.id.minABtn);
-        plusABtn = findViewById(R.id.plusABtn);
-        minGBtn = findViewById(R.id.minGBtn);
-        plusGBtn = findViewById(R.id.plusGBtn);
-        minGnBtn = findViewById(R.id.minGnBtn);
-        plusGnBtn = findViewById(R.id.plusGnBtn);
-        minNBtn = findViewById(R.id.minNBtn);
-        plusNBtn = findViewById(R.id.plusNBtn);
-        ageBtn = findViewById(R.id.ageBtn);
-        saveBtn = findViewById(R.id.btnSaveChanges);
-        tvName = findViewById(R.id.tvPlName);
-        btnSearch = findViewById(R.id.btnSearch);
-        tvNumOfGoals = findViewById(R.id.tvNumOfGoals);
-        tvNumOfAsisst = findViewById(R.id.tvNumOfAsisst);
-        tvNumOfNgoals = findViewById(R.id.tvNumOfNgoals);
-        tvShirtNum = findViewById(R.id.tvShirtNum);
-        tvNewAge = findViewById(R.id.tvNewAge);
-        editLayout = (LinearLayout) (findViewById(R.id.ln));
-        editLayout.setVisibility(View.INVISIBLE);
+        initViews();
+
+
 
         final ArrayList<Player> players = new ArrayList<>();
 
@@ -97,6 +80,11 @@ public class EditPlayer extends AppCompatActivity {
                 });
 
 
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(EditPlayer.this, "error finding player", Toast.LENGTH_SHORT).show();
             }
 
             public void buttons(int i) {
@@ -219,12 +207,33 @@ public class EditPlayer extends AppCompatActivity {
                 tvNewAge.setText(age);
             }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(EditPlayer.this, "error finding player", Toast.LENGTH_SHORT).show();
-            }
+
         });
 
+    }
+
+    private void initViews()
+    {
+        edSearchB = findViewById(R.id.edSearchBar);
+        minABtn = findViewById(R.id.minABtn);
+        plusABtn = findViewById(R.id.plusABtn);
+        minGBtn = findViewById(R.id.minGBtn);
+        plusGBtn = findViewById(R.id.plusGBtn);
+        minGnBtn = findViewById(R.id.minGnBtn);
+        plusGnBtn = findViewById(R.id.plusGnBtn);
+        minNBtn = findViewById(R.id.minNBtn);
+        plusNBtn = findViewById(R.id.plusNBtn);
+        ageBtn = findViewById(R.id.ageBtn);
+        saveBtn = findViewById(R.id.btnSaveChanges);
+        tvName = findViewById(R.id.tvPlName);
+        btnSearch = findViewById(R.id.btnSearch);
+        tvNumOfGoals = findViewById(R.id.tvNumOfGoals);
+        tvNumOfAsisst = findViewById(R.id.tvNumOfAsisst);
+        tvNumOfNgoals = findViewById(R.id.tvNumOfNgoals);
+        tvShirtNum = findViewById(R.id.tvShirtNum);
+        tvNewAge = findViewById(R.id.tvNewAge);
+        editLayout = (LinearLayout) (findViewById(R.id.ln));
+        editLayout.setVisibility(View.INVISIBLE);
     }
 
 }

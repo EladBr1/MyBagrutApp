@@ -3,7 +3,6 @@ package com.example.mybagrutapp;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,35 +10,39 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.PlayerViewHolder>
+public class PlayerAdapterNtl extends RecyclerView.Adapter<PlayerAdapterNtl.PlayerViewHolder>
 {
+
     private ArrayList<Player> players;
 
-    public PlayerAdapter(ArrayList<Player> players) {
+    public PlayerAdapterNtl(ArrayList<Player> players) {
         this.players = players;
     }
 
     @NonNull
     @Override
-    public PlayerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public PlayerAdapterNtl.PlayerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View playerView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.recycleritem_player,parent,false);
 
-        return new PlayerViewHolder(playerView);
+        return new PlayerAdapterNtl.PlayerViewHolder(playerView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PlayerViewHolder holder, int position)
+    public void onBindViewHolder(@NonNull PlayerAdapterNtl.PlayerViewHolder holder, int position)
     {
         Player currentPlayer = players.get(position);
+
+        String goals = String.valueOf(currentPlayer.getNtlGoals());
+
         holder.name.setText(currentPlayer.getTitName());
         holder.team.setText(currentPlayer.getNltTeam());
-        holder.num.setText(currentPlayer.getGoals());
+        holder.num.setText(goals);
     }
 
     @Override
     public int getItemCount() {
-        return 4;
+        return players.size();
     }
 
     public static class PlayerViewHolder extends RecyclerView.ViewHolder

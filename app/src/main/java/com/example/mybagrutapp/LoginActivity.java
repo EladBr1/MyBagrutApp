@@ -56,26 +56,31 @@ public class LoginActivity extends AppCompatActivity {
     {
         if (username.getText().toString().isEmpty() || password.getText().toString().isEmpty())
         {
-            Toast.makeText(LoginActivity.this, "Username or password is not inserted", Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this, "Username or password are not inserted", Toast.LENGTH_SHORT).show();
         }
         else
         {
-            mAuth.signInWithEmailAndPassword(username.getText().toString(), password.getText().toString())
-                    .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful())
-                            {
-                                Intent intent = new Intent(LoginActivity.this,UserActivity.class);
-                                startActivity(intent);
-                            }
-                            else
-                            {
-                                error.setText("Wrong username or password :(");
-                            }
-                        }
-                    });
+            signingIn(username.getText().toString(), password.getText().toString());
         }
+    }
+
+    public void signingIn(String username, String password)
+    {
+        mAuth.signInWithEmailAndPassword(username,password)
+                .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful())
+                        {
+                            Intent intent = new Intent(LoginActivity.this,UserActivity.class);
+                            startActivity(intent);
+                        }
+                        else
+                        {
+                            error.setText("Wrong username or password :(");
+                        }
+                    }
+                });
     }
 
     public void reginster(View view)
@@ -109,17 +114,7 @@ public class LoginActivity extends AppCompatActivity {
                         public void onClick(View view) {
                             if (code.getText().toString().equals("20047723"))
                             {
-                                mAuth.createUserWithEmailAndPassword(newUsername.getText().toString(), newPassword.getText().toString())
-                                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                                            @Override
-                                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                                if (task.isSuccessful()) {
-                                                    reginDialog.dismiss();
-                                                    Toast.makeText(LoginActivity.this, "Registration successful", Toast.LENGTH_SHORT).show();
-                                                } else
-                                                    Toast.makeText(LoginActivity.this, "reginster failed", Toast.LENGTH_SHORT).show();
-                                            }
-                                        });
+                                registration(newUsername.getText().toString(),newPassword.getText().toString());
                             }
                             else
                             {
@@ -131,14 +126,27 @@ public class LoginActivity extends AppCompatActivity {
 
                 }
                 else
-                    errorText.setText("*the repeted password is dfferent");
+                    errorText.setText("*the repeated password is different");
             }
 
         });
         reginDialog.show();
-
     }
 
+    public void registration(String username, String password)
+    {
+        mAuth.createUserWithEmailAndPassword(username, password)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            reginDialog.dismiss();
+                            Toast.makeText(LoginActivity.this, "Registration successful", Toast.LENGTH_SHORT).show();
+                        } else
+                            Toast.makeText(LoginActivity.this, "reginster failed", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
 
 }
 

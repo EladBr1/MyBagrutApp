@@ -303,8 +303,8 @@
             android:background="@android:color/black"
             android:text="UPLOAD IMAGE"
             android:textColor="@android:color/white"
-            android:id="@+id/uploadBtn"
             android:textSize="20dp"
+            android:onClick="upload"
             />
 
         <ImageView
@@ -323,7 +323,7 @@
             android:background="#2484E4"
             android:text="SAVE"
             android:textColor="@android:color/white"
-            android:id="@+id/savePlayer"
+            android:onClick="save"
             android:textSize="20dp"
             android:textStyle="bold"/>
 

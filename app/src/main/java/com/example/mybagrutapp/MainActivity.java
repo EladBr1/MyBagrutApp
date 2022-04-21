@@ -30,7 +30,26 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    public void search(View view)
+    {
+        if(searchBar.getText().toString().isEmpty())
+            Toast.makeText(this, "You wrote nothing to look for", Toast.LENGTH_SHORT).show();
 
+        else
+        {
+            Intent intent = new Intent(this,PlayerDisplay.class);
+            intent.putExtra( "searchResults", searchBar.getText().toString() );
+            startActivity(intent);
+        }
+    }
+
+    public void sortActivity(View view)
+    {
+
+        Intent intent = new Intent(this,SortActivity.class);
+        startActivity(intent);
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
@@ -83,27 +102,6 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    public void search(View view)
-    {
-        if(searchBar.getText().toString().isEmpty())
-        {
-            Toast.makeText(this, "You wrote nothing to look for", Toast.LENGTH_SHORT).show();
-        }
-        else
-        {
-            Intent intent = new Intent(this,PlayerDisplay.class);
-            intent.putExtra( "searchResults", searchBar.getText().toString() );
-            startActivity(intent);
 
-        }
-    }
-
-    public void sortActivity(View view)
-    {
-
-        Intent intent = new Intent(this,SortActivity.class);
-        startActivity(intent);
-
-    }
 
 }
