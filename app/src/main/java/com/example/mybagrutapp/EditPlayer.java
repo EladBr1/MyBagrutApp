@@ -20,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class EditPlayer extends AppCompatActivity {
+public class EditPlayer extends OptionsMenuActivity {
 
     private EditText edSearchB;
     private Button minGBtn, plusGBtn, minABtn, plusABtn, minGnBtn, plusGnBtn, plusNBtn, minNBtn, ageBtn, saveBtn, btnSearch;

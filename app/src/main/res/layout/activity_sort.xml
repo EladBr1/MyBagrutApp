@@ -94,11 +94,28 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/lrLoader"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Tap on the sorting type"
+                android:textSize="30dp"
+                android:textColor="#82868A"
+                android:id="@+id/tvLoader"/>
+
+        </LinearLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview_sort"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-
 
     </LinearLayout>
 

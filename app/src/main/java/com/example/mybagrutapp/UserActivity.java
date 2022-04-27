@@ -9,7 +9,7 @@ import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class UserActivity extends AppCompatActivity implements View.OnClickListener {
+public class UserActivity extends OptionsMenuActivity implements View.OnClickListener {
 
     private Button addBtn, editBtn, logOut;
 

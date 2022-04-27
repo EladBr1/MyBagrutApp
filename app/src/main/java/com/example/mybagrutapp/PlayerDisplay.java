@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -28,7 +29,7 @@ import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
-public class PlayerDisplay extends AppCompatActivity implements View.OnClickListener {
+public class PlayerDisplay extends OptionsMenuActivity implements View.OnClickListener {
     private TextView tvTitName, tvFullName, tvBirthday, tvAge, tvHeight, tvPos, tvTeam, tvNum, tvNtlTeam, tvNtlGoals,
             tvGoals, tvAsissts, tvFormerTeams, tvInfo, wikiUrl, instaUrl;
     private ImageView imageView;
@@ -226,5 +227,6 @@ public class PlayerDisplay extends AppCompatActivity implements View.OnClickList
         wikiUrl = findViewById(R.id.wikiUrl);
         instaUrl = findViewById(R.id.instaUrl);
     }
+
 
 }

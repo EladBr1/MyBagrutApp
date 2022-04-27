@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -17,11 +19,16 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
-public class SortActivity extends AppCompatActivity
+public class SortActivity extends OptionsMenuActivity
 {
 
     Button goalsBtn, asisstBtn, ntlBtn, ageBtn;
+    TextView loader;
+    LinearLayout linearLayoutLoader;
+    Timer timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -41,6 +48,8 @@ public class SortActivity extends AppCompatActivity
         goalsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                dissmisAndSet();
+
                 Query myQuery = database.getReference("players").orderByChild("goals");
                 myQuery.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -72,6 +81,8 @@ public class SortActivity extends AppCompatActivity
         asisstBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                dissmisAndSet();
+
                 Query myQuery = database.getReference("players").orderByChild("asissts");
                 myQuery.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -103,6 +114,8 @@ public class SortActivity extends AppCompatActivity
         ntlBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                dissmisAndSet();
+
                 Query myQuery = database.getReference("players").orderByChild("ntlGoals");
                 myQuery.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -133,6 +146,8 @@ public class SortActivity extends AppCompatActivity
         ageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                dissmisAndSet();
+
                 Query myQuery = database.getReference("players").orderByChild("age");
                 myQuery.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -162,12 +177,27 @@ public class SortActivity extends AppCompatActivity
 
     }
 
+    private void dissmisAndSet()
+    {
+
+        loader.setText("Loading...");
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                linearLayoutLoader.setVisibility(View.INVISIBLE);
+            }
+        }, 5000);
+    }
+
     public void initViews()
     {
         goalsBtn = findViewById(R.id.goalBtn);
         asisstBtn = findViewById(R.id.asisstBtn);
         ntlBtn = findViewById(R.id.ntlGoalBtn);
         ageBtn = findViewById(R.id.playerAgeBtn);
+        loader = findViewById(R.id.tvLoader);
+        linearLayoutLoader = findViewById(R.id.lrLoader);
     }
 
 }
