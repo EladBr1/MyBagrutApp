@@ -38,8 +38,8 @@ public class OptionsMenuActivity extends AppCompatActivity
 
         else if (id == R.id.contact)
         {
-            //Intent intent = new Intent(this, ContactUs.class);
-            //startActivity(intent);
+            Intent intent = new Intent(this, ContactUsActivity.class);
+            startActivity(intent);
         }
 
         else if (id == R.id.list)
