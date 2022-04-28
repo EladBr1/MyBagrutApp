@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -15,7 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -94,33 +92,28 @@ public class PlayerDisplay extends OptionsMenuActivity implements View.OnClickLi
                 if (searchResults.toUpperCase().equals(players.get(i).getSName().toUpperCase())  || searchResults.toUpperCase().equals(players.get(i).getTitName().toUpperCase()) || searchResults.toUpperCase().equals(players.get(i).getFullName().toUpperCase()) )
                 {
 
-                    age = String.valueOf(players.get(i).getAge());
-                    num = String.valueOf(players.get(i).getNum());
-                    ntlG = String.valueOf(players.get(i).getNtlGoals());
-                    goal = String.valueOf(players.get(i).getGoals());
-                    asisst = String.valueOf(players.get(i).getAsissts());
 
-                    setTextViews(age, num, ntlG, goal, asisst, i);
+                    setTextViews(i);
                     setImage(players.get(i).getSName());
                     found = true;
                 }
                 return found;
             }
 
-            public void setTextViews(String age, String num, String ntlG, String goal, String asisst, int i)
+            public void setTextViews(int i)
             {
                 tvTitName.setText(players.get(i).getTitName());
                 tvFullName.setText(players.get(i).getFullName());
                 tvBirthday.setText(players.get(i).getBirthday());
-                tvAge.setText(age);
+                tvAge.setText(String.valueOf(players.get(i).getAge()));
                 tvHeight.setText(players.get(i).getHeight());
                 tvPos.setText(players.get(i).getPos());
                 tvTeam.setText(players.get(i).getCrTeam());
-                tvNum.setText(num);
+                tvNum.setText(String.valueOf(players.get(i).getNum()));
                 tvNtlTeam.setText(players.get(i).getNltTeam());
-                tvNtlGoals.setText(ntlG);
-                tvGoals.setText(goal);
-                tvAsissts.setText(asisst);
+                tvNtlGoals.setText(String.valueOf(players.get(i).getNtlGoals()));
+                tvGoals.setText(String.valueOf(players.get(i).getGoals()));
+                tvAsissts.setText(String.valueOf(players.get(i).getAsissts()));
                 tvFormerTeams.setText(players.get(i).getFormerTeams());
                 tvInfo.setText(players.get(i).getBasicInfo());
                 wikiUrl.setText(players.get(i).getWiki());

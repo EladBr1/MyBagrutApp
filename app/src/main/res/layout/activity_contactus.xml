@@ -11,12 +11,105 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:paddingBottom="25dp"
         android:text="Contact Us"
         android:textColor="@android:color/black"
         android:textSize="30dp"
-        android:textStyle= "bold|italic"
-        android:paddingBottom="25dp"/>
+        android:textStyle="bold|italic" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Wrong details? A player moved a team? Application error?"
+        android:textSize="20dp"
+        android:textColor="@android:color/black"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Feel free to contact me in my email:"
+        android:textSize="20dp"
+        android:textColor="@android:color/black"
+        android:paddingBottom="15dp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="25dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvEmail"
+            android:text="elad.brand1@gmail.com"
+            android:textColor="#225AFF"
+            android:textSize="20dp" />
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="COPY E-MAIL"
+            android:textSize="15dp"
+            android:background="@drawable/cool_button"
+            android:textColor="@android:color/white"
+            android:layout_marginLeft="15dp"
+            android:onClick="copyEmail"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registration conditions:"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:textSize="25dp"/>
 
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="To create an account in Champions League Legends, secret code must be entered.
+         This code will be given to official football organizations only, by contacting with us:"
+        android:textSize="20dp"
+        android:textColor="@android:color/black"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="send a message"
+            android:textSize="20dp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/cool_button"
+            android:onClick="contact"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SMS only, do not call."
+            android:textSize="15dp"
+            android:textColor="@android:color/black"
+            android:layout_marginLeft="15dp"/>
+
+    </LinearLayout>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="  Learn more about reginstraition..."
+        android:textColor="#225AFF"
+        android:background="@android:color/transparent"
+        android:onClick="learnMore"/>
 
 </LinearLayout>

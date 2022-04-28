@@ -105,7 +105,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Tap on the sorting type"
+                android:text="Select sorting mode"
                 android:textSize="30dp"
                 android:textColor="#82868A"
                 android:id="@+id/tvLoader"/>

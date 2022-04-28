@@ -7,14 +7,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -27,7 +25,7 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
 
-public class AddPlayer extends AppCompatActivity {
+public class AddPlayer extends OptionsMenuActivity {
 
     private static final int PICK_IMAGE_REQUEST = 1;
     private EditText edTitName, edFullName, edSName, edYear, edMonth, edDay, edAge, edHeight, edPos, edCrTeam,
