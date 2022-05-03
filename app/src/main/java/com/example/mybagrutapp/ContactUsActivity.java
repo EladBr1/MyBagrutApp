@@ -50,8 +50,23 @@ public class ContactUsActivity extends OptionsMenuActivity
 
     public void contact(View view)
     {
-        String phoneNum = "0558831751";
-        openSmsDialog(phoneNum);
+        String phoneNum = "+972558831751";
+
+        if( isAppInstalled("com.whatsapp") )
+        {
+            openSmsDialog(phoneNum);
+        }
+
+        else
+        {
+            Toast.makeText(ContactUsActivity.this, "whathapp is not installed...",Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    public boolean isAppInstalled(String appCode)
+    {
+        return true;
     }
 
     public void openSmsDialog(String phoneNum)
@@ -70,14 +85,7 @@ public class ContactUsActivity extends OptionsMenuActivity
                 String text = "Hi, I want to have an account, our organization name is: " + orgBar.getText().toString()
                         + ". We want to have a Champions League Legends account.";
 
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M);
-                {
-                    if (checkSelfPermission(Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED)
-                        sendSMS(text, phoneNum);
-                    else {
-                        requestPermissions(new String[]{Manifest.permission.SEND_SMS},1);
-                    }
-                }
+
 
                 smsDialog.dismiss();
             }
@@ -87,16 +95,5 @@ public class ContactUsActivity extends OptionsMenuActivity
 
     }
 
-    public void sendSMS(String text, String pNum)
-    {
-        try {
-            SmsManager smsManager= SmsManager.getDefault();
-            smsManager.sendTextMessage(pNum, null,text,null,null);
-            Toast.makeText(ContactUsActivity.this, "Message is sent!",Toast.LENGTH_SHORT).show();
-        } catch (Exception e) {
-            e.printStackTrace();
-            Toast.makeText(ContactUsActivity.this, "Faild to send message",Toast.LENGTH_SHORT).show();
-        }
-    }
 
 }
