@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="400dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Registration conditions:"
+            android:textColor="@android:color/black"
+            android:textSize="30dp"
+            android:textStyle= "bold|italic"
+            android:gravity="left"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="To create an account in Champions League Legends, secret code must be entered. This code will be given to official football organizations only, by contacting with us."
+            android:textSize="20dp"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="30dp"
+            android:gravity="left"
+            />
+
+        <TextView
+            android:gravity="left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="We give the registration code to official organizations only, after the message is sent, we will check if the sender is on behalf of an official organization, and if so - the secret code will be sent to him. Else, the number will be blocked."
+            android:textSize="20dp"
+            android:textColor="@android:color/black"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Why we do not let everyone create an account:"
+            android:textColor="@android:color/black"
+            android:textSize="25dp"
+            android:textStyle= "bold|italic"
+            android:gravity="left"/>
+
+        <TextView
+            android:gravity="left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="The only way to create an account in this app is by entering the secret code. Registration is not open to everyone, because the details of the players in the app must be accurate and reliable, so we can not let everyone create an account, edit and create players. Unofficial users can enter incorrect information or add players Non-existent and thus harm the app.We preferred to give the permissions to the official football bodies, for example organizations and teams."
+            android:textSize="20dp"
+            android:textColor="@android:color/black"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:background="@drawable/cool_button"
+            android:layout_gravity="center"
+            android:text="got it"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:id="@+id/dismissBtn"
+            />
+
+    </LinearLayout>
+
+</ScrollView>

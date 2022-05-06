@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/service"
+        android:icon="@drawable/musicmute"
+        android:orderInCategory="50"
+        app:showAsAction="always"/>
+
+    <item
         android:id="@+id/home"
         android:title="Home"
         android:orderInCategory="100"
@@ -26,6 +32,13 @@
         android:id="@+id/list"
         android:title="Sorting Players"
         android:orderInCategory="400"
+        app:showAsAction="never"
+        />
+
+    <item
+        android:id="@+id/musicOn"
+        android:title="Turn on music"
+        android:orderInCategory="450"
         app:showAsAction="never"
         />
 

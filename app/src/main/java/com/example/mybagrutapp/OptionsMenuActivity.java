@@ -1,6 +1,7 @@
 package com.example.mybagrutapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -24,6 +25,11 @@ public class OptionsMenuActivity extends AppCompatActivity
 
         int id = item.getItemId();
 
+        if (id == R.id.service)
+        {
+            stopService(new Intent(this, Service.class));
+        }
+
         if (id == R.id.home)
         {
             Intent intent = new Intent(this, MainActivity.class);
@@ -42,6 +48,11 @@ public class OptionsMenuActivity extends AppCompatActivity
             startActivity(intent);
         }
 
+        else if (id == R.id.musicOn)
+        {
+            startService(new Intent(this, Service.class));
+        }
+
         else if (id == R.id.list)
         {
             Intent intent = new Intent(this, SortActivity.class);
@@ -50,6 +61,7 @@ public class OptionsMenuActivity extends AppCompatActivity
 
         else if (id == R.id.exit)
         {
+            stopService(new Intent(this, Service.class));
             //exiting the app
             moveTaskToBack(true);
             android.os.Process.killProcess(android.os.Process.myPid());

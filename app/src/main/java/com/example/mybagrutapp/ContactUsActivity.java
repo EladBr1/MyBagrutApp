@@ -5,7 +5,9 @@ import android.app.Dialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.telephony.SmsManager;
@@ -45,8 +47,9 @@ public class ContactUsActivity extends OptionsMenuActivity
 
     public void learnMore(View view)
     {
-
+        openLearnMoreDialog();
     }
+
 
     public void contact(View view)
     {
@@ -59,14 +62,26 @@ public class ContactUsActivity extends OptionsMenuActivity
 
         else
         {
-            Toast.makeText(ContactUsActivity.this, "whathapp is not installed...",Toast.LENGTH_SHORT).show();
+            Toast.makeText(ContactUsActivity.this, "whatsapp is not installed...",Toast.LENGTH_SHORT).show();
         }
 
     }
 
     public boolean isAppInstalled(String appCode)
     {
-        return true;
+
+        PackageManager packageManager = getPackageManager();
+        boolean is_installed;
+
+        try {
+            packageManager.getPackageInfo(appCode, packageManager.GET_ACTIVITIES);
+            is_installed = true;
+        } catch (PackageManager.NameNotFoundException e) {
+            is_installed = false;
+            e.printStackTrace();
+        }
+        return is_installed;
+
     }
 
     public void openSmsDialog(String phoneNum)
@@ -85,7 +100,9 @@ public class ContactUsActivity extends OptionsMenuActivity
                 String text = "Hi, I want to have an account, our organization name is: " + orgBar.getText().toString()
                         + ". We want to have a Champions League Legends account.";
 
-
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("http://api.whatsapp.com/send?phone=" + phoneNum + "&text=" + text));
+                startActivity(intent);
 
                 smsDialog.dismiss();
             }
@@ -95,5 +112,21 @@ public class ContactUsActivity extends OptionsMenuActivity
 
     }
 
+    private void openLearnMoreDialog()
+    {
+        learnMoreDialog = new Dialog(ContactUsActivity.this);
+        learnMoreDialog.setContentView(R.layout.ln_dialog);
+        learnMoreDialog.setCancelable(true);
+        Button dismiss = learnMoreDialog.findViewById(R.id.dismissBtn);
+
+        dismiss.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                learnMoreDialog.dismiss();
+            }
+        });
+
+        learnMoreDialog.show();
+    }
 
 }

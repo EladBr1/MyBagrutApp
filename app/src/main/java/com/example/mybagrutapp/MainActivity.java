@@ -25,6 +25,13 @@ public class MainActivity extends OptionsMenuActivity
 
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        //on start the service music will activate
+        startService(new Intent(this, Service.class));
+    }
+
     public void search(View view)
     {
         if(searchBar.getText().toString().isEmpty())
