@@ -1,9 +1,14 @@
 package com.example.mybagrutapp;
 
+import android.Manifest;
 import android.app.ProgressDialog;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.Matrix;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
@@ -28,6 +33,9 @@ import java.io.IOException;
 public class AddPlayer extends OptionsMenuActivity {
 
     private static final int PICK_IMAGE_REQUEST = 1;
+    private static final int MY_CAMERA_REQUEST_CODE = 100;
+    private static final int REQUEST_IMAGE_CAPTURE = 69;
+    private static final int RESULT_CAMERA = 4;
     private EditText edTitName, edFullName, edSName, edYear, edMonth, edDay, edAge, edHeight, edPos, edCrTeam,
             edNum, edNltTeam, edGoals, edAsissts, edNltGoals, edFteams, edInfo, edWikiUrl, edInstaUrl;
     private ImageView imageView;
@@ -51,10 +59,48 @@ public class AddPlayer extends OptionsMenuActivity {
 
     }
 
+
     public void upload(View view)
     {
         selectImage();
     }
+
+    public void takeImageCamera(View view)
+    {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
+            {
+                requestPermissions(new String[]{Manifest.permission.CAMERA}, MY_CAMERA_REQUEST_CODE);
+            }
+            else {
+                Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                takePictureIntent.putExtra( "result", RESULT_CAMERA);
+                try {
+                    startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+                }
+                catch (ActivityNotFoundException e) {
+                    // display error state to the user
+                    Toast.makeText(this, "Camera is not available", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        }
+    }
+
+    /*@Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Toast.makeText(this, "gjhfjkgjh,gjkvjjhgj", Toast.LENGTH_SHORT).show();
+
+        if (requestCode == REQUEST_IMAGE_CAPTURE)
+            if (resultCode == RESULT_OK) {
+                dPic = getResizedBitmap((Bitmap) data.getExtras().get("data"), 800, 800);
+
+                ///pik1.setImageBitmap(dPic);
+                pik1.setImageBitmap(dPic);
+
+            }
+    }*/
 
     public void save(View view)
     {
@@ -92,24 +138,31 @@ public class AddPlayer extends OptionsMenuActivity {
     }
 
 
-    private void selectImage() {
+    public void selectImage()
+    {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(
-                Intent.createChooser(
-                        intent,
-                        "Select Image from here..."),
-                PICK_IMAGE_REQUEST);
+        startActivityForResult(Intent.createChooser(intent, "Select Image from here..."), PICK_IMAGE_REQUEST);
     }
 
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data)
     {
-
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK && requestCode == 1 && data != null && data.getData() != null)
+        /*int num = data.getExtras().getInt("result");
+        if (num == RESULT_CAMERA)
+        {
+            if (requestCode == REQUEST_IMAGE_CAPTURE)
+                if (resultCode == RESULT_OK) {
+                   // Bitmap bitmap1 = getResizedBitmap((Bitmap) data.getExtras().get("data"), 80, 80);
+                    Bitmap bitmap1 = (Bitmap) data.getExtras().get("data");
+                    imageView.setImageBitmap(bitmap1);
+
+                }
+        }
+        else*/ if (resultCode == RESULT_OK && requestCode == 1 && data != null && data.getData() != null)
         {
 
             filePath = data.getData();
@@ -117,8 +170,8 @@ public class AddPlayer extends OptionsMenuActivity {
             try
             {
 
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),filePath);
-                imageView.setImageBitmap(bitmap);
+                Bitmap bitmap2 = MediaStore.Images.Media.getBitmap(getContentResolver(),filePath);
+                imageView.setImageBitmap(bitmap2);
 
             }
             catch (IOException e)
@@ -127,6 +180,23 @@ public class AddPlayer extends OptionsMenuActivity {
             }
 
         }
+
+    }
+
+    public Bitmap getResizedBitmap(Bitmap bm, int newWidth, int newHeight)
+    {
+        int width = bm.getWidth();
+        int height = bm.getHeight();
+        float scaleWidth = ((float) newWidth) / width;
+        float scaleHeight = ((float) newHeight) / height;
+        // create a matrix for the manipulation
+        Matrix matrix = new Matrix();
+        // resize the bit map
+        matrix.postScale(scaleWidth, scaleHeight);
+        // recreate the new Bitmap
+        Bitmap resizedBitmap = Bitmap.createBitmap(bm, 0, 0, width, height, matrix, false);
+        ///bm.recycle();
+        return resizedBitmap;
 
     }
 
@@ -145,7 +215,7 @@ public class AddPlayer extends OptionsMenuActivity {
                     // Image uploaded successfully
                     // Dismiss dialog
                     progressDialog.dismiss();
-                    Toast.makeText(AddPlayer.this, "Image Uploaded!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddPlayer.this, "Image Uploaded!", Toast.LENGTH_SHORT).show();
                 }
             })
                     .addOnFailureListener(new OnFailureListener() {
@@ -179,6 +249,18 @@ public class AddPlayer extends OptionsMenuActivity {
         }
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == MY_CAMERA_REQUEST_CODE) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(this, "camera permission granted", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this, "camera permission denied", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
     private void initViews()
     {
         edTitName = findViewById(R.id.edTitName);
@@ -202,5 +284,6 @@ public class AddPlayer extends OptionsMenuActivity {
         edInstaUrl = findViewById(R.id.edInstaUrl);
         imageView = findViewById(R.id.image);
     }
+
 
 }
