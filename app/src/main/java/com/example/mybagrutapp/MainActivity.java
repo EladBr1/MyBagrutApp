@@ -23,13 +23,9 @@ public class MainActivity extends OptionsMenuActivity
 
         searchBar = findViewById(R.id.search_bar);
 
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        //on start the service music will activate
+        //when app is open the service music will be activated
         startService(new Intent(this, Service.class));
+
     }
 
     public void search(View view)

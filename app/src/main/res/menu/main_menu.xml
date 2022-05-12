@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/service"
-        android:icon="@drawable/musicmute"
+        android:icon="@drawable/music_unmute"
         android:orderInCategory="50"
         app:showAsAction="always"/>
 
@@ -32,13 +32,6 @@
         android:id="@+id/list"
         android:title="Sorting Players"
         android:orderInCategory="400"
-        app:showAsAction="never"
-        />
-
-    <item
-        android:id="@+id/musicOn"
-        android:title="Turn on music"
-        android:orderInCategory="450"
         app:showAsAction="never"
         />
 

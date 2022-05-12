@@ -22,7 +22,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingBottom="10dp">
+        android:paddingBottom="10dp"
+        android:gravity="left">
 
         <ImageView
             android:layout_width="40dp"
@@ -43,7 +44,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingBottom="15dp">
+        android:paddingBottom="15dp"
+        android:gravity="left">
 
         <ImageView
             android:layout_width="40dp"
@@ -84,7 +86,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingHorizontal="15dp"
+        android:gravity="left">
 
         <TextView
             android:layout_width="wrap_content"

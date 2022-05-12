@@ -23,6 +23,7 @@
         android:text="Wrong details? A player moved a team? Application error?"
         android:textSize="20dp"
         android:textColor="@android:color/black"
+        android:layout_gravity="left"
         />
 
     <TextView
@@ -32,12 +33,14 @@
         android:textSize="20dp"
         android:textColor="@android:color/black"
         android:paddingBottom="15dp"
+        android:layout_gravity="left"
         />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingBottom="25dp">
+        android:paddingBottom="25dp"
+        android:gravity="left">
 
         <TextView
             android:layout_width="wrap_content"
@@ -45,7 +48,8 @@
             android:id="@+id/tvEmail"
             android:text="elad.brand1@gmail.com"
             android:textColor="#225AFF"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            />
 
         <Button
             android:layout_width="100dp"
@@ -66,7 +70,8 @@
         android:text="Registration conditions:"
         android:textColor="@android:color/black"
         android:textStyle="bold"
-        android:textSize="25dp"/>
+        android:textSize="25dp"
+        android:layout_gravity="left"/>
 
 
     <TextView
@@ -75,12 +80,14 @@
         android:text="To create an account in Champions League Legends, secret code must be entered. This code will be given to official football organizations only, by contacting with us:"
         android:textSize="20dp"
         android:textColor="@android:color/black"
+        android:layout_gravity="left"
         />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:gravity="left">
 
         <Button
             android:layout_width="wrap_content"
@@ -98,7 +105,8 @@
             android:text="SMS only, do not call."
             android:textSize="15dp"
             android:textColor="@android:color/black"
-            android:layout_marginLeft="15dp"/>
+            android:layout_marginLeft="15dp"
+            />
 
     </LinearLayout>
 
@@ -109,6 +117,7 @@
         android:text="  Learn more about reginstraition..."
         android:textColor="#225AFF"
         android:background="@android:color/transparent"
-        android:onClick="learnMore"/>
+        android:onClick="learnMore"
+        android:layout_gravity="left"/>
 
 </LinearLayout>

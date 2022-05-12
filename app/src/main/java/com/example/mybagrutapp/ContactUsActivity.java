@@ -1,6 +1,5 @@
 package com.example.mybagrutapp;
 
-import android.Manifest;
 import android.app.Dialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -10,7 +9,6 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.telephony.SmsManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -121,7 +119,8 @@ public class ContactUsActivity extends OptionsMenuActivity
 
         dismiss.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 learnMoreDialog.dismiss();
             }
         });

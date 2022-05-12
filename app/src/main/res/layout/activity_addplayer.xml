@@ -25,6 +25,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="left"
             android:text="Add a player according to these parameters:"
             android:textColor="@android:color/black"
             android:textSize="30dp"/>
@@ -33,6 +34,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="left"
             android:text="Title Name:"
             android:textColor="@android:color/black"
             android:textStyle="bold"
@@ -44,7 +46,8 @@
             android:id="@+id/edTitName"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="Title Name" />
+            android:hint="Title Name"
+            android:layout_gravity="left"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -52,13 +55,15 @@
             android:text="Full Name:"
             android:textColor="@android:color/black"
             android:textStyle="bold"
-            android:textSize="27dp"/>
+            android:textSize="27dp"
+            android:layout_gravity="left"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@android:color/white"
             android:hint="Full Name"
-            android:id="@+id/edFullName"/>
+            android:id="@+id/edFullName"
+            android:layout_gravity="left"/>
 
         <TextView
             android:background="@android:color/white"
@@ -67,14 +72,16 @@
             android:text="Name for Search:"
             android:textColor="@android:color/black"
             android:textStyle="bold"
-            android:textSize="27dp"/>
+            android:textSize="27dp"
+            android:layout_gravity="left"/>
 
         <EditText
             android:background="@android:color/white"
             android:id="@+id/edSName"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="Name" />
+            android:hint="Name"
+            android:layout_gravity="left"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -82,21 +89,24 @@
             android:text="Date of Birth:"
             android:textColor="@android:color/black"
             android:textStyle="bold"
-            android:textSize="27dp"/>
+            android:textSize="27dp"
+            android:layout_gravity="left"/>
         <EditText
             android:background="@android:color/white"
             android:inputType="number"
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:hint="Year"
-            android:id="@+id/edYear"/>
+            android:id="@+id/edYear"
+            android:layout_gravity="left"/>
 
         <EditText
             android:background="@android:color/white"
             android:id="@+id/edMonth"
             android:layout_width="100dp"
             android:layout_height="50dp"
-            android:hint="Month" />
+            android:hint="Month"
+            android:layout_gravity="left"/>
 
         <EditText
             android:background="@android:color/white"
@@ -104,7 +114,8 @@
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:hint="Day"
-            android:id="@+id/edDay"/>
+            android:id="@+id/edDay"
+            android:layout_gravity="left"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -112,13 +123,15 @@
             android:text="Age:"
             android:textColor="@android:color/black"
             android:textStyle="bold"
-            android:textSize="27dp"/>
+            android:textSize="27dp"
+            android:layout_gravity="left"/>
         <EditText
             android:inputType="number"
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:hint="Age"
-            android:id="@+id/edAge"/>
+            android:id="@+id/edAge"
+            android:layout_gravity="left"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -126,12 +139,14 @@
             android:text="Height:"
             android:textColor="@android:color/black"
             android:textStyle="bold"
-            android:textSize="27dp"/>
+            android:textSize="27dp"
+            android:layout_gravity="left"/>
         <EditText
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:hint="Height"
-            android:id="@+id/edHeight"/>
+            android:id="@+id/edHeight"
+            android:layout_gravity="left"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -139,13 +154,15 @@
             android:text="Position:"
             android:textColor="@android:color/black"
             android:textStyle="bold"
-            android:textSize="27dp"/>
+            android:textSize="27dp"
+            android:layout_gravity="left"/>
         <EditText
             android:background="@android:color/white"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="Posotion"
-            android:id="@+id/edPos"/>
+            android:id="@+id/edPos"
+            android:layout_gravity="left"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -153,13 +170,15 @@
             android:text="Current Team:"
             android:textColor="@android:color/black"
             android:textStyle="bold"
-            android:textSize="27dp"/>
+            android:textSize="27dp"
+            android:layout_gravity="left"/>
         <EditText
             android:background="@android:color/white"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="Current Team"
-            android:id="@+id/edCrTeam"/>
+            android:id="@+id/edCrTeam"
+            android:layout_gravity="left"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -167,13 +186,15 @@
             android:text="Number:"
             android:textColor="@android:color/black"
             android:textStyle="bold"
-            android:textSize="27dp"/>
+            android:textSize="27dp"
+            android:layout_gravity="left"/>
         <EditText
             android:inputType="number"
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:hint="Number"
-            android:id="@+id/edNum"/>
+            android:id="@+id/edNum"
+            android:layout_gravity="left"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -181,13 +202,15 @@
             android:text="Netional Team:"
             android:textColor="@android:color/black"
             android:textStyle="bold"
-            android:textSize="27dp"/>
+            android:textSize="27dp"
+            android:layout_gravity="left"/>
         <EditText
             android:background="@android:color/white"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="National Team"
-            android:id="@+id/edNltTeam"/>
+            android:id="@+id/edNltTeam"
+            android:layout_gravity="left"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -195,13 +218,15 @@
             android:text="Goals:"
             android:textColor="@android:color/black"
             android:textStyle="bold"
-            android:textSize="27dp"/>
+            android:textSize="27dp"
+            android:layout_gravity="left"/>
         <EditText
             android:inputType="number"
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:hint="Goals"
-            android:id="@+id/edGoals"/>
+            android:id="@+id/edGoals"
+            android:layout_gravity="left"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -209,13 +234,15 @@
             android:text="Asissts:"
             android:textColor="@android:color/black"
             android:textStyle="bold"
-            android:textSize="27dp"/>
+            android:textSize="27dp"
+            android:layout_gravity="left"/>
         <EditText
             android:inputType="number"
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:hint="Asissts"
-            android:id="@+id/edAsissts"/>
+            android:id="@+id/edAsissts"
+            android:layout_gravity="left"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -223,26 +250,30 @@
             android:text="Nationals Goals:"
             android:textColor="@android:color/black"
             android:textStyle="bold"
-            android:textSize="27dp"/>
+            android:textSize="27dp"
+            android:layout_gravity="left"/>
         <EditText
             android:inputType="number"
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:hint="Goals"
-            android:id="@+id/edNltGoals"/>
+            android:id="@+id/edNltGoals"
+            android:layout_gravity="left"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Teams in Career:"
             android:textColor="@android:color/black"
             android:textStyle="bold"
-            android:textSize="27dp"/>
+            android:textSize="27dp"
+            android:layout_gravity="left"/>
         <EditText
             android:background="@android:color/white"
             android:layout_width="match_parent"
             android:layout_height="170dp"
             android:hint="Teams"
-            android:id="@+id/edFteams"/>
+            android:id="@+id/edFteams"
+            android:layout_gravity="left"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -250,13 +281,15 @@
             android:text="Information:"
             android:textColor="@android:color/black"
             android:textStyle="bold"
-            android:textSize="27dp"/>
+            android:textSize="27dp"
+            android:layout_gravity="left"/>
         <EditText
             android:background="@android:color/white"
             android:layout_width="match_parent"
             android:layout_height="170dp"
             android:hint="Info"
-            android:id="@+id/edInfo"/>
+            android:id="@+id/edInfo"
+            android:layout_gravity="left"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -264,13 +297,15 @@
             android:text="Wikipedia URL:"
             android:textColor="@android:color/black"
             android:textStyle="bold"
-            android:textSize="27dp"/>
+            android:textSize="27dp"
+            android:layout_gravity="left"/>
         <EditText
             android:background="@android:color/white"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:hint="URL"
-            android:id="@+id/edWikiUrl"/>
+            android:id="@+id/edWikiUrl"
+            android:layout_gravity="left"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -278,13 +313,15 @@
             android:text="Instagram URL:"
             android:textColor="@android:color/black"
             android:textStyle="bold"
-            android:textSize="27dp"/>
+            android:textSize="27dp"
+            android:layout_gravity="left"/>
         <EditText
             android:background="@android:color/white"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:hint="URL"
             android:id="@+id/edInstaUrl"
+            android:layout_gravity="left"
             />
 
         <TextView
@@ -293,7 +330,8 @@
             android:text="Profile Photo:"
             android:textColor="@android:color/black"
             android:textStyle="bold"
-            android:textSize="27dp"/>
+            android:textSize="27dp"
+            android:layout_gravity="left"/>
 
         <Button
             android:layout_width="wrap_content"
@@ -303,6 +341,7 @@
             android:textColor="@android:color/white"
             android:textSize="20dp"
             android:onClick="upload"
+            android:layout_gravity="left"
             />
 
         <ImageView

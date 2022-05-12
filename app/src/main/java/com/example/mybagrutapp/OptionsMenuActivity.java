@@ -1,7 +1,6 @@
 package com.example.mybagrutapp;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -9,11 +8,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class OptionsMenuActivity extends AppCompatActivity
 {
-
+    boolean musicIsPlaying;
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
-
+        musicIsPlaying = true;
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
 
@@ -25,9 +24,22 @@ public class OptionsMenuActivity extends AppCompatActivity
 
         int id = item.getItemId();
 
+
         if (id == R.id.service)
         {
-            stopService(new Intent(this, Service.class));
+
+            if (musicIsPlaying)
+            {
+                stopService(new Intent(this, Service.class));
+                item.setIcon(R.drawable.music_mute);
+                musicIsPlaying = false;
+            }
+            else
+            {
+                startService(new Intent(this, Service.class));
+                item.setIcon(R.drawable.music_unmute);
+                musicIsPlaying = true;
+            }
         }
 
         if (id == R.id.home)
@@ -46,11 +58,6 @@ public class OptionsMenuActivity extends AppCompatActivity
         {
             Intent intent = new Intent(this, ContactUsActivity.class);
             startActivity(intent);
-        }
-
-        else if (id == R.id.musicOn)
-        {
-            startService(new Intent(this, Service.class));
         }
 
         else if (id == R.id.list)

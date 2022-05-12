@@ -6,13 +6,11 @@
         <entry key="..\:/ASEB/MyBagrutApp/app/src/main/res/drawable/cool_button.xml" value="0.284" />
         <entry key="..\:/ASEB/MyBagrutApp/app/src/main/res/drawable/cool_ed.xml" value="0.284" />
         <entry key="..\:/ASEB/MyBagrutApp/app/src/main/res/drawable/login_button.xml" value="0.284" />
-        <entry key="..\:/ASEB/MyBagrutApp/app/src/main/res/drawable/musicmute.xml" value="0.274" />
         <entry key="..\:/ASEB/MyBagrutApp/app/src/main/res/drawable/radio_normal.xml" value="0.284" />
         <entry key="..\:/ASEB/MyBagrutApp/app/src/main/res/drawable/radio_selected.xml" value="0.284" />
         <entry key="..\:/ASEB/MyBagrutApp/app/src/main/res/drawable/radio_selector.xml" value="0.284" />
         <entry key="..\:/ASEB/MyBagrutApp/app/src/main/res/drawable/text_color.xml" value="0.284" />
         <entry key="..\:/ASEB/MyBagrutApp/app/src/main/res/layout/activity_addplayer.xml" value="0.23641304347826086" />
-        <entry key="..\:/ASEB/MyBagrutApp/app/src/main/res/layout/activity_contactus.xml" value="0.22756119673617406" />
         <entry key="..\:/ASEB/MyBagrutApp/app/src/main/res/layout/activity_edit_player.xml" value="0.3625" />
         <entry key="..\:/ASEB/MyBagrutApp/app/src/main/res/layout/activity_login.xml" value="0.3625" />
         <entry key="..\:/ASEB/MyBagrutApp/app/src/main/res/layout/activity_main.xml" value="0.33" />
@@ -20,20 +18,25 @@
         <entry key="..\:/ASEB/MyBagrutApp/app/src/main/res/layout/activity_sort.xml" value="0.3625" />
         <entry key="..\:/ASEB/MyBagrutApp/app/src/main/res/layout/activity_user.xml" value="0.3625" />
         <entry key="..\:/ASEB/MyBagrutApp/app/src/main/res/layout/layout_dialog.xml" value="0.3625" />
-        <entry key="..\:/ASEB/MyBagrutApp/app/src/main/res/layout/ln_dialog.xml" value="0.2975630611372381" />
         <entry key="..\:/ASEB/MyBagrutApp/app/src/main/res/layout/recycleritem_player.xml" value="0.33" />
         <entry key="..\:/ASEB/MyBagrutApp/app/src/main/res/layout/reginster_dialog.xml" value="0.3625" />
         <entry key="..\:/ASEB/MyBagrutApp/app/src/main/res/menu/main_menu.xml" value="0.3625" />
+        <entry key="..\:/Users/student/EladBrand/MyBagrutApp/app/src/main/res/drawable/music_unmute.xml" value="0.2295" />
+        <entry key="..\:/Users/student/EladBrand/MyBagrutApp/app/src/main/res/drawable/musicmute.xml" value="0.2295" />
         <entry key="..\:/Users/student/EladBrand/MyBagrutApp/app/src/main/res/layout/activity_addplayer.xml" value="0.30694864048338366" />
         <entry key="..\:/Users/student/EladBrand/MyBagrutApp/app/src/main/res/layout/activity_contactus.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/student/EladBrand/MyBagrutApp/app/src/main/res/layout/activity_edit_player.xml" value="0.25" />
         <entry key="..\:/Users/student/EladBrand/MyBagrutApp/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/Users/student/EladBrand/MyBagrutApp/app/src/main/res/layout/activity_main.xml" value="0.27395833333333336" />
         <entry key="..\:/Users/student/EladBrand/MyBagrutApp/app/src/main/res/layout/activity_player_display.xml" value="0.33" />
         <entry key="..\:/Users/student/EladBrand/MyBagrutApp/app/src/main/res/layout/activity_sort.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/student/EladBrand/MyBagrutApp/app/src/main/res/layout/activity_user.xml" value="0.3009833262077811" />
         <entry key="..\:/Users/student/EladBrand/MyBagrutApp/app/src/main/res/layout/layout_dialog.xml" value="0.14709569577935647" />
+        <entry key="..\:/Users/student/EladBrand/MyBagrutApp/app/src/main/res/layout/ln_dialog.xml" value="0.3009833262077811" />
         <entry key="..\:/Users/student/EladBrand/MyBagrutApp/app/src/main/res/layout/player_details.xml" value="0.25" />
         <entry key="..\:/Users/student/EladBrand/MyBagrutApp/app/src/main/res/layout/reginster_dialog.xml" value="0.3009833262077811" />
         <entry key="..\:/Users/student/EladBrand/MyBagrutApp/app/src/main/res/layout/sms_dialog.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/student/EladBrand/MyBagrutApp/app/src/main/res/menu/main_menu.xml" value="0.29717180244829045" />
         <entry key="..\:/Users/student/EladBrand/MyBagrutApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.22135416666666666" />
       </map>
     </option>
