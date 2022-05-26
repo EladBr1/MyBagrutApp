@@ -35,7 +35,7 @@ public class AddPlayer extends OptionsMenuActivity {
     private static final int PICK_IMAGE_REQUEST = 1;
     private static final int MY_CAMERA_REQUEST_CODE = 100;
     private static final int REQUEST_IMAGE_CAPTURE = 69;
-    private static final int RESULT_CAMERA = 4;
+    private static final int RESULT_CAMERA = 0;
     private EditText edTitName, edFullName, edSName, edYear, edMonth, edDay, edAge, edHeight, edPos, edCrTeam,
             edNum, edNltTeam, edGoals, edAsissts, edNltGoals, edFteams, edInfo, edWikiUrl, edInstaUrl;
     private ImageView imageView;
@@ -74,11 +74,12 @@ public class AddPlayer extends OptionsMenuActivity {
             }
             else {
                 Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                takePictureIntent.putExtra( "result", RESULT_CAMERA);
-                try {
+                try
+                {
                     startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
                 }
-                catch (ActivityNotFoundException e) {
+                catch (ActivityNotFoundException e)
+                {
                     // display error state to the user
                     Toast.makeText(this, "Camera is not available", Toast.LENGTH_SHORT).show();
 
@@ -151,18 +152,7 @@ public class AddPlayer extends OptionsMenuActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data)
     {
         super.onActivityResult(requestCode, resultCode, data);
-        /*int num = data.getExtras().getInt("result");
-        if (num == RESULT_CAMERA)
-        {
-            if (requestCode == REQUEST_IMAGE_CAPTURE)
-                if (resultCode == RESULT_OK) {
-                   // Bitmap bitmap1 = getResizedBitmap((Bitmap) data.getExtras().get("data"), 80, 80);
-                    Bitmap bitmap1 = (Bitmap) data.getExtras().get("data");
-                    imageView.setImageBitmap(bitmap1);
-
-                }
-        }
-        else*/ if (resultCode == RESULT_OK && requestCode == 1 && data != null && data.getData() != null)
+       if (resultCode == RESULT_OK && requestCode == 1 && data != null && data.getData() != null)
         {
 
             filePath = data.getData();

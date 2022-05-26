@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/optback2"
+    android:background="@drawable/newwallp"
     android:orientation="vertical"
     tools:context=".LoginActivity">
 
@@ -13,65 +13,49 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="LOGIN"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textSize="30dp"
         android:textStyle= "bold|italic"
         android:paddingBottom="50dp"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="10dp"
-        android:gravity="left">
 
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/username_icon"/>
-        <EditText
-            android:background="@android:color/white"
-            android:id="@+id/edUserN"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="username"
-            android:textStyle="bold"
+    <EditText
+        android:background="@drawable/cool_ed"
+        android:id="@+id/edUserN"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="  username"
+        android:textStyle="bold"
+        android:drawableLeft="@drawable/usericon"
+        android:layout_margin="10dp"
+        />
+
+
+
+    <EditText
+        android:background="@drawable/cool_ed"
+        android:id="@+id/edPass"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="  password"
+        android:textStyle="bold"
+        android:inputType="textPassword"
+        android:drawableLeft="@drawable/passicon"
+        android:layout_margin="10dp"
             />
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="15dp"
-        android:gravity="left">
-
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/icon_password"/>
-        <EditText
-            android:background="@android:color/white"
-            android:id="@+id/edPass"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="password"
-            android:textStyle="bold"
-            android:inputType="textPassword"
-            />
-
-    </LinearLayout>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
         android:background="@drawable/cool_button"
         android:layout_gravity="center"
         android:text="login"
         android:textColor="@android:color/white"
         android:textStyle="bold"
+        android:textSize="24dp"
         android:onClick="login"
+        android:layout_marginTop="15dp"
         />
 
     <TextView
@@ -81,7 +65,7 @@
         android:id="@+id/tvError"
         android:textStyle="bold"
         android:textSize="18dp"
-        android:textColor="#AA0000" />
+        android:textColor="#FF0000" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -95,16 +79,19 @@
             android:layout_height="wrap_content"
             android:text="If your organization does'nt have an account- tap to "
             android:textStyle="bold"
-            android:textSize="12dp"/>
+            android:textSize="12dp"
+            android:textColor="@android:color/white"/>
 
         <Button
             android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:text="Reginster."
-            android:textSize="12dp"
             android:background="@android:color/transparent"
+            android:fontFamily="sans-serif-condensed"
+            android:onClick="register"
+            android:text="Register."
             android:textColor="#2484E4"
-            android:onClick="reginster"/>
+            android:textSize="12dp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

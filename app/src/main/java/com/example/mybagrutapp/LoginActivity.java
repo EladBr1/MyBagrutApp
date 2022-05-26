@@ -11,7 +11,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -83,7 +82,7 @@ public class LoginActivity extends OptionsMenuActivity {
                 });
     }
 
-    public void reginster(View view)
+    public void register(View view)
     {
         openDialog();
     }
@@ -92,7 +91,7 @@ public class LoginActivity extends OptionsMenuActivity {
     {
 
         reginDialog = new Dialog(LoginActivity.this);
-        reginDialog.setContentView(R.layout.reginster_dialog);
+        reginDialog.setContentView(R.layout.register_dialog);
         EditText newUsername = reginDialog.findViewById(R.id.edNewUser),
                 newPassword = reginDialog.findViewById(R.id.edNewPass),
                 rePassword = reginDialog.findViewById(R.id.edRepeatPass),
