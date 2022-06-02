@@ -79,7 +79,7 @@
             android:layout_height="wrap_content"
             android:text="If your organization does'nt have an account- tap to "
             android:textStyle="bold"
-            android:textSize="12dp"
+            android:textSize="10dp"
             android:textColor="@android:color/white"/>
 
         <Button

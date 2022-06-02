@@ -10,7 +10,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,10 +21,10 @@ import java.util.ArrayList;
 
 public class EditPlayer extends OptionsMenuActivity {
 
-    private EditText edSearchB;
-    private Button minGBtn, plusGBtn, minABtn, plusABtn, minGnBtn, plusGnBtn, plusNBtn, minNBtn, ageBtn, saveBtn, btnSearch;
-    private TextView tvNumOfGoals, tvNumOfAsisst, tvNumOfNgoals, tvShirtNum, tvNewAge, tvName;
-    private LinearLayout editLayout;
+    private EditText edSearchB; //search bar
+    private Button minGBtn, plusGBtn, minABtn, plusABtn, minGnBtn, plusGnBtn, plusNBtn, minNBtn, ageBtn, saveBtn, btnSearch;//buttons to edit the player details
+    private TextView tvNumOfGoals, tvNumOfAsisst, tvNumOfNgoals, tvShirtNum, tvNewAge, tvName; // views of the player details
+    private LinearLayout editLayout;// the layout of the edit tools
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +33,7 @@ public class EditPlayer extends OptionsMenuActivity {
 
         initViews();
 
-
-
-        final ArrayList<Player> players = new ArrayList<>();
+        final ArrayList<Player> players = new ArrayList<>();// list of players
 
         FirebaseDatabase database = FirebaseDatabase.getInstance("https://champions-league-legends-default-rtdb.firebaseio.com/");
         DatabaseReference myRef = database.getReference("players");
@@ -44,7 +41,9 @@ public class EditPlayer extends OptionsMenuActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Player player = snapshot.getValue(Player.class);
-                players.clear();
+                players.clear();//clear the list
+
+                //add all the players of the list
                 for (DataSnapshot playerSnapshot : snapshot.getChildren())
                 {
                     Player currentPlayer = playerSnapshot.getValue(Player.class);
@@ -52,27 +51,30 @@ public class EditPlayer extends OptionsMenuActivity {
                     currentPlayer.setKey(playerSnapshot.getKey());
                 }
 
-
+                //serch the player
                 btnSearch.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
 
-                        editLayout.setVisibility(View.VISIBLE);
                         String searchB = edSearchB.getText().toString();
-                        boolean found = false;
+                        boolean found = false;//if the player found
+                        boolean isMatched = found;
                         for (int i = 0; i < players.size(); i++) {
 
-                            if (searchB.toUpperCase().equals(players.get(i).getSName().toUpperCase()) || searchB.toUpperCase().equals(players.get(i).getTitName().toUpperCase()) || searchB.toUpperCase().equals(players.get(i).getFullName().toUpperCase()) ) {
+                            isMatched = searchB.toUpperCase().equals(players.get(i).getSName().toUpperCase()) ||
+                                    searchB.toUpperCase().equals(players.get(i).getTitName().toUpperCase()) ||
+                                    searchB.toUpperCase().equals(players.get(i).getFullName().toUpperCase());
+                            //check if the name matches to one of the players name
+                            if ( isMatched ) {
 
-
-                                setAllTheNums(i);
-                                buttons(i);
-
-                                found = true;
-
+                                editLayout.setVisibility(View.VISIBLE);//set the edit layout to visible
+                                setAllTheNums(i);//set the views to the player details
+                                buttons(i);//listen to the buttons
+                                found = true; //the player was founded
                             }
 
                         }
+                        //if the player has not been founded
                         if (found == false)
                             Toast.makeText(EditPlayer.this, "No player found, try using a different name.", Toast.LENGTH_SHORT).show();
 
@@ -87,15 +89,16 @@ public class EditPlayer extends OptionsMenuActivity {
                 Toast.makeText(EditPlayer.this, "error finding player", Toast.LENGTH_SHORT).show();
             }
 
+            //listen to the buttons
             public void buttons(int i) {
 
                 minGBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        int num = players.get(i).getGoals();
-                        myRef.child(players.get(i).getKey()).child("goals").setValue(num-1);
+                        int num = players.get(i).getGoals();//get the player goals
+                        myRef.child(players.get(i).getKey()).child("goals").setValue(num-1);//set the goals
                         String str = String.valueOf(num-1);
-                        tvNumOfGoals.setText(str);
+                        tvNumOfGoals.setText(str);//set the view of the player
                     }
                 });
 

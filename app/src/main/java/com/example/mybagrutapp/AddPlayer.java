@@ -37,9 +37,10 @@ public class AddPlayer extends OptionsMenuActivity {
     private static final int REQUEST_IMAGE_CAPTURE = 69;
     private static final int RESULT_CAMERA = 0;
     private EditText edTitName, edFullName, edSName, edYear, edMonth, edDay, edAge, edHeight, edPos, edCrTeam,
-            edNum, edNltTeam, edGoals, edAsissts, edNltGoals, edFteams, edInfo, edWikiUrl, edInstaUrl;
-    private ImageView imageView;
+            edNum, edNltTeam, edGoals, edAsissts, edNltGoals, edFteams, edInfo, edWikiUrl, edInstaUrl; //the player details to fill
+    private ImageView imageView; //the view of the image that the user choose
     private Uri filePath;
+
     //instance for firebase storage and StorageReference
     FirebaseStorage storage;
     StorageReference storageRef;
@@ -51,7 +52,7 @@ public class AddPlayer extends OptionsMenuActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addplayer);
 
-        initViews();
+        initViews(); //"findviewbyid" is in that function
 
         //get the Firebase storage Reference
         storage = FirebaseStorage.getInstance();
@@ -59,7 +60,7 @@ public class AddPlayer extends OptionsMenuActivity {
 
     }
 
-
+    //if the user wants to upload the image
     public void upload(View view)
     {
         selectImage();
@@ -103,14 +104,20 @@ public class AddPlayer extends OptionsMenuActivity {
             }
     }*/
 
+    //saving the player to firebase
     public void save(View view)
     {
+        //Turns birth details into one sentence
         String birthday = Integer.parseInt( edDay.getText().toString() ) + " " + edMonth.getText().toString() + " " + Integer.parseInt( edYear.getText().toString() );
 
+        //upload the image to firebase
         getTheImage();
 
+        //instance for firebase realtime database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("players").push();
+        DatabaseReference myRef = database.getReference("players").push(); //make new value in the database
+
+        //add the details to the value in the database
         Player player = new Player(edTitName.getText().toString(),
                 edFullName.getText().toString(),
                 edSName.getText().toString(),
@@ -128,17 +135,19 @@ public class AddPlayer extends OptionsMenuActivity {
                 edInfo.getText().toString(),
                 edWikiUrl.getText().toString(),
                 edInstaUrl.getText().toString(),
+                //add to the database the image location in the storage
                 "images/" + edSName.getText().toString());
 
         myRef.setValue(player);
 
         Toast.makeText(this, "Player saved", Toast.LENGTH_SHORT).show();
 
-        Intent intent = new Intent(this, MainActivity.class);
+        //after it was saved, the user gets back to the user screen
+        Intent intent = new Intent(this, UserActivity.class);
         startActivity(intent);
     }
 
-
+    //open the gallery to select an image
     public void selectImage()
     {
         Intent intent = new Intent();
@@ -190,10 +199,12 @@ public class AddPlayer extends OptionsMenuActivity {
 
     }
 
+    //upload the image to firebase
     public void getTheImage()
     {
         if (filePath != null) {
 
+            //open progress dialog
             ProgressDialog progressDialog = new ProgressDialog(this);
             progressDialog.setTitle("Uploading...");
             progressDialog.show();
@@ -205,7 +216,6 @@ public class AddPlayer extends OptionsMenuActivity {
                     // Image uploaded successfully
                     // Dismiss dialog
                     progressDialog.dismiss();
-                    Toast.makeText(AddPlayer.this, "Image Uploaded!", Toast.LENGTH_SHORT).show();
                 }
             })
                     .addOnFailureListener(new OnFailureListener() {
@@ -226,13 +236,8 @@ public class AddPlayer extends OptionsMenuActivity {
                                 @Override
                                 public void onProgress(
                                         UploadTask.TaskSnapshot taskSnapshot) {
-                                    double progress
-                                            = (100.0
-                                            * taskSnapshot.getBytesTransferred()
-                                            / taskSnapshot.getTotalByteCount());
-                                    progressDialog.setMessage(
-                                            "Uploaded "
-                                                    + (int) progress + "%");
+                                    double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
+                                    progressDialog.setMessage("Uploaded " + (int) progress + "%");
                                 }
                             });
 

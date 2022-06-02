@@ -20,9 +20,9 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends OptionsMenuActivity {
 
-    private EditText username, password;
-    private TextView error;
-    private FirebaseAuth mAuth;
+    private EditText username, password; //the username and password bars
+    private TextView error; //error message
+    private FirebaseAuth mAuth;//firebase authentication
     private Dialog reginDialog;
 
     @Override
@@ -35,30 +35,33 @@ public class LoginActivity extends OptionsMenuActivity {
         password = findViewById(R.id.edPass);
         error = findViewById(R.id.tvError);
 
-        mAuth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();//instance for the firebase authentication
 
     }
 
     @Override
-    public void onStart()
+    public void onStart() //on start of the app
     {
         super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
+        // Check if user is signed in and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
+            //open the user screen
             Intent intent = new Intent(LoginActivity.this, UserActivity.class);
             startActivity(intent);
         }
     }
 
+    //if the user wants to sign in...
     public void login(View view)
     {
-        if (username.getText().toString().isEmpty() || password.getText().toString().isEmpty())
+        if (username.getText().toString().isEmpty() || password.getText().toString().isEmpty()) //if empty
         {
             Toast.makeText(LoginActivity.this, "Username or password are not inserted", Toast.LENGTH_SHORT).show();
         }
         else
         {
+            //signing in
             signingIn(username.getText().toString(), password.getText().toString());
         }
     }
@@ -69,12 +72,13 @@ public class LoginActivity extends OptionsMenuActivity {
                 .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful())
+                        if (task.isSuccessful()) //if the password is corrected...
                         {
+                            //open the user screen
                             Intent intent = new Intent(LoginActivity.this,UserActivity.class);
                             startActivity(intent);
                         }
-                        else
+                        else // if the details are wrong
                         {
                             error.setText("Wrong username or password :(");
                         }
@@ -82,37 +86,42 @@ public class LoginActivity extends OptionsMenuActivity {
                 });
     }
 
+    //if user wants to register
     public void register(View view)
     {
-        openDialog();
+        openRegisterDialog();
     }
 
-    public void openDialog()
+    //open register dialog
+    public void openRegisterDialog()
     {
 
         reginDialog = new Dialog(LoginActivity.this);
         reginDialog.setContentView(R.layout.register_dialog);
-        EditText newUsername = reginDialog.findViewById(R.id.edNewUser),
-                newPassword = reginDialog.findViewById(R.id.edNewPass),
-                rePassword = reginDialog.findViewById(R.id.edRepeatPass),
-                code = reginDialog.findViewById(R.id.edCode);
-        TextView errorText = reginDialog.findViewById(R.id.tvFalsePass);
+
+        EditText newUsername = reginDialog.findViewById(R.id.edNewUser),//new username
+                newPassword = reginDialog.findViewById(R.id.edNewPass),// new password
+                rePassword = reginDialog.findViewById(R.id.edRepeatPass),//confirm pass
+                code = reginDialog.findViewById(R.id.edCode);//secret code
+        TextView errorText = reginDialog.findViewById(R.id.tvFalsePass);//error message
         Button singUp = reginDialog.findViewById(R.id.signUpBtn),
                 submitCode = reginDialog.findViewById(R.id.submitCodeBtn);
         LinearLayout codeLayout = reginDialog.findViewById(R.id.lnCode);
         reginDialog.setCancelable(true);
-        codeLayout.setVisibility(View.INVISIBLE);
+        codeLayout.setVisibility(View.INVISIBLE);//code layout invisible
 
         singUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (newPassword.getText().toString().equals(rePassword.getText().toString())) {
-                    codeLayout.setVisibility(View.VISIBLE);
+                    codeLayout.setVisibility(View.VISIBLE);//make the layout visible
                     submitCode.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
+                            //for registration, the user have to know the secret code...
                             if (code.getText().toString().equals("20047723"))
                             {
+                                //register the user
                                 registration(newUsername.getText().toString(),newPassword.getText().toString());
                             }
                             else
@@ -132,6 +141,7 @@ public class LoginActivity extends OptionsMenuActivity {
         reginDialog.show();
     }
 
+    //register the user
     public void registration(String username, String password)
     {
         mAuth.createUserWithEmailAndPassword(username, password)

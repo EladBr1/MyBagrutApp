@@ -11,7 +11,7 @@ import android.widget.Toast;
 public class MainActivity extends OptionsMenuActivity
 {
 
-    private EditText searchBar;
+    private EditText searchBar; //the search bar
 
 
     @Override
@@ -20,6 +20,7 @@ public class MainActivity extends OptionsMenuActivity
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         searchBar = findViewById(R.id.search_bar);
 
@@ -30,14 +31,17 @@ public class MainActivity extends OptionsMenuActivity
 
     public void search(View view)
     {
-        if(searchBar.getText().toString().isEmpty())
+        if(searchBar.getText().toString().isEmpty()) // if the search bar is empty...
+            //make toast:
             Toast.makeText(this, "You wrote nothing to look for", Toast.LENGTH_SHORT).show();
 
         else
         {
             Intent intent = new Intent(this,PlayerDisplay.class);
+            //move the text from the search bar to the next screen
             intent.putExtra( "searchResults", searchBar.getText().toString() );
             startActivity(intent);
+            //open the player screen
         }
     }
 
@@ -45,7 +49,7 @@ public class MainActivity extends OptionsMenuActivity
     {
 
         Intent intent = new Intent(this,SortActivity.class);
-        startActivity(intent);
+        startActivity(intent); //open the sorting screen
 
     }
 

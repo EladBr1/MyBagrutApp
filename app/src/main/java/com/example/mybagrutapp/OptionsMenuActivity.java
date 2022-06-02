@@ -30,14 +30,14 @@ public class OptionsMenuActivity extends AppCompatActivity
 
             if (musicIsPlaying)
             {
-                stopService(new Intent(this, Service.class));
-                item.setIcon(R.drawable.music_mute);
+                stopService(new Intent(this, Service.class));//stop the music
+                item.setIcon(R.drawable.music_mute);//set the mute icon
                 musicIsPlaying = false;
             }
             else
             {
-                startService(new Intent(this, Service.class));
-                item.setIcon(R.drawable.music_unmute);
+                startService(new Intent(this, Service.class));//play the music
+                item.setIcon(R.drawable.music_unmute);//set the unmute icon
                 musicIsPlaying = true;
             }
         }
@@ -45,17 +45,20 @@ public class OptionsMenuActivity extends AppCompatActivity
         if (id == R.id.home)
         {
             Intent intent = new Intent(this, MainActivity.class);
+            //go to main screen
             startActivity(intent);
         }
 
         else if (id == R.id.login)
         {
             Intent intent = new Intent(this, LoginActivity.class);
+            //go to login screen
             startActivity(intent);
         }
 
         else if (id == R.id.contact)
         {
+            //go to contactUs screen
             Intent intent = new Intent(this, ContactUsActivity.class);
             startActivity(intent);
         }
@@ -63,6 +66,7 @@ public class OptionsMenuActivity extends AppCompatActivity
         else if (id == R.id.list)
         {
             Intent intent = new Intent(this, SortActivity.class);
+            //
             startActivity(intent);
         }
 
