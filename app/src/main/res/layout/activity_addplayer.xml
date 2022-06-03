@@ -363,8 +363,9 @@
         </LinearLayout>
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:src="@drawable/image_loading"
             android:id="@+id/image"
             />
 

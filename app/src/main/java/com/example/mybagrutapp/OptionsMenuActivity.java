@@ -14,6 +14,7 @@ public class OptionsMenuActivity extends AppCompatActivity
     {
         getMenuInflater().inflate(R.menu.main_menu, menu);
 
+        //shared preferences for music icon
         SharedPreferences sp;
         MenuItem it = menu.findItem(R.id.service);
         sp = getSharedPreferences("sound", 0);
@@ -36,7 +37,7 @@ public class OptionsMenuActivity extends AppCompatActivity
 
         if (id == R.id.service)
         {
-
+            //shared preferences for music icon, when it's muted- there is mute icon, and if it is on- there is unmute icon
             SharedPreferences sp;
             sp = getSharedPreferences("sound", 0);
             SharedPreferences.Editor editor = sp.edit();
