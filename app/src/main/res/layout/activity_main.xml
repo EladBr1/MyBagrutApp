@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
     android:rotationX="0"
     android:background="@drawable/newwallp"
@@ -36,7 +36,7 @@
             android:background="@drawable/cool_ed"
             android:hint="  Search..."
             android:layout_margin="5dp"
-            android:textSize="50dp"
+            android:textSize="35dp"
             />
 
         <Button
@@ -62,14 +62,27 @@
         android:textSize="25dp"
         android:background="@drawable/cool_button"
         android:layout_margin="10dp"
+        android:layout_weight="0"
         />
 
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/eb"
-        android:layout_gravity="right"
-        android:layout_marginTop="470dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:gravity="bottom|right">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="145dp"
+            android:gravity="bottom"
+            android:src="@drawable/eb"
+
+            />
+
+    </LinearLayout>
+
+
 
 
 </LinearLayout>

@@ -52,7 +52,7 @@ public class AddPlayer extends OptionsMenuActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addplayer);
 
-        initViews(); //"findviewbyid" is in that function
+        initViews(); //"findViewById" is in that function
 
         //get the Firebase storage Reference
         storage = FirebaseStorage.getInstance();

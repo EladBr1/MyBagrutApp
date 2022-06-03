@@ -25,9 +25,9 @@ import java.util.TimerTask;
 public class SortActivity extends OptionsMenuActivity
 {
 
-    Button goalsBtn, asisstBtn, ntlBtn, ageBtn;
-    TextView loader;
-    LinearLayout linearLayoutLoader;
+    Button goalsBtn, asisstBtn, ntlBtn, ageBtn; //buttons for sorting
+    TextView loader;//loading view
+    LinearLayout linearLayoutLoader;//layout of loading
     Timer timer;
 
     @Override
@@ -36,20 +36,25 @@ public class SortActivity extends OptionsMenuActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sort);
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerview_sort);
+        RecyclerView recyclerView = findViewById(R.id.recyclerview_sort);//get the recycler view(like list view)
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         initViews();
 
-        final ArrayList<Player> players = new ArrayList<>();
+        final ArrayList<Player> players = new ArrayList<>(); //list of players
 
+
+        //get instance for firebase database
         FirebaseDatabase database = FirebaseDatabase.getInstance("https://champions-league-legends-default-rtdb.firebaseio.com/");
 
+        //sort the players by goals
         goalsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //loading view
                 dissmisAndSet();
 
+                //sort by: goals
                 Query myQuery = database.getReference("players").orderByChild("goals");
                 myQuery.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -62,6 +67,7 @@ public class SortActivity extends OptionsMenuActivity
                             Player currentPlayer = playerSnapshot.getValue(Player.class);
                             players.add(0,currentPlayer);
                         }
+                        //set the adapter
                         PlayerAdapterG adapter = new PlayerAdapterG(players);
                         recyclerView.setAdapter(adapter);
                         adapter.notifyDataSetChanged();
@@ -77,12 +83,12 @@ public class SortActivity extends OptionsMenuActivity
             }
         });
 
-
+        //sort the players by assists
         asisstBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dissmisAndSet();
-
+                //sort by: assists
                 Query myQuery = database.getReference("players").orderByChild("asissts");
                 myQuery.addValueEventListener(new ValueEventListener() {
                     @Override

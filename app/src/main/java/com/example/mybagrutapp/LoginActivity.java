@@ -119,7 +119,7 @@ public class LoginActivity extends OptionsMenuActivity {
                         @Override
                         public void onClick(View view) {
                             //for registration, the user have to know the secret code...
-                            if (code.getText().toString().equals("20047723"))
+                            if (code.getText().toString().equals("12345678"))
                             {
                                 //register the user
                                 registration(newUsername.getText().toString(),newPassword.getText().toString());

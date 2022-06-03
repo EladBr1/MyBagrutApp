@@ -21,11 +21,7 @@ public class MainActivity extends OptionsMenuActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         searchBar = findViewById(R.id.search_bar);
-
-        //when app is open the service music will be activated
-        startService(new Intent(this, Service.class));
 
     }
 
@@ -40,16 +36,17 @@ public class MainActivity extends OptionsMenuActivity
             Intent intent = new Intent(this,PlayerDisplay.class);
             //move the text from the search bar to the next screen
             intent.putExtra( "searchResults", searchBar.getText().toString() );
-            startActivity(intent);
             //open the player screen
+            startActivity(intent);
+
         }
     }
 
     public void sortActivity(View view)
     {
-
+        //open the sorting screen
         Intent intent = new Intent(this,SortActivity.class);
-        startActivity(intent); //open the sorting screen
+        startActivity(intent);
 
     }
 

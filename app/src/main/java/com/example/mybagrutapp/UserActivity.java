@@ -11,7 +11,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class UserActivity extends OptionsMenuActivity implements View.OnClickListener {
 
-    private Button addBtn, editBtn, logOut;
+    private Button addBtn, editBtn, logOut; //buttons for the user actions
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -35,19 +35,24 @@ public class UserActivity extends OptionsMenuActivity implements View.OnClickLis
 
         if (addBtn == v)
         {
+            //go to adding screen
             Intent intent = new Intent(this,AddPlayer.class);
             startActivity(intent);
         }
 
         else if (editBtn == v)
         {
+            //go to editing screen
             Intent intent = new Intent(this,EditPlayer.class);
             startActivity(intent);
         }
 
         else if (logOut == v)
         {
+            //log out
             FirebaseAuth.getInstance().signOut();
+
+            //go back to login screen
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
             finish();

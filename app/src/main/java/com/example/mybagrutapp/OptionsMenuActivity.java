@@ -1,6 +1,7 @@
 package com.example.mybagrutapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -8,12 +9,20 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class OptionsMenuActivity extends AppCompatActivity
 {
-    boolean musicIsPlaying;
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
-        musicIsPlaying = true;
         getMenuInflater().inflate(R.menu.main_menu, menu);
+
+        SharedPreferences sp;
+        MenuItem it = menu.findItem(R.id.service);
+        sp = getSharedPreferences("sound", 0);
+        if(sp.getBoolean("music", true)) {
+            it.setIcon(R.drawable.music_unmute);
+        } else {
+            it.setIcon(R.drawable.music_mute);
+        }
+
         return true;
 
     }
@@ -28,18 +37,19 @@ public class OptionsMenuActivity extends AppCompatActivity
         if (id == R.id.service)
         {
 
-            if (musicIsPlaying)
-            {
-                stopService(new Intent(this, Service.class));//stop the music
-                item.setIcon(R.drawable.music_mute);//set the mute icon
-                musicIsPlaying = false;
+            SharedPreferences sp;
+            sp = getSharedPreferences("sound", 0);
+            SharedPreferences.Editor editor = sp.edit();
+            if (sp.getBoolean("music", true)) {
+                item.setIcon(R.drawable.music_mute);
+                stopService(new Intent(this, Service.class));
+                editor.putBoolean("music", false);
+            } else {
+                item.setIcon(R.drawable.music_unmute);
+                startService(new Intent(this, Service.class));
+                editor.putBoolean("music", true);
             }
-            else
-            {
-                startService(new Intent(this, Service.class));//play the music
-                item.setIcon(R.drawable.music_unmute);//set the unmute icon
-                musicIsPlaying = true;
-            }
+            editor.apply();
         }
 
         if (id == R.id.home)
