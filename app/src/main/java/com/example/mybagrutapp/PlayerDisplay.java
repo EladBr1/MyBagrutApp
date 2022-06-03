@@ -29,10 +29,13 @@ import java.util.ArrayList;
 
 public class PlayerDisplay extends OptionsMenuActivity implements View.OnClickListener {
     private TextView tvTitName, tvFullName, tvBirthday, tvAge, tvHeight, tvPos, tvTeam, tvNum, tvNtlTeam, tvNtlGoals,
-            tvGoals, tvAsissts, tvFormerTeams, tvInfo, wikiUrl, instaUrl;
-    private ImageView imageView;
-    private Button copyWiki, copyInsta, btnDi;
-    private Dialog dialogNotF;
+            tvGoals, tvAsissts, tvFormerTeams, tvInfo, wikiUrl, instaUrl; //text of the player details
+    private ImageView imageView; //image of the player
+    private Button copyWiki, copyInsta; //buttons for copying the links
+    private Button btnDi; //dialog button
+    private Dialog dialogNotF; //error dialog
+
+    //instance for firebase storage and StorageReference
     private FirebaseStorage storage;
     private StorageReference storageReference;
 
@@ -44,37 +47,44 @@ public class PlayerDisplay extends OptionsMenuActivity implements View.OnClickLi
 
         initViews();
 
+        //get the search results from the main screen
         Intent intent=getIntent();
         String searchResults = intent.getExtras().getString("searchResults");
 
-        final ArrayList<Player> players = new ArrayList<>();
+        final ArrayList<Player> players = new ArrayList<>(); // list of players
 
+        //get the Firebase storage Reference
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
 
+        //get instance for firebase database
         FirebaseDatabase database = FirebaseDatabase.getInstance("https://champions-league-legends-default-rtdb.firebaseio.com/");
         DatabaseReference myRef = database.getReference("players");
+
+        //use the database
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Player player = snapshot.getValue(Player.class);
-                players.clear();
+                players.clear();//clear the list
+
+                //add all the players of the list
                 for(DataSnapshot playerSnapshot : snapshot.getChildren())
                 {
-
                     Player currentPlayer = playerSnapshot.getValue(Player.class);
                     players.add(currentPlayer);
                 }
 
-                boolean found = false;
+
+                boolean found = false;//if the player found
                 for(int i = 0; i < players.size(); i++)
                 {
-                    found = check(i);
-                    if (check(i) == true)
+                    found = findThePlayer(i); //check if the search results
+                    if (found)
                         break;
                 }
-                if (found == false)
-                    createErrorDialog();
+                if (!found)
+                    createErrorDialog(); //open the error dialog
 
             }
 
@@ -84,22 +94,29 @@ public class PlayerDisplay extends OptionsMenuActivity implements View.OnClickLi
                 Toast.makeText(PlayerDisplay.this, "error finding player", Toast.LENGTH_SHORT).show();
             }
 
-            public boolean check(int i)
+            //check if the search results
+            public boolean findThePlayer(int i)
             {
-                String age, num, ntlG, goal, asisst;
+
                 boolean found = false;
+                boolean isMatched = searchResults.toUpperCase().equals(players.get(i).getSName().toUpperCase())  ||
+                        searchResults.toUpperCase().equals(players.get(i).getTitName().toUpperCase()) ||
+                        searchResults.toUpperCase().equals(players.get(i).getFullName().toUpperCase()); //if the results match to the current player
 
-                if (searchResults.toUpperCase().equals(players.get(i).getSName().toUpperCase())  || searchResults.toUpperCase().equals(players.get(i).getTitName().toUpperCase()) || searchResults.toUpperCase().equals(players.get(i).getFullName().toUpperCase()) )
+                //if this is the player
+                if ( isMatched)
                 {
-
-
+                    //set the screen for the player
                     setTextViews(i);
+                    //get the image from database
                     setImage(players.get(i).getSName());
+
                     found = true;
                 }
                 return found;
             }
 
+            //set the texts for the player
             public void setTextViews(int i)
             {
                 tvTitName.setText(players.get(i).getTitName());
@@ -124,11 +141,12 @@ public class PlayerDisplay extends OptionsMenuActivity implements View.OnClickLi
         });
 
         copyWiki = findViewById(R.id.copyWikiBtn);
+
         copyWiki.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
-
+                //copy the wiki link
                 ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                 ClipData clip = ClipData.newPlainText("TextView", wikiUrl.getText().toString());
                 clipboard.setPrimaryClip(clip);
@@ -143,7 +161,7 @@ public class PlayerDisplay extends OptionsMenuActivity implements View.OnClickLi
             @Override
             public void onClick(View view)
             {
-
+                //copy the in link
                 ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                 ClipData clip = ClipData.newPlainText("TextView", instaUrl.getText().toString());
                 clipboard.setPrimaryClip(clip);
@@ -157,9 +175,9 @@ public class PlayerDisplay extends OptionsMenuActivity implements View.OnClickLi
 
     }
 
+    //open the error dialog if results did not match to any player
     public void createErrorDialog()
     {
-
         dialogNotF = new Dialog(this);
         dialogNotF.setContentView(R.layout.layout_dialog);
         btnDi = dialogNotF.findViewById(R.id.btnDi);
@@ -169,6 +187,7 @@ public class PlayerDisplay extends OptionsMenuActivity implements View.OnClickLi
 
     }
 
+    //get the image from firebase
     public void setImage( String n )
     {
         StorageReference pic = storageReference.child("images/" + n);
@@ -187,7 +206,7 @@ public class PlayerDisplay extends OptionsMenuActivity implements View.OnClickLi
         });
     }
 
-
+    //dismiss the dialog
     @Override
     public void onClick(View view)
     {

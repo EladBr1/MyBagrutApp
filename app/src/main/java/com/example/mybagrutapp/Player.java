@@ -22,8 +22,9 @@ public class Player
     private String insta;
     private String image;
 
-    private String key;
+    private String key; //the key is required for set values in firebase, not for the value of the player.
 
+    //constructor
     public Player(String titName, String fullName, String sName, String birthday, int age,
                   String height, String pos, String crTeam, int num, String nltTeam, int goals, int asissts, int ntlGoals,
                   String formerTeams, String basicInfo, String wiki, String insta, String image )
@@ -48,11 +49,11 @@ public class Player
         this.image = image;
     }
 
-    public Player()
+    public Player() //empty constructor
     {
     }
 
-
+    //getters and setters
     public String getTitName() {
         return titName;
     }

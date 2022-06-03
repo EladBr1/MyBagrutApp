@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+//adapter for the age sort
 public class PlayerAdapterAge extends RecyclerView.Adapter<PlayerAdapterAge.PlayerViewHolder>
 {
     private ArrayList<Player> players;
@@ -27,6 +28,7 @@ public class PlayerAdapterAge extends RecyclerView.Adapter<PlayerAdapterAge.Play
         return new PlayerAdapterAge.PlayerViewHolder(playerView);
     }
 
+    //set the view for each player
     @Override
     public void onBindViewHolder(@NonNull PlayerAdapterAge.PlayerViewHolder holder, int position)
     {
@@ -44,6 +46,7 @@ public class PlayerAdapterAge extends RecyclerView.Adapter<PlayerAdapterAge.Play
         return players.size();
     }
 
+    //find the views
     public static class PlayerViewHolder extends RecyclerView.ViewHolder
     {
 

@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 public class Service extends android.app.Service
 {
 
-    private MediaPlayer player;
+    private MediaPlayer player;//the music file
 
     @Nullable
     @Override
@@ -17,14 +17,16 @@ public class Service extends android.app.Service
         return null;
     }
 
+    //start the service
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        player =MediaPlayer.create(this, R.raw.championsleague_anthem);
+        player =MediaPlayer.create(this, R.raw.championsleague_anthem);//the music file
         player.setLooping(true);
         player.start();
         return START_STICKY;
     }
 
+    //stop the music
     @Override
     public void onDestroy() {
         super.onDestroy();

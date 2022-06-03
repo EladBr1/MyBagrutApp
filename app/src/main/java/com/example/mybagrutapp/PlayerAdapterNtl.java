@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+//adapter for the national goals
 public class PlayerAdapterNtl extends RecyclerView.Adapter<PlayerAdapterNtl.PlayerViewHolder>
 {
 

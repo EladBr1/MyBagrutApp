@@ -35,8 +35,11 @@ public class EditPlayer extends OptionsMenuActivity {
 
         final ArrayList<Player> players = new ArrayList<>();// list of players
 
+        //get instance for firebase database
         FirebaseDatabase database = FirebaseDatabase.getInstance("https://champions-league-legends-default-rtdb.firebaseio.com/");
         DatabaseReference myRef = database.getReference("players");
+
+        //use the database
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

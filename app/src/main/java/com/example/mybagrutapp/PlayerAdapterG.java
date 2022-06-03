@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+//adapter for the goals
 public class PlayerAdapterG extends RecyclerView.Adapter<PlayerAdapterG.PlayerViewHolder>
 {
     private ArrayList<Player> players;
