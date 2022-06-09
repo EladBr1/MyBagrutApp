@@ -1,8 +1,10 @@
 package com.example.mybagrutapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.BroadcastReceiver;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,12 +14,16 @@ import com.google.firebase.auth.FirebaseAuth;
 public class UserActivity extends OptionsMenuActivity implements View.OnClickListener {
 
     private Button addBtn, editBtn, logOut; //buttons for the user actions
+    private BroadcastReceiver broadcastReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
+
+        broadcastReceiver = new NetworkChangeRecevier();
+        registerNetworkBroadcastReceiver();
 
         addBtn = findViewById(R.id.addBtn);
         addBtn.setOnClickListener(this);
@@ -59,4 +65,14 @@ public class UserActivity extends OptionsMenuActivity implements View.OnClickLis
         }
 
     }
+
+    protected void registerNetworkBroadcastReceiver()
+    {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+            registerReceiver(broadcastReceiver,new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+            registerReceiver(broadcastReceiver,new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+    }
+
 }

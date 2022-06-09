@@ -3,10 +3,12 @@ package com.example.mybagrutapp;
 import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
+import android.content.BroadcastReceiver;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.Matrix;
+import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -39,6 +41,7 @@ public class AddPlayer extends OptionsMenuActivity {
             edNum, edNltTeam, edGoals, edAsissts, edNltGoals, edFteams, edInfo, edWikiUrl, edInstaUrl; //the player details to fill
     private ImageView imageView; //the view of the image that the user choose
     private Uri filePath = null;
+    private BroadcastReceiver broadcastReceiver;
 
     //instance for firebase storage and StorageReference
     FirebaseStorage storage;
@@ -50,6 +53,9 @@ public class AddPlayer extends OptionsMenuActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addplayer);
+
+        broadcastReceiver = new NetworkChangeRecevier();
+        registerNetworkBroadcastReceiver();
 
         initViews(); //"findViewById" is in that function
 
@@ -264,6 +270,15 @@ public class AddPlayer extends OptionsMenuActivity {
                 Toast.makeText(this, "camera permission denied", Toast.LENGTH_LONG).show();
             }
         }
+    }
+
+    protected void registerNetworkBroadcastReceiver()
+    {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+            registerReceiver(broadcastReceiver,new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+            registerReceiver(broadcastReceiver,new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
     }
 
     private void initViews()

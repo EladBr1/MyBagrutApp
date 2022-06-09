@@ -1,6 +1,10 @@
 package com.example.mybagrutapp;
 
+import android.content.BroadcastReceiver;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,11 +29,15 @@ public class EditPlayer extends OptionsMenuActivity {
     private Button minGBtn, plusGBtn, minABtn, plusABtn, minGnBtn, plusGnBtn, plusNBtn, minNBtn, ageBtn, saveBtn, btnSearch;//buttons to edit the player details
     private TextView tvNumOfGoals, tvNumOfAsisst, tvNumOfNgoals, tvShirtNum, tvNewAge, tvName; // views of the player details
     private LinearLayout editLayout;// the layout of the edit tools
+    private BroadcastReceiver broadcastReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_player);
+
+        broadcastReceiver = new NetworkChangeRecevier();
+        registerNetworkBroadcastReceiver();
 
         initViews();
 
@@ -216,6 +224,15 @@ public class EditPlayer extends OptionsMenuActivity {
 
         });
 
+    }
+
+    protected void registerNetworkBroadcastReceiver()
+    {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+            registerReceiver(broadcastReceiver,new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+            registerReceiver(broadcastReceiver,new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
     }
 
     private void initViews()

@@ -1,16 +1,19 @@
 package com.example.mybagrutapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
+import android.content.BroadcastReceiver;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -30,11 +33,16 @@ public class SortActivity extends OptionsMenuActivity
     LinearLayout linearLayoutLoader;//layout of loading
     Timer timer;
 
+    private BroadcastReceiver broadcastReceiver;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sort);
+
+        broadcastReceiver = new NetworkChangeRecevier();
+        registerNetworkBroadcastReceiver();
 
         RecyclerView recyclerView = findViewById(R.id.recyclerview_sort);//get the recycler view(like list view)
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -194,6 +202,15 @@ public class SortActivity extends OptionsMenuActivity
                 linearLayoutLoader.setVisibility(View.INVISIBLE);
             }
         }, 5000);
+    }
+
+    protected void registerNetworkBroadcastReceiver()
+    {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+            registerReceiver(broadcastReceiver,new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+            registerReceiver(broadcastReceiver,new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
     }
 
     public void initViews()

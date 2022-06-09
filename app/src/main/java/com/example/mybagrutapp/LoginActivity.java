@@ -1,7 +1,11 @@
 package com.example.mybagrutapp;
 
 import android.app.Dialog;
+import android.content.BroadcastReceiver;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,12 +28,16 @@ public class LoginActivity extends OptionsMenuActivity {
     private TextView error; //error message
     private FirebaseAuth mAuth;//firebase authentication
     private Dialog reginDialog;
+    private BroadcastReceiver broadcastReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        broadcastReceiver = new NetworkChangeRecevier();
+        registerNetworkBroadcastReceiver();
 
         username = findViewById(R.id.edUserN);
         password = findViewById(R.id.edPass);
@@ -155,6 +163,15 @@ public class LoginActivity extends OptionsMenuActivity {
                             Toast.makeText(LoginActivity.this, "reginster failed", Toast.LENGTH_SHORT).show();
                     }
                 });
+    }
+
+    protected void registerNetworkBroadcastReceiver()
+    {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+            registerReceiver(broadcastReceiver,new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+            registerReceiver(broadcastReceiver,new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
     }
 
 }

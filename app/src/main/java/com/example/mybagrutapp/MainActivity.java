@@ -1,7 +1,11 @@
 package com.example.mybagrutapp;
 
 
+import android.content.BroadcastReceiver;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -12,7 +16,7 @@ public class MainActivity extends OptionsMenuActivity
 {
 
     private EditText searchBar; //the search bar
-
+    private BroadcastReceiver broadcastReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -20,6 +24,9 @@ public class MainActivity extends OptionsMenuActivity
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        broadcastReceiver = new NetworkChangeRecevier();
+        registerNetworkBroadcastReceiver();
 
         searchBar = findViewById(R.id.search_bar);
 
@@ -50,8 +57,14 @@ public class MainActivity extends OptionsMenuActivity
 
     }
 
+    protected void registerNetworkBroadcastReceiver()
+    {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+            registerReceiver(broadcastReceiver,new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
 
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+            registerReceiver(broadcastReceiver,new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+    }
 
 
 }

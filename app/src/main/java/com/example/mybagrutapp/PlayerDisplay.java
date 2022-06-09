@@ -1,11 +1,15 @@
 package com.example.mybagrutapp;
 
 import android.app.Dialog;
+import android.content.BroadcastReceiver;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.BitmapFactory;
+import android.net.ConnectivityManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -34,6 +38,7 @@ public class PlayerDisplay extends OptionsMenuActivity implements View.OnClickLi
     private Button copyWiki, copyInsta; //buttons for copying the links
     private Button btnDi; //dialog button
     private Dialog dialogNotF; //error dialog
+    private BroadcastReceiver broadcastReceiver;
 
     //instance for firebase storage and StorageReference
     private FirebaseStorage storage;
@@ -44,6 +49,9 @@ public class PlayerDisplay extends OptionsMenuActivity implements View.OnClickLi
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player_display);
+
+        broadcastReceiver = new NetworkChangeRecevier();
+        registerNetworkBroadcastReceiver();
 
         initViews();
 
@@ -179,7 +187,7 @@ public class PlayerDisplay extends OptionsMenuActivity implements View.OnClickLi
     public void createErrorDialog()
     {
         dialogNotF = new Dialog(this);
-        dialogNotF.setContentView(R.layout.layout_dialog);
+        dialogNotF.setContentView(R.layout.notfound_dialog);
         btnDi = dialogNotF.findViewById(R.id.btnDi);
         dialogNotF.setCancelable(true);
         btnDi.setOnClickListener(this);
@@ -217,6 +225,15 @@ public class PlayerDisplay extends OptionsMenuActivity implements View.OnClickLi
             startActivity(intent);
 
         }
+    }
+
+    protected void registerNetworkBroadcastReceiver()
+    {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+            registerReceiver(broadcastReceiver,new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+            registerReceiver(broadcastReceiver,new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
     }
 
     private void initViews()
