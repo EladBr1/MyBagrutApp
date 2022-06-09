@@ -111,49 +111,49 @@ public class PlayerDisplay extends OptionsMenuActivity implements View.OnClickLi
             }
 
             //check if the search results
-            public boolean findThePlayer(int i)
+            public boolean findThePlayer(int location)
             {
 
                 boolean found = false;
-                boolean isMatched = searchResults.toUpperCase().equals(players.get(i).getSName().toUpperCase())  ||
-                        searchResults.toUpperCase().equals(players.get(i).getTitName().toUpperCase()) ||
-                        searchResults.toUpperCase().equals(players.get(i).getFullName().toUpperCase()); //if the results match to the current player
+                boolean isMatched = searchResults.toUpperCase().equals(players.get(location).getSName().toUpperCase())  ||
+                        searchResults.toUpperCase().equals(players.get(location).getTitName().toUpperCase()) ||
+                        searchResults.toUpperCase().equals(players.get(location).getFullName().toUpperCase()); //if the results match to the current player
 
                 //if this is the player
                 if ( isMatched)
                 {
                     //set the screen for the player
-                    setTextViews(i);
+                    setTextViews(location);
 
                     //dismiss the dialog
                     progressDialog.dismiss();
 
                     //get the image from database
-                    setImage(players.get(i).getSName());
+                    setImage(players.get(location).getSName());
                     found = true;
                 }
                 return found;
             }
 
             //set the texts for the player
-            public void setTextViews(int i)
+            public void setTextViews(int location)
             {
-                tvTitName.setText(players.get(i).getTitName());
-                tvFullName.setText(players.get(i).getFullName());
-                tvBirthday.setText(players.get(i).getBirthday());
-                tvAge.setText(String.valueOf(players.get(i).getAge()));
-                tvHeight.setText(players.get(i).getHeight());
-                tvPos.setText(players.get(i).getPos());
-                tvTeam.setText(players.get(i).getCrTeam());
-                tvNum.setText(String.valueOf(players.get(i).getNum()));
-                tvNtlTeam.setText(players.get(i).getNltTeam());
-                tvNtlGoals.setText(String.valueOf(players.get(i).getNtlGoals()));
-                tvGoals.setText(String.valueOf(players.get(i).getGoals()));
-                tvAsissts.setText(String.valueOf(players.get(i).getAsissts()));
-                tvFormerTeams.setText(players.get(i).getFormerTeams());
-                tvInfo.setText(players.get(i).getBasicInfo());
-                wikiUrl.setText(players.get(i).getWiki());
-                instaUrl.setText(players.get(i).getInsta());
+                tvTitName.setText(players.get(location).getTitName());
+                tvFullName.setText(players.get(location).getFullName());
+                tvBirthday.setText(players.get(location).getBirthday());
+                tvAge.setText(String.valueOf(players.get(location).getAge()));
+                tvHeight.setText(players.get(location).getHeight());
+                tvPos.setText(players.get(location).getPos());
+                tvTeam.setText(players.get(location).getCrTeam());
+                tvNum.setText(String.valueOf(players.get(location).getNum()));
+                tvNtlTeam.setText(players.get(location).getNltTeam());
+                tvNtlGoals.setText(String.valueOf(players.get(location).getNtlGoals()));
+                tvGoals.setText(String.valueOf(players.get(location).getGoals()));
+                tvAsissts.setText(String.valueOf(players.get(location).getAsissts()));
+                tvFormerTeams.setText(players.get(location).getFormerTeams());
+                tvInfo.setText(players.get(location).getBasicInfo());
+                wikiUrl.setText(players.get(location).getWiki());
+                instaUrl.setText(players.get(location).getInsta());
             }
 
 
