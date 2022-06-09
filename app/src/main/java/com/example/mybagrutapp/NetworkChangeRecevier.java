@@ -15,11 +15,10 @@ public class NetworkChangeRecevier extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent)
     {
-
-
+        //if there connection lost
         if (!isOnline(context))
         {
-            Dialog internetDialog = new Dialog(context);
+            Dialog internetDialog = new Dialog(context); //error dialog
             internetDialog.setContentView(R.layout.internet_dialog);
             Button tryAgainBtn = internetDialog.findViewById(R.id.btnTryAgain);
             internetDialog.setCancelable(false);
@@ -29,7 +28,7 @@ public class NetworkChangeRecevier extends BroadcastReceiver {
                 @Override
                 public void onClick(View view) {
 
-                    if (isOnline(context))
+                    if (isOnline(context))//if connection is back
                     {
                         internetDialog.dismiss();
                         Toast.makeText(context, "Internet Connected", Toast.LENGTH_SHORT).show();
@@ -37,7 +36,7 @@ public class NetworkChangeRecevier extends BroadcastReceiver {
                     else
                     {
                         internetDialog.dismiss();
-                        onReceive(context, intent);
+                        onReceive(context, intent);//showing the dialog again
                     }
 
                 }
@@ -46,6 +45,7 @@ public class NetworkChangeRecevier extends BroadcastReceiver {
 
     }
 
+    //check the connection
     public boolean isOnline(Context context)
     {
         try {

@@ -1,6 +1,7 @@
 package com.example.mybagrutapp;
 
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
@@ -34,7 +36,7 @@ import java.util.ArrayList;
 public class PlayerDisplay extends OptionsMenuActivity implements View.OnClickListener {
     private TextView tvTitName, tvFullName, tvBirthday, tvAge, tvHeight, tvPos, tvTeam, tvNum, tvNtlTeam, tvNtlGoals,
             tvGoals, tvAsissts, tvFormerTeams, tvInfo, wikiUrl, instaUrl; //text of the player details
-    private ImageView imageView; //image of the player
+    private ImageView imageView ; //image of the player
     private Button copyWiki, copyInsta; //buttons for copying the links
     private Button btnDi; //dialog button
     private Dialog dialogNotF; //error dialog
@@ -54,6 +56,7 @@ public class PlayerDisplay extends OptionsMenuActivity implements View.OnClickLi
         registerNetworkBroadcastReceiver();
 
         initViews();
+        Glide.with(getApplicationContext()).load(R.drawable.loader_pic).into(imageView);
 
         //get the search results from the main screen
         Intent intent=getIntent();
@@ -64,6 +67,11 @@ public class PlayerDisplay extends OptionsMenuActivity implements View.OnClickLi
         //get the Firebase storage Reference
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
+
+        //open progress dialog
+        ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Searching player...");
+        progressDialog.show();
 
         //get instance for firebase database
         FirebaseDatabase database = FirebaseDatabase.getInstance("https://champions-league-legends-default-rtdb.firebaseio.com/");
@@ -116,9 +124,12 @@ public class PlayerDisplay extends OptionsMenuActivity implements View.OnClickLi
                 {
                     //set the screen for the player
                     setTextViews(i);
+
+                    //dismiss the dialog
+                    progressDialog.dismiss();
+
                     //get the image from database
                     setImage(players.get(i).getSName());
-
                     found = true;
                 }
                 return found;
@@ -255,6 +266,8 @@ public class PlayerDisplay extends OptionsMenuActivity implements View.OnClickLi
         tvInfo = findViewById(R.id.tvInfo);
         wikiUrl = findViewById(R.id.wikiUrl);
         instaUrl = findViewById(R.id.instaUrl);
+        
+        
     }
 
 

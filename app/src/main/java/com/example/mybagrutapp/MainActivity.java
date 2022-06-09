@@ -16,7 +16,7 @@ public class MainActivity extends OptionsMenuActivity
 {
 
     private EditText searchBar; //the search bar
-    private BroadcastReceiver broadcastReceiver;
+    private BroadcastReceiver broadcastReceiver;// broadcast receiver
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -25,6 +25,7 @@ public class MainActivity extends OptionsMenuActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //getting the class
         broadcastReceiver = new NetworkChangeRecevier();
         registerNetworkBroadcastReceiver();
 
@@ -57,6 +58,7 @@ public class MainActivity extends OptionsMenuActivity
 
     }
 
+    //making the check
     protected void registerNetworkBroadcastReceiver()
     {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
