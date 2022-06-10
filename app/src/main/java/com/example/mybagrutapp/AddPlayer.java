@@ -38,7 +38,7 @@ public class AddPlayer extends OptionsMenuActivity {
     private static final int MY_CAMERA_REQUEST_CODE = 100;
     private static final int CAMERA_REQUEST = 69;
     private EditText edTitName, edFullName, edSName, edYear, edMonth, edDay, edAge, edHeight, edPos, edCrTeam,
-            edNum, edNltTeam, edGoals, edAsissts, edNltGoals, edFteams, edInfo, edWikiUrl, edInstaUrl; //the player details to fill
+            edNum, edNltTeam, edGoals, edAssists, edNltGoals, edFteams, edInfo, edWikiUrl, edInstaUrl; //the player details to fill
     private ImageView imageView; //the view of the image that the user choose
     private Uri filePath = null;
     private BroadcastReceiver broadcastReceiver;
@@ -88,7 +88,7 @@ public class AddPlayer extends OptionsMenuActivity {
                 edCrTeam.getText().toString().isEmpty()||
                 edNum.getText().toString().isEmpty()||
                 edNltTeam.getText().toString().isEmpty()||
-                edGoals.getText().toString().isEmpty()|| edAsissts.getText().toString().isEmpty()|| edNltGoals.getText().toString().isEmpty()||
+                edGoals.getText().toString().isEmpty()|| edAssists.getText().toString().isEmpty()|| edNltGoals.getText().toString().isEmpty()||
                 edFteams.getText().toString().isEmpty()||
                 edInfo.getText().toString().isEmpty()||
                 edWikiUrl.getText().toString().isEmpty()||
@@ -121,7 +121,7 @@ public class AddPlayer extends OptionsMenuActivity {
                     Integer.parseInt(edNum.getText().toString()),
                     edNltTeam.getText().toString(),
                     Integer.parseInt(edGoals.getText().toString()),
-                    Integer.parseInt(edAsissts.getText().toString()),
+                    Integer.parseInt(edAssists.getText().toString()),
                     Integer.parseInt(edNltGoals.getText().toString()),
                     edFteams.getText().toString(),
                     edInfo.getText().toString(),
@@ -149,8 +149,10 @@ public class AddPlayer extends OptionsMenuActivity {
         startActivityForResult(Intent.createChooser(intent, "Select Image from here..."), PICK_IMAGE_REQUEST);
     }
 
+    //open camera to take image
     public void selectImageCamera()
     {
+        //ask for permission
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
             {
@@ -178,6 +180,7 @@ public class AddPlayer extends OptionsMenuActivity {
     {
         super.onActivityResult(requestCode, resultCode, data);
 
+        //if user wants to use gallery
        if (resultCode == RESULT_OK && requestCode == 1 && data != null && data.getData() != null)
         {
 
@@ -197,6 +200,7 @@ public class AddPlayer extends OptionsMenuActivity {
 
         }
 
+       //if user wants to use camera instead...
        else if ( resultCode == RESULT_OK && requestCode == 69)
        {
            filePath = data.getData();
@@ -296,7 +300,7 @@ public class AddPlayer extends OptionsMenuActivity {
         edNum = findViewById(R.id.edNum);
         edNltTeam = findViewById(R.id.edNltTeam);
         edGoals = findViewById(R.id.edGoals);
-        edAsissts = findViewById(R.id.edAsissts);
+        edAssists = findViewById(R.id.edAsissts);
         edNltGoals = findViewById(R.id.edNltGoals);
         edFteams = findViewById(R.id.edFteams);
         edInfo = findViewById(R.id.edInfo);
