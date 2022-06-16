@@ -68,18 +68,43 @@ public class AddPlayer extends OptionsMenuActivity {
     //if the user wants to upload the image
     public void upload(View view)
     {
-        selectImageGallery();
+        //open the gallery to select an image
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Select Image from here..."), PICK_IMAGE_REQUEST);
     }
 
     //if the user wants to take picture for the image
     public void takeImageCamera(View view)
     {
-        selectImageCamera();
+        //ask for permission
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
+            {
+                requestPermissions(new String[]{Manifest.permission.CAMERA}, MY_CAMERA_REQUEST_CODE);
+            }
+            else {
+                Intent takePictureIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                try
+                {
+                    //open camera to take image
+                    startActivityForResult(takePictureIntent, CAMERA_REQUEST);
+                }
+                catch (ActivityNotFoundException e)
+                {
+                    // display error state to the user
+                    Toast.makeText(this, "Camera is not available", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        }
     }
 
     //saving the player to firebase
     public void save(View view)
     {
+        //if there are empty fields
         if (edTitName.getText().toString().isEmpty() || edFullName.getText().toString().isEmpty() || edSName.getText().toString().isEmpty()||
                 edDay.getText().toString().isEmpty() || edMonth.getText().toString().isEmpty()||edYear.getText().toString().isEmpty()||
                 edAge.getText().toString().isEmpty() ||
@@ -139,41 +164,6 @@ public class AddPlayer extends OptionsMenuActivity {
             startActivity(intent);
         }
     }
-
-    //open the gallery to select an image
-    public void selectImageGallery()
-    {
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Select Image from here..."), PICK_IMAGE_REQUEST);
-    }
-
-    //open camera to take image
-    public void selectImageCamera()
-    {
-        //ask for permission
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
-            {
-                requestPermissions(new String[]{Manifest.permission.CAMERA}, MY_CAMERA_REQUEST_CODE);
-            }
-            else {
-                Intent takePictureIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                try
-                {
-                    startActivityForResult(takePictureIntent, CAMERA_REQUEST);
-                }
-                catch (ActivityNotFoundException e)
-                {
-                    // display error state to the user
-                    Toast.makeText(this, "Camera is not available", Toast.LENGTH_SHORT).show();
-
-                }
-            }
-        }
-    }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data)
