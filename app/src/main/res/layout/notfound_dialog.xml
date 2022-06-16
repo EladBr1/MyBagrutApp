@@ -5,7 +5,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="#777777"
+    android:background="@android:color/white"
     android:gravity="left">
 
     <TextView
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:text="Name of the player not found"
         android:textSize="29dp"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/black"
         android:textStyle="bold"
         android:layout_margin="10dp"
         />
@@ -21,9 +21,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your search did not match to any player, try to use different name or change some letters for lower letters to capital letters."
+        android:text="Your search did not match to any player, try to write the name differently, or the player may not exist in the app data."
         android:textSize="28dp"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/black"
         android:layout_marginTop="60dp"
         android:layout_margin="10dp"
         />

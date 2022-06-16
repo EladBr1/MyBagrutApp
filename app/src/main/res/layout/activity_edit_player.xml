@@ -19,14 +19,15 @@
         android:text="EDIT PLAYER"
         android:textColor="@android:color/black"
         android:textSize="30dp"
-        android:textStyle= "bold|italic"/>
+        android:textStyle= "bold"
+        android:fontFamily="@font/alata"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Insert the name of the player you want to edit:"
+        android:text="Search the name of the player you want to edit:"
         android:textColor="@android:color/black"
-        android:textSize="30dp"
+        android:textSize="25dp"
         android:layout_gravity="left"/>
 
     <EditText

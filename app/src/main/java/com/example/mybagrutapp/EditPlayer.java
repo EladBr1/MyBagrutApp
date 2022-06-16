@@ -198,7 +198,7 @@ public class EditPlayer extends OptionsMenuActivity {
                 saveBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(EditPlayer.this, MainActivity.class);
+                        Intent intent = new Intent(EditPlayer.this, UserActivity.class);
                         startActivity(intent);
                     }
                 });
@@ -206,16 +206,16 @@ public class EditPlayer extends OptionsMenuActivity {
             }
 
             public void setAllTheNums(int i) {
-                String age, num, ntlG, goal, asisst;
+                String age, num, ntlG, goal, assist;
                 age = String.valueOf(players.get(i).getAge());
                 num = String.valueOf(players.get(i).getNum());
                 ntlG = String.valueOf(players.get(i).getNtlGoals());
                 goal = String.valueOf(players.get(i).getGoals());
-                asisst = String.valueOf(players.get(i).getAsissts());
+                assist = String.valueOf(players.get(i).getAsissts());
 
                 tvName.setText(players.get(i).getTitName());
                 tvNumOfGoals.setText(goal);
-                tvNumOfAsisst.setText(asisst);
+                tvNumOfAsisst.setText(assist);
                 tvNumOfNgoals.setText(ntlG);
                 tvShirtNum.setText(num);
                 tvNewAge.setText(age);

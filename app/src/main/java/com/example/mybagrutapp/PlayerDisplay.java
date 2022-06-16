@@ -200,7 +200,7 @@ public class PlayerDisplay extends OptionsMenuActivity implements View.OnClickLi
         dialogNotF = new Dialog(this);
         dialogNotF.setContentView(R.layout.notfound_dialog);
         btnDi = dialogNotF.findViewById(R.id.btnDi);
-        dialogNotF.setCancelable(true);
+        dialogNotF.setCancelable(false);
         btnDi.setOnClickListener(this);
         dialogNotF.show();
 

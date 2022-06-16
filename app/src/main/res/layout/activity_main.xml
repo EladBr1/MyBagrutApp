@@ -58,6 +58,7 @@
         android:layout_height="wrap_content"
         android:onClick="sortActivity"
         android:text="SORTING PLAYERS"
+        android:fontFamily="@font/alata"
         android:textColor="@android:color/white"
         android:textSize="25dp"
         android:background="@drawable/cool_button"
