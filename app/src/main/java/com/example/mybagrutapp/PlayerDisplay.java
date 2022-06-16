@@ -129,7 +129,7 @@ public class PlayerDisplay extends OptionsMenuActivity implements View.OnClickLi
                     progressDialog.dismiss();
 
                     //get the image from database
-                    setImage(players.get(location).getSName());
+                    setImageFireBase(players.get(location).getSName());
                     found = true;
                 }
                 return found;
@@ -207,7 +207,7 @@ public class PlayerDisplay extends OptionsMenuActivity implements View.OnClickLi
     }
 
     //get the image from firebase
-    public void setImage( String n )
+    public void setImageFireBase( String n )
     {
         StorageReference pic = storageReference.child("images/" + n);
 
