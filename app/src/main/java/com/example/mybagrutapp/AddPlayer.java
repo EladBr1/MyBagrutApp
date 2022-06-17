@@ -54,7 +54,7 @@ public class AddPlayer extends OptionsMenuActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addplayer);
 
-        broadcastReceiver = new NetworkChangeRecevier();
+        broadcastReceiver = new NetworkChangeReceiver();
         registerNetworkBroadcastReceiver();
 
         initViews(); //"findViewById" is in that function
@@ -173,12 +173,12 @@ public class AddPlayer extends OptionsMenuActivity {
         //if user wants to use gallery
        if (resultCode == RESULT_OK && requestCode == 1 && data != null && data.getData() != null)
         {
-
+            //get the file path
             filePath = data.getData();
 
             try
             {
-
+                //turn the result into bitmap and show the image
                 Bitmap bitmap1 = MediaStore.Images.Media.getBitmap(getContentResolver(),filePath);
                 imageView.setImageBitmap(bitmap1);
 
@@ -193,8 +193,10 @@ public class AddPlayer extends OptionsMenuActivity {
        //if user wants to use camera instead...
        else if ( resultCode == RESULT_OK && requestCode == 69)
        {
+           //get the file path
            filePath = data.getData();
 
+           //turn the result into bitmap and show the image
            Bitmap bitmap2 = (Bitmap) data.getExtras().get("data");
            imageView.setImageBitmap(bitmap2);
 

@@ -52,7 +52,7 @@ public class PlayerDisplay extends OptionsMenuActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player_display);
 
-        broadcastReceiver = new NetworkChangeRecevier();
+        broadcastReceiver = new NetworkChangeReceiver();
         registerNetworkBroadcastReceiver();
 
         initViews();

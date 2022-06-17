@@ -10,12 +10,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class NetworkChangeRecevier extends BroadcastReceiver {
+public class NetworkChangeReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent)
     {
-        //if there connection lost
+        //if the connection lost
         if (!isOnline(context))
         {
             Dialog internetDialog = new Dialog(context); //error dialog

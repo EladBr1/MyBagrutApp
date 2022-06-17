@@ -41,7 +41,7 @@ public class SortActivity extends OptionsMenuActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sort);
 
-        broadcastReceiver = new NetworkChangeRecevier();
+        broadcastReceiver = new NetworkChangeReceiver();
         registerNetworkBroadcastReceiver();
 
         RecyclerView recyclerView = findViewById(R.id.recyclerview_sort);//get the recycler view(like list view)

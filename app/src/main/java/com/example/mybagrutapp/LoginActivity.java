@@ -36,7 +36,7 @@ public class LoginActivity extends OptionsMenuActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        broadcastReceiver = new NetworkChangeRecevier();
+        broadcastReceiver = new NetworkChangeReceiver();
         registerNetworkBroadcastReceiver();
 
         username = findViewById(R.id.edUserN);
@@ -97,13 +97,7 @@ public class LoginActivity extends OptionsMenuActivity {
     //if user wants to register
     public void register(View view)
     {
-        openRegisterDialog();
-    }
-
-    //open register dialog
-    public void openRegisterDialog()
-    {
-
+        //open register dialog
         reginDialog = new Dialog(LoginActivity.this);
         reginDialog.setContentView(R.layout.register_dialog);
 
@@ -121,7 +115,7 @@ public class LoginActivity extends OptionsMenuActivity {
         singUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (newPassword.getText().toString().equals(rePassword.getText().toString())) {
+                if (newPassword.getText().toString().equals(rePassword.getText().toString()) && !newPassword.getText().toString().isEmpty() && !newUsername.getText().toString().isEmpty()) {
                     codeLayout.setVisibility(View.VISIBLE);//make the layout visible
                     submitCode.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -129,6 +123,7 @@ public class LoginActivity extends OptionsMenuActivity {
                             //for registration, the user have to know the secret code...
                             if (code.getText().toString().equals("12345678"))
                             {
+                                Toast.makeText(LoginActivity.this, "Enter the code below", Toast.LENGTH_SHORT).show();
                                 //register the user
                                 registration(newUsername.getText().toString(),newPassword.getText().toString());
                             }

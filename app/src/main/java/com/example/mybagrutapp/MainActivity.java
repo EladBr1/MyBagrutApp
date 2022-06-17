@@ -26,7 +26,7 @@ public class MainActivity extends OptionsMenuActivity
         setContentView(R.layout.activity_main);
 
         //getting the class
-        broadcastReceiver = new NetworkChangeRecevier();
+        broadcastReceiver = new NetworkChangeReceiver();
         registerNetworkBroadcastReceiver();
 
         searchBar = findViewById(R.id.search_bar);
@@ -58,7 +58,7 @@ public class MainActivity extends OptionsMenuActivity
 
     }
 
-    //making the check
+    //check the internet according the broadcast receiver
     protected void registerNetworkBroadcastReceiver()
     {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)

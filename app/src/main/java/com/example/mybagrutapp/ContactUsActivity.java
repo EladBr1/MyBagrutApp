@@ -45,7 +45,20 @@ public class ContactUsActivity extends OptionsMenuActivity
     public void learnMore(View view)
     {
         //the dialog opens
-        openLearnMoreDialog();
+        learnMoreDialog = new Dialog(ContactUsActivity.this);
+        learnMoreDialog.setContentView(R.layout.ln_dialog);
+        learnMoreDialog.setCancelable(true);
+        Button dismiss = learnMoreDialog.findViewById(R.id.dismissBtn);
+
+        dismiss.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                learnMoreDialog.dismiss();
+            }
+        });
+
+        learnMoreDialog.show();
     }
 
     //if the user wants the make contact with me by sending a whatsapp message
@@ -115,25 +128,6 @@ public class ContactUsActivity extends OptionsMenuActivity
 
         smsDialog.show();
 
-    }
-
-    //learn more dialog
-    private void openLearnMoreDialog()
-    {
-        learnMoreDialog = new Dialog(ContactUsActivity.this);
-        learnMoreDialog.setContentView(R.layout.ln_dialog);
-        learnMoreDialog.setCancelable(true);
-        Button dismiss = learnMoreDialog.findViewById(R.id.dismissBtn);
-
-        dismiss.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                learnMoreDialog.dismiss();
-            }
-        });
-
-        learnMoreDialog.show();
     }
 
 }

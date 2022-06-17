@@ -26,7 +26,8 @@ import java.util.ArrayList;
 public class EditPlayer extends OptionsMenuActivity {
 
     private EditText edSearchB; //search bar
-    private Button minGBtn, plusGBtn, minABtn, plusABtn, minGnBtn, plusGnBtn, plusNBtn, minNBtn, ageBtn, saveBtn, btnSearch;//buttons to edit the player details
+    private Button minGBtn, plusGBtn, minABtn, plusABtn, minGnBtn, plusGnBtn, plusNBtn, minNBtn, ageBtn;//buttons to edit the player details
+    private Button saveBtn, btnSearch;//buttons for the search and for the saving
     private TextView tvNumOfGoals, tvNumOfAsisst, tvNumOfNgoals, tvShirtNum, tvNewAge, tvName; // views of the player details
     private LinearLayout editLayout;// the layout of the edit tools
     private BroadcastReceiver broadcastReceiver;
@@ -36,7 +37,7 @@ public class EditPlayer extends OptionsMenuActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_player);
 
-        broadcastReceiver = new NetworkChangeRecevier();
+        broadcastReceiver = new NetworkChangeReceiver();
         registerNetworkBroadcastReceiver();
 
         initViews();
@@ -62,14 +63,14 @@ public class EditPlayer extends OptionsMenuActivity {
                     currentPlayer.setKey(playerSnapshot.getKey());
                 }
 
-                //serch the player
+                //search the player
                 btnSearch.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
 
                         String searchB = edSearchB.getText().toString();
                         boolean found = false;//if the player found
-                        boolean isMatched = found;
+                        boolean isMatched;
                         for (int i = 0; i < players.size(); i++) {
 
                             isMatched = searchB.toUpperCase().equals(players.get(i).getSName().toUpperCase()) ||

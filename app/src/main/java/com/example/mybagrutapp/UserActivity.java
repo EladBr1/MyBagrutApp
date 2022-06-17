@@ -22,7 +22,7 @@ public class UserActivity extends OptionsMenuActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
 
-        broadcastReceiver = new NetworkChangeRecevier();
+        broadcastReceiver = new NetworkChangeReceiver();
         registerNetworkBroadcastReceiver();
 
         addBtn = findViewById(R.id.addBtn);
