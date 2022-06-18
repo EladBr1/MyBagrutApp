@@ -15,6 +15,7 @@ public class PlayerAdapterAge extends RecyclerView.Adapter<PlayerAdapterAge.Play
 {
     private ArrayList<Player> players;
 
+    //constructor
     public PlayerAdapterAge(ArrayList<Player> players) {
         this.players = players;
     }
@@ -41,6 +42,7 @@ public class PlayerAdapterAge extends RecyclerView.Adapter<PlayerAdapterAge.Play
         holder.num.setText(age);
     }
 
+    //get the length of the recycler view
     @Override
     public int getItemCount() {
         return players.size();

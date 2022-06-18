@@ -34,11 +34,12 @@ import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 
 public class PlayerDisplay extends OptionsMenuActivity implements View.OnClickListener {
+
     private TextView tvTitName, tvFullName, tvBirthday, tvAge, tvHeight, tvPos, tvTeam, tvNum, tvNtlTeam, tvNtlGoals,
             tvGoals, tvAsissts, tvFormerTeams, tvInfo, wikiUrl, instaUrl; //text of the player details
     private ImageView imageView ; //image of the player
     private Button copyWiki, copyInsta; //buttons for copying the links
-    private Button btnDi; //dialog button
+        private Button btnDi; //dialog button
     private Dialog dialogNotF; //error dialog
     private BroadcastReceiver broadcastReceiver;
 

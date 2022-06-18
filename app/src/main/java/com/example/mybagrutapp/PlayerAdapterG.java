@@ -19,6 +19,7 @@ public class PlayerAdapterG extends RecyclerView.Adapter<PlayerAdapterG.PlayerVi
         this.players = players;
     }
 
+    //sync the adapter with the recycler view item XML file
     @NonNull
     @Override
     public PlayerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -28,6 +29,7 @@ public class PlayerAdapterG extends RecyclerView.Adapter<PlayerAdapterG.PlayerVi
         return new PlayerViewHolder(playerView);
     }
 
+    //set each item according these parameters
     @Override
     public void onBindViewHolder(@NonNull PlayerViewHolder holder, int position)
     {
@@ -40,9 +42,10 @@ public class PlayerAdapterG extends RecyclerView.Adapter<PlayerAdapterG.PlayerVi
         holder.num.setText(goals);
     }
 
+    //get the recycler view length
     @Override
     public int getItemCount() {
-        return players.size();
+        return players.size();//the players count
     }
 
     public static class PlayerViewHolder extends RecyclerView.ViewHolder
@@ -52,6 +55,7 @@ public class PlayerAdapterG extends RecyclerView.Adapter<PlayerAdapterG.PlayerVi
         public TextView team;
         public TextView num;
 
+        //get the XML objects
         public PlayerViewHolder(@NonNull View itemView)
         {
             super(itemView);
