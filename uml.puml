@@ -1,0 +1,252 @@
+@startuml
+class com.example.mybagrutapp.PlayerAdapterG {
+- ArrayList<Player> players
++ <<Create>> PlayerAdapterG(ArrayList<Player>)
++ PlayerViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(PlayerViewHolder,int)
++ int getItemCount()
+}
+class com.example.mybagrutapp.PlayerAdapterG.PlayerViewHolder {
++ TextView name
++ TextView team
++ TextView num
++ <<Create>> PlayerViewHolder(View)
+}
+class com.example.mybagrutapp.PlayerAdapterNtl {
+- ArrayList<Player> players
++ <<Create>> PlayerAdapterNtl(ArrayList<Player>)
++ PlayerAdapterNtl.PlayerViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(PlayerAdapterNtl.PlayerViewHolder,int)
++ int getItemCount()
+}
+class com.example.mybagrutapp.PlayerAdapterNtl.PlayerViewHolder {
++ TextView name
++ TextView team
++ TextView num
++ <<Create>> PlayerViewHolder(View)
+}
+class com.example.mybagrutapp.PlayerAdapterAge {
+- ArrayList<Player> players
++ <<Create>> PlayerAdapterAge(ArrayList<Player>)
++ PlayerAdapterAge.PlayerViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(PlayerAdapterAge.PlayerViewHolder,int)
++ int getItemCount()
+}
+class com.example.mybagrutapp.PlayerAdapterAge.PlayerViewHolder {
++ TextView name
++ TextView team
++ TextView num
++ <<Create>> PlayerViewHolder(View)
+}
+class com.example.mybagrutapp.Service {
+- MediaPlayer player
++ IBinder onBind(Intent)
++ int onStartCommand(Intent,int,int)
++ void onDestroy()
+}
+class com.example.mybagrutapp.LoginActivity {
+- EditText username
+- TextView error
+- FirebaseAuth mAuth
+- Dialog reginDialog
+- BroadcastReceiver broadcastReceiver
+# void onCreate(Bundle)
++ void onStart()
++ void login(View)
++ void signingIn(String,String)
++ void register(View)
++ void registration(String,String)
+# void registerNetworkBroadcastReceiver()
+}
+class com.example.mybagrutapp.NetworkChangeReceiver {
++ void onReceive(Context,Intent)
++ boolean isOnline(Context)
+}
+class com.example.mybagrutapp.PlayerAdapterAst {
+- ArrayList<Player> players
++ <<Create>> PlayerAdapterAst(ArrayList<Player>)
++ PlayerAdapterAst.PlayerViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(PlayerAdapterAst.PlayerViewHolder,int)
++ int getItemCount()
+}
+class com.example.mybagrutapp.PlayerAdapterAst.PlayerViewHolder {
++ TextView name
++ TextView team
++ TextView num
++ <<Create>> PlayerViewHolder(View)
+}
+class com.example.mybagrutapp.SortActivity {
+~ Button goalsBtn
+~ TextView loader
+~ LinearLayout linearLayoutLoader
+- BroadcastReceiver broadcastReceiver
+# void onCreate(Bundle)
++ void sortThePlayer(FirebaseDatabase,ArrayList<Player>,RecyclerView,String)
+# void registerNetworkBroadcastReceiver()
++ void initViews()
+}
+class com.example.mybagrutapp.UserActivity {
+- Button addBtn
+- BroadcastReceiver broadcastReceiver
+# void onCreate(Bundle)
++ void onClick(View)
+# void registerNetworkBroadcastReceiver()
+}
+class com.example.mybagrutapp.Player {
+- String titName
+- String fullName
+- String sName
+- String birthday
+- int age
+- String height
+- String pos
+- String crTeam
+- int num
+- String nltTeam
+- int goals
+- int asissts
+- int ntlGoals
+- String formerTeams
+- String basicInfo
+- String wiki
+- String insta
+- String image
+- String key
++ <<Create>> Player(String,String,String,String,int,String,String,String,int,String,int,int,int,String,String,String,String,String)
++ <<Create>> Player()
++ String getTitName()
++ void setTName(String)
++ String getSName()
++ void setSName(String)
++ String getFullName()
++ void setFullName(String)
++ String getBirthday()
++ void setBirthday(String)
++ int getAge()
++ void setAge(int)
++ String getHeight()
++ void setHeight(String)
++ String getPos()
++ void setPos(String)
++ String getCrTeam()
++ void setCrTeam(String)
++ int getNum()
++ void setNum(int)
++ String getNltTeam()
++ void setNltTeam(String)
++ int getGoals()
++ void setGoals(int)
++ int getAsissts()
++ void setAsissts(int)
++ int getNtlGoals()
++ void setNtlGoals(int)
++ String getFormerTeams()
++ void setFormerTeams(String)
++ String getBasicInfo()
++ void setBasicInfo(String)
++ String getWiki()
++ void setWiki(String)
++ String getInsta()
++ void setInsta(String)
++ String getImage()
++ void setImage(String)
++ String getKey()
++ void setKey(String)
+}
+class com.example.mybagrutapp.AddPlayer {
+- {static} int PICK_IMAGE_REQUEST
+- {static} int MY_CAMERA_REQUEST_CODE
+- {static} int CAMERA_REQUEST
+- EditText edTitName
+- ImageView imageView
+- Uri filePath
+- BroadcastReceiver broadcastReceiver
+~ FirebaseStorage storage
+~ StorageReference storageRef
+# void onCreate(Bundle)
++ void upload(View)
++ void takeImageCamera(View)
++ void save(View)
+# void onActivityResult(int,int,Intent)
++ void getTheImage()
++ void onRequestPermissionsResult(int,String[],int[])
+# void registerNetworkBroadcastReceiver()
+- void initViews()
+}
+class com.example.mybagrutapp.OptionsMenuActivity {
++ boolean onCreateOptionsMenu(Menu)
++ boolean onOptionsItemSelected(MenuItem)
+}
+class com.example.mybagrutapp.EditPlayer {
+- EditText edSearchB
+- Button minGBtn
+- Button saveBtn
+- TextView tvNumOfGoals
+- LinearLayout editLayout
+- BroadcastReceiver broadcastReceiver
+# void onCreate(Bundle)
+# void registerNetworkBroadcastReceiver()
+- void initViews()
+}
+class com.example.mybagrutapp.ContactUsActivity {
+~ TextView email
+~ Dialog smsDialog
+# void onCreate(Bundle)
++ void copyEmail(View)
++ void learnMore(View)
++ void contact(View)
++ boolean isAppInstalled(String)
++ void openSmsDialog(String)
+}
+class com.example.mybagrutapp.MainActivity {
+- EditText searchBar
+- BroadcastReceiver broadcastReceiver
+# void onCreate(Bundle)
++ void search(View)
++ void sortActivity(View)
+# void registerNetworkBroadcastReceiver()
+}
+class com.example.mybagrutapp.PlayerDisplay {
+- TextView tvTitName
+- ImageView imageView
+- Button copyWiki
+- Button btnDi
+- Dialog dialogNotF
+- BroadcastReceiver broadcastReceiver
+- FirebaseStorage storage
+- StorageReference storageReference
+# void onCreate(Bundle)
++ void createErrorDialog()
++ void setImageFireBase(String)
++ void onClick(View)
+# void registerNetworkBroadcastReceiver()
+- void initViews()
+}
+
+
+com.example.mybagrutapp.Adapter <|-- com.example.mybagrutapp.PlayerAdapterG
+com.example.mybagrutapp.PlayerAdapterG +.. com.example.mybagrutapp.PlayerAdapterG.PlayerViewHolder
+com.example.mybagrutapp.ViewHolder <|-- com.example.mybagrutapp.PlayerAdapterG.PlayerViewHolder
+com.example.mybagrutapp.Adapter <|-- com.example.mybagrutapp.PlayerAdapterNtl
+com.example.mybagrutapp.PlayerAdapterNtl +.. com.example.mybagrutapp.PlayerAdapterNtl.PlayerViewHolder
+com.example.mybagrutapp.ViewHolder <|-- com.example.mybagrutapp.PlayerAdapterNtl.PlayerViewHolder
+com.example.mybagrutapp.Adapter <|-- com.example.mybagrutapp.PlayerAdapterAge
+com.example.mybagrutapp.PlayerAdapterAge +.. com.example.mybagrutapp.PlayerAdapterAge.PlayerViewHolder
+com.example.mybagrutapp.ViewHolder <|-- com.example.mybagrutapp.PlayerAdapterAge.PlayerViewHolder
+com.example.mybagrutapp.Service <|-- com.example.mybagrutapp.Service
+com.example.mybagrutapp.OptionsMenuActivity <|-- com.example.mybagrutapp.LoginActivity
+android.content.BroadcastReceiver <|-- com.example.mybagrutapp.NetworkChangeReceiver
+com.example.mybagrutapp.Adapter <|-- com.example.mybagrutapp.PlayerAdapterAst
+com.example.mybagrutapp.PlayerAdapterAst +.. com.example.mybagrutapp.PlayerAdapterAst.PlayerViewHolder
+com.example.mybagrutapp.ViewHolder <|-- com.example.mybagrutapp.PlayerAdapterAst.PlayerViewHolder
+com.example.mybagrutapp.OptionsMenuActivity <|-- com.example.mybagrutapp.SortActivity
+com.example.mybagrutapp.OnClickListener <|.. com.example.mybagrutapp.UserActivity
+com.example.mybagrutapp.OptionsMenuActivity <|-- com.example.mybagrutapp.UserActivity
+com.example.mybagrutapp.OptionsMenuActivity <|-- com.example.mybagrutapp.AddPlayer
+androidx.appcompat.app.AppCompatActivity <|-- com.example.mybagrutapp.OptionsMenuActivity
+com.example.mybagrutapp.OptionsMenuActivity <|-- com.example.mybagrutapp.EditPlayer
+com.example.mybagrutapp.OptionsMenuActivity <|-- com.example.mybagrutapp.ContactUsActivity
+com.example.mybagrutapp.OptionsMenuActivity <|-- com.example.mybagrutapp.MainActivity
+com.example.mybagrutapp.OnClickListener <|.. com.example.mybagrutapp.PlayerDisplay
+com.example.mybagrutapp.OptionsMenuActivity <|-- com.example.mybagrutapp.PlayerDisplay
+@enduml
