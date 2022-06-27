@@ -4,15 +4,19 @@ import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -20,6 +24,9 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -30,6 +37,8 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 
 public class AddPlayer extends OptionsMenuActivity {
@@ -193,17 +202,33 @@ public class AddPlayer extends OptionsMenuActivity {
        //if user wants to use camera instead...
        else if ( resultCode == RESULT_OK && requestCode == 69)
        {
-           //get the file path
-           filePath = data.getData();
-
            //turn the result into bitmap and show the image
            Bitmap bitmap2 = (Bitmap) data.getExtras().get("data");
            imageView.setImageBitmap(bitmap2);
+
+           //ask for using files
+           if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+                   && ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+               ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 4);
+           }
+
+
+           // CALL THIS METHOD TO GET THE URI FROM THE BITMAP
+           filePath = getImageUri(getApplicationContext(), bitmap2);
+
 
        }
 
     }
 
+
+    //get the image URI by Bitmap
+    public Uri getImageUri(Context inContext, Bitmap inImage) {
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+        String path = MediaStore.Images.Media.insertImage(inContext.getContentResolver(), inImage, "Title", null);
+        return Uri.parse(path);
+    }
 
 
 
@@ -264,6 +289,14 @@ public class AddPlayer extends OptionsMenuActivity {
                 Toast.makeText(this, "camera permission granted", Toast.LENGTH_LONG).show();
             } else {
                 Toast.makeText(this, "camera permission denied", Toast.LENGTH_LONG).show();
+            }
+        }
+
+        if (requestCode == 4) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permission granted.
+            } else {
+                // User refused to grant permission.
             }
         }
     }
