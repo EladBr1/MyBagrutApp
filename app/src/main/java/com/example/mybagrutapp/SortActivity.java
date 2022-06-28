@@ -22,8 +22,6 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class SortActivity extends OptionsMenuActivity
 {
@@ -78,7 +76,7 @@ public class SortActivity extends OptionsMenuActivity
         ntlBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sortThePlayer(database, players, recyclerView, "nltGoals");
+                sortThePlayer(database, players, recyclerView, "ntlGoals");
             }
         });
 
@@ -126,7 +124,7 @@ public class SortActivity extends OptionsMenuActivity
                         adapter.notifyDataSetChanged();
                     }
 
-                    else if (type.equals("nltGoals"))
+                    else if (type.equals("ntlGoals"))
                     {
                         PlayerAdapterNtl adapter = new PlayerAdapterNtl(players);
                         recyclerView.setAdapter(adapter);

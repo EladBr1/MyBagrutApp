@@ -221,7 +221,7 @@ public class PlayerDisplay extends OptionsMenuActivity implements View.OnClickLi
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-
+                Toast.makeText(PlayerDisplay.this,"can't load image",Toast.LENGTH_SHORT).show();
             }
         });
     }

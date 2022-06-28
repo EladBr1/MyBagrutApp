@@ -58,7 +58,7 @@ public class MainActivity extends OptionsMenuActivity
 
     }
 
-    //check the internet according the broadcast receiver
+    //register th broadcast the internet according the broadcast receiver
     protected void registerNetworkBroadcastReceiver()
     {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)

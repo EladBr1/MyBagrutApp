@@ -34,7 +34,6 @@ public class OptionsMenuActivity extends AppCompatActivity
 
         int id = item.getItemId();
 
-
         if (id == R.id.service)
         {
             //shared preferences for music icon, when it's muted- there is mute icon, and if it is on- there is unmute icon
